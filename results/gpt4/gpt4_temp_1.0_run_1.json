@@ -1,0 +1,587 @@
+[
+    {
+        "id": 448250,
+        "label": "Yes",
+        "justification": "The text discusses the technical aspects of maintaining and optimizing a complex software system. This includes considerations such as performance degradation, data warehousing, extraction and transformation (ETL) processes, and utilizing services like AWS Redshift or Google BigQuery for big data operations. These aspects directly correlate to Technical sustainability, as outlined in the Helper-Data, which addresses the long-term use of software-intensive systems and their appropriate evolution in a constantly changing execution environment."
+    },
+    {
+        "id": 445186,
+        "label": "Yes",
+        "justification": "This text discusses various ways to optimize the function and cost-efficiency of a database query engine in a software-intensive system. This includes technical sustainability considerations, such as choosing the right data format and compression solutions for data storage efficiency, which impacts the long-term use and evolution of the system. The mention of cost minimization, which relates the economic sustainability aspect of the software system, is also considered. Thus, this is related to software sustainability."
+    },
+    {
+        "id": "444739",
+        "label": "Yes",
+        "justification": "This text is related to software sustainability because it discusses the aspects of Technical and Economic sustainability when dealing with monolith to microservices transformation, the importance of environment segmentation for different testing stages, the cost optimization, metrics, and infrastructure considerations related to software systems."
+    },
+    {
+        "id": 444704,
+        "label": "Yes",
+        "justification": "This text is related to software sustainability. It discusses the design of a SaaS system for different regions and considers various factors including domain configuration, DNS management, deployment, compliance and regulation issues, which all fall under the technical dimension of software sustainability."
+    },
+    {
+        "id": 442126,
+        "label": "Yes",
+        "justification": "The text is related to software sustainability as it discusses the technical dimension. It covers issues concerning the ongoing use of a software-intensive system, its long-term maintenance, stability, and its necessary evolution. The text speaks explicitly of a poorly written, monolithic LAMP application and the risks and implications of its current setup, which relates closely to the technical sustainability of applications."
+    },
+    {
+        "id": 441569,
+        "label": "Yes",
+        "justification": "This text is concerning the technical aspects of software sustainability, particularly focused on questions of efficient data structure and storage methods for a chatbot application. It relates to technical sustainability from the Helper-Data as it considers the long-term use and appropriate evolution of software-intensive systems in relation to constant changing execution environments like flow of user interactions and efficient data handling."
+    },
+    {
+        "id": 440067,
+        "label": "Yes",
+        "justification": "The task text clearly discusses matters related to software sustainability, specifically in the technical dimension. It discusses features such as built-in configurations for data storage tools, sharding and replication features, and resource utilization to improve uptime which are related to the 'longevity of information, systems, and infrastructure and their adequate evolution within changing environmental conditions.' The matter of 'system maintenance' is seen in the discussion of redundant power and networking, which would contribute to ongoing system functionality, or technical sustainability. Therefore, this post is related to software sustainability."
+    },
+    {
+        "id": 436491,
+        "label": "Yes",
+        "justification": "The text discusses concerns regarding the evolution, maintenance, and security of a software-intensive system, these themes are connected to the notion of technical sustainability as explained in the first definition."
+    },
+    {
+        "id": "424900",
+        "label": "Yes",
+        "justification": "The text discusses the technical sustainability of a software intensive system. It specifically considers how to maintain the performance of the system over time given changing demands and data loads, which relates to 'the adequacy of information, systems, and infrastructure and their evolution within changing environmental conditions' as per the Helper-Data. It explores approaches such as indexing the database, using a hybrid data access layer, or caching in order to maintain and improve system sustainability as usage scales. In addition, the text expresses a need to balance system sustainability with cost, a factor related to the economic dimension of sustainability."
+    },
+    {
+        "id": 423151,
+        "label": "Yes",
+        "justification": "This text is related to software sustainability as it discusses the long-term use and appropriate evolution of software-intensive systems -- which is part of technical sustainability -- by mentioning strategies for network architecture, database storage, and efficient system performance."
+    },
+    {
+        "id": 420466,
+        "label": "Yes",
+        "justification": "The text discusses software architecture and the sustainability of different software systems and solutions, specifically about how to balance and maintain functionality and performance over the long term. The concepts of efficiency, longevity of information, system maintenance, and adequateness within changing conditions, as outlined in the Helper-Data, are exemplified in the Task-Data. Therefore, the text is related to software sustainability."
+    },
+    {
+        "id": 418151,
+        "label": "Yes",
+        "justification": "The text has a deep relevance to software sustainability, It discusses the restructuring of an application into a microservice architecture to accommodate variable scaling, improve handling of server requests, and apply load balancing- all aspects of technical sustainability. It also contemplates resource allocation strategies, reflecting economic sustainability."
+    },
+    {
+        "id": 415998,
+        "label": "Yes",
+        "justification": "The task data discusses the importance of preserving existing software systems, which is related to the technical sustainability aspect of software sustainability. It also discusses economic implications of switching technologies, which relates to the economic sustainability aspect. It primarily focuses on the importance of maintaining and evolving software systems with changes in the execution environment, aspects of cost-effectiveness and fair allocation of resources."
+    },
+    {
+        "id": 411767,
+        "label": "Yes",
+        "justification": "The text is discussing technical sustainability in software. It refers specifically to long term aspects such as security of software and describes different strategies for making software more resistant to potential threats, thus ensuring their longevity and proper evolution, echoing the concepts in the technical dimension definition of software sustainability in the Helper-Data. Moreover, it is indirectly related to economic sustainability since protecting the software from such threats has an economic impact."
+    },
+    {
+        "id": 409372,
+        "label": "Yes",
+        "justification": "The text refers to software systems, their efficient use, and their evolution over time for more efficient usage, which falls under the technical sustainability dimension. It discusses various methods to evolve and adapt these systems within constantly changing environmental conditions such as the use of AWS, VMs, containers and serverless architectures. Avoiding wastage of resources is also implied which ties into the environmental sustainability dimension."
+    },
+    {
+        "id": 406350,
+        "label": "Yes",
+        "justification": "This passage is about software sustainability because it discusses microservices: a method used to create applications that are easier to build, maintain, and scale, ensuring technical and economic sustainability. It also includes advice on how to gradually transform monolithic applications into microservices, and strategies that can reduce cost while improving maintainability, which are key aspects of software sustainability."
+    },
+    {
+        "id": "405176",
+        "label": "Yes",
+        "justification": "The text discusses elements of technical sustainability in the context of software systems. This includes details on system maintenance, high availability, and the judging the cost of avoiding downtime. All these aspects relate to preserving the long-term use of software systems and ensuring they evolve appropriately in their environment."
+    },
+    {
+        "id": "403459",
+        "label": "Yes",
+        "justification": "The provided text does discuss software sustainability in comprehensive detail. It mentions architectures, transactional integrity, databases, and operational costs, all which are included in the technical sustainability for software-intensive systems. The author of the text also presents specific details about software system management and maintenance, which aligns with the 'Technical sustainability' definition in the Helper-data."
+    },
+    {
+        "id": "403412",
+        "label": "Yes",
+        "justification": "The text does discuss elements related to software sustainability from a technical perspective, namely, discussions of technologies such as OAuth, JWT, AWS Cognito, and AWS API Gateway, which relate to the longevity and secure functioning of software/intensive systems. Furthermore, it discusses aspects such as controlling user access, monitoring user behavior, and ensuring security, that albeit indirectly but address the 'Technical sustainability' described in the Helper-Data."
+    },
+    {
+        "id": "403152",
+        "label": "Yes",
+        "justification": "The text is related to software sustainability because it discusses strategical execution and reducing cost of software-intensive systems by managing database connections and concurrency, which is a part of technical sustainability as per the Helper-Data"
+    },
+    {
+        "id": 403071,
+        "label": "Yes",
+        "justification": "The text discusses the concepts of High Availability and Fault Tolerance which are key aspects of technical sustainability in the context of software systems. These aspects deal with the longevity and appropriate evolution of the software system amidst changing conditions and possible system failures - which is in line with the technical sustainability dimension mentioned in the Helper-Data."
+    },
+    {
+        "id": 402967,
+        "label": "Yes",
+        "justification": "This Task-Data is related to software sustainability because it provides solutions and strategies for a sustainable software design such as splitting a monolithic design, using temporary storage for intermediate results, using message queues for process management, paralleling processing, and batching saves to the permanent data store. It is also suggesting multiple technological improvements that address the long term use and its evolution in varying conditions, which pertains to the technical dimension, hence related to software sustainability."
+    },
+    {
+        "id": 402623,
+        "label": "Yes",
+        "justification": "The text fragment discusses aspects of software structure, performance optimization, and response times. These are linked to the technical sustainability dimension as defined in the Helper-Data, which includes system maintenance and adequate evolution of systems within changing environmental conditions. The post is related to software sustainability, as it describes the aims to maintain and possibly improve the software system's long-term use and performance."
+    },
+    {
+        "id": 392697,
+        "label": "No",
+        "justification": "While the provided Task-Data discusses technical considerations for machine learning pipelines and data management, it does not specifically address any of the key dimensions of software sustainability as outlined in the Helper-Data, such as social, environmental, technical, or economic sustainability or the longevity, maintenance, or evolution of software systems."
+    },
+    {
+        "id": 391902,
+        "label": "Yes",
+        "justification": "The task-data discusses designing a database for businesses, which can be linked to technical sustainability in software systems. This is because creating a scalable, secure, and cost-efficient database contributes to the long-term use and evolution of software systems within changing business environments."
+    },
+    {
+        "id": 388892,
+        "label": "Yes",
+        "justification": "The text analyzes the concept of applying caching and performance enhancements in microservice-based software architectures deployed on the cloud. It further emphasizes the need to base these decisions on metrics and cost considerations rather than simply applying patterns for the sake of it. This relates to the Technical and Economic dimensions of software sustainability as the post is considering how to ensure the long-term usability and economic viability of a software system."
+    },
+    {
+        "id": 386307,
+        "label": "Yes",
+        "justification": "The text is related to software sustainability under the technical dimension. It suggests a serverless architecture and Azure Functions as a solution for scalability and reduced operational tasks, alluding to the concept of longevity and system maintenance in a changing execution environment within the software-intensive systems."
+    },
+    {
+        "id": "385346",
+        "label": "Yes",
+        "justification": "The Task-Data is related to software sustainability as it discusses the challenge of designing scalable software applications and handling their continuous development/deployment (technical sustainability aspect). The user is seeking advice for designing a microservice-based system to ensure easy deployment on the cloud, maintainability, and cost-effectivity (economic sustainability aspect)."
+    },
+    {
+        "id": "384682",
+        "label": "Yes",
+        "justification": "The task data revolves around designing a highly scalable software system that can handle a significant amount of transactions per second while preventing duplicate notifications. This directly aligns with the concept of technical sustainability in software systems as per the helper-data, which involves ensuring the long-term usability of software systems and their evolution in changing environments."
+    },
+    {
+        "id": "382785",
+        "label": "Yes",
+        "justification": "The text discusses cloud-based software development and the importance of sustainable development practices, with focus on scalable architecture and considerations for cost effectiveness. This involves considering sustainability across several dimensions - social (meeting the requirements and expectations of users), environmental (lowering energy usage by using efficient methods), technical (ensuring the system can evolve and scale), and economic (optimizing costs and improving value)."
+    },
+    {
+        "id": "382607",
+        "label": "Yes",
+        "justification": "The post is related to software sustainability, as it discusses architectural aspects and strategies towards more sustainable software, such as scaling, performance, cost efficiency which are part of the technical sustainability as defined in the Helper-Data."
+    },
+    {
+        "id": "379926",
+        "label": "Yes",
+        "justification": "The text discusses the efficiency and resource management of microservices within software systems. It touches upon technical sustainability by talking about updating databases, reducing risk of attacks, and database features. It also mentions economic sustainability by bringing up cost implications in the context of licensing, processing power, and use of memory."
+    },
+    {
+        "id": 376325,
+        "label": "Yes",
+        "justification": "The text is related to software sustainability as it involves the discussion about a serverless system, focusing on technical sustainability such as system evolution, maintenance, and data integrity, specifically within the context of software-intensive systems. Concepts like energy efficiency (AWS serverless model) also associate it with environmental sustainability in software systems."
+    },
+    {
+        "id": 372833,
+        "label": "Yes",
+        "justification": "The post discusses concepts of managing different levels of data storage and their trade-offs, with examples of applications including caching and cloud storage, relevant to the technical and economic sustainability of software systems. It touches upon system maintenance, data integrity, capital investment, and profitability, which are key characteristics of software sustainability as outlined in the helper-data."
+    },
+    {
+        "id": 372002,
+        "label": "Yes",
+        "justification": "The text talks about software optimization and development strategies, focusing on enhancing efficiency and reducing complexity. These are aspects related to technical sustainability in software-intensive systems as pointed out in the Helper-Data provided."
+    },
+    {
+        "id": "370490",
+        "label": "Yes",
+        "justification": "The Task-Data is related to software sustainability as it refers to the problems of scalability and performance which are elements of the technical dimensions of sustainability. The user is concerned about the future functionality of their expanding software system due to the increasing data volume, which could affect long-term system performance and thereby its sustainability."
+    },
+    {
+        "id": 369596,
+        "label": "Yes",
+        "justification": "The text discusses various aspects of using software systems, especially those concerning Docker images, including their creation, management, deployment, and the decisions involved in whether to use local or cloud-based registries. These touch upon technical sustainability of the software systems as it discusses the longevity of the systems, maintenance, obsolescence, and data integrity, therefore it relates to software sustainability as described in the Helper-Data."
+    },
+    {
+        "id": 365330,
+        "label": "Yes",
+        "justification": "The text discusses the scalability of different database systems, in particular Amazon's DynamoDB. This is related to software sustainability as scalability is an aspect of technical sustainability. Technical sustainability includes the longevity and evolution of software-intensive systems like databases."
+    },
+    {
+        "id": "365193",
+        "label": "Yes",
+        "justification": "The text discusses aspects of software sustainability like scalability and robustness. The detailed explanation about server load balancing, avoidances like session variables and microservice architecture all relate to 'technical sustainability' as described in the helper data. These technical provisions ensure the long-term use and adequate evolution of software-intensive systems in changing execution environments. Furthermore, mention of cost implications ties in the aspect of 'economic sustainability', maintaining the financial value of the system."
+    },
+    {
+        "id": "363972",
+        "label": "Yes",
+        "justification": "The text discusses the scalability of software systems, a component of technical sustainability, which refers to the longevity and evolution of information, systems and infrastructure. It also indirectly touches upon economic sustainability as it talks about the costs associated with scaling up the software system. Therefore, it can be considered as related to software sustainability."
+    },
+    {
+        "id": 363959,
+        "label": "Yes",
+        "justification": "The text specifies an in-depth analysis and comparison of two kinds of database solutions, RDBMSs and NoSQL, along with factors that must be taken into account depending on the characteristics of the data, as well as how the data will be used. This is a critical part of maintaining software systems, thus making it relevant to software sustainability in a technical dimension."
+    },
+    {
+        "id": "360022",
+        "label": "Yes",
+        "justification": "The text is about software sustainability as it discusses issues related to the technical and economic sustainability of hosting solutions. It mentions issues about scalability, cost, performance and capacity, and cloud hosting, which are key elements in ensuring the long-term use and evolution of software-intensive systems (technical sustainability). It also talks about cost-efficiency in terms of using cloud services and tradeoff related to these choices (economic sustainability)."
+    },
+    {
+        "id": "356334",
+        "label": "No",
+        "justification": "The text discusses the technicalities of 'serverless' operation in the context of AWS and lambda functions, but it doesn't touch upon the concept of software sustainability or any of the four dimensions described in the Helper-Data (social, environmental, technical, and economic sustainability)."
+    },
+    {
+        "id": 350817,
+        "label": "Yes",
+        "justification": "The text mentions aspects that are related to the technical sustainability of software systems. The statement discusses several factors, such as reliability, performance, cost, and ease of deployment, that are congruent with the definition of technical sustainability of software systems as described in the Helper-Data."
+    },
+    {
+        "id": 347591,
+        "label": "No",
+        "justification": "Though the text piece discusses information systems, databases, and their management, it does not directly relate to software sustainability\u2014i.e., it doesn't touch on social, environmental or economic sustainability or the long-term use and evolution of software systems."
+    },
+    {
+        "id": "342331",
+        "label": "Yes",
+        "justification": "The Task-Data text discusses about software systems, their longevity, maintenance, and decisions related to financial aspect of choosing and using software services (economic sustainability). It discusses the use of cloud services and vendor lock-in which pertains to the use and maintenance of software systems (technical sustainability). Therefore, this passage relates to software sustainability."
+    },
+    {
+        "id": "340772",
+        "label": "Yes",
+        "justification": "The user's comment talks about system redesign, particularly considering the economic aspect of cloud services versus dedicated server hosting and their long-term consequences, which directly aligns with 'Economic sustainability' and 'Technical sustainability' as mentioned in the Helper-Data. Furthermore, the comment also mentions about considerations on performance, which can be tied to quality requirements, another facet of software sustainability."
+    },
+    {
+        "id": 340747,
+        "label": "Yes",
+        "justification": "The text is related to software sustainability, particularly on the aspect of technical sustainability, as it discusses about backend modifications, scalability, and optimization of the system to enhance its long-term use and evolution, which is one of the aspects of sustainability as per the Helper-Data."
+    },
+    {
+        "id": "338746",
+        "label": "Yes",
+        "justification": "The post discusses aspects of software system maintenance, obsolescence, resilience, scalability, and how its downtime can impact the system. These are related to the technical dimension of software sustainability as described in the Helper-Data. Thus, it is related to software sustainability."
+    },
+    {
+        "id": "338692",
+        "label": "Yes",
+        "justification": "The given text is talking about software solutions and strategies that can be used to make a web and application tier system more robust, efficient, and future-proof. These solutions include leveraging various technologies such as load balancers, partitioning, consistent hashing, session state servers, etc. These concepts contribute to the technical sustainability of the system, making it able to adapt and evolve effectively in the changing technological environment, as well as enhancing their long-term use and maintenance. Therefore, it is related to software sustainability."
+    },
+    {
+        "id": 336154,
+        "label": "Yes",
+        "justification": "The user is discussing software choices related to production environments, cloud computing, and programs useful for creating software-intensive systems. This touches on aspects of economic and technical sustainability in the context of software systems, principally those related to cost, system maintenance, obsolescence, and choice of adequate technology."
+    },
+    {
+        "id": "334800",
+        "label": "Yes",
+        "justification": "The text is related to software sustainability, specifically technical sustainability. The author discusses the long-term use of software systems, their evolution, and maintenance. They highlight the problem of expiring certificates and propose a new protocol (HTTP2 - JWT) to improve the current system, ensuring that it can appropriately evolve in a constantly changing execution environment. The topic of system obsolescence, an element of technical sustainability, is also brought up in relation to Apple potentially dropping support for the current implementation."
+    },
+    {
+        "id": 334294,
+        "label": "Yes",
+        "justification": "The task data deals with topics on the evolution, maintenance, and potential shift in popularity and usage of different data management technologies. These topics align closely with the concept of technical sustainability as described in the helper data, which includes notions of system longevity, evolution, and the maintenance of information systems in changing conditions. Therefore, it is relevant to software sustainability."
+    },
+    {
+        "id": 333291,
+        "label": "Yes",
+        "justification": "The text discusses issues related to the scalability, performance, and cost-effectiveness of software systems, in terms of CPU-intensive tasks. These aspects are related to the technical and economic dimensions of software sustainability, as they are concerned with the long-term efficient functioning and affordability of software systems."
+    },
+    {
+        "id": 333128,
+        "label": "Yes",
+        "justification": "The task data talks about techniques for managing and evolving JavaScript applications. This relates to software sustainability in the sense of Technical sustainability from the first definition, which covers the long term use and evolution of software-intensive systems. As such, techniques for avoiding a monolithic application and enhancing the software's maintainability fall under software sustainability."
+    },
+    {
+        "id": "331073",
+        "label": "Yes",
+        "justification": "The task-data relates to software sustainability especially in the technical dimension. The user is asking about creating an adaptable and efficient software system that can be run both on site or in the cloud which translates to the system's long-term use and appropriate evolution. Moreover, the intent to replace two older systems with one more effective relates to system maintenance and anti-obsolescence, the concepts mentioned in the 'technical' dimension of software sustainability in the helper data."
+    },
+    {
+        "id": 324564,
+        "label": "Yes",
+        "justification": "The text refers to building a decoupled scalable system for handling user data and interacting with third-party services. This can be linked to technical sustainability in the context of software-intensive systems, which addresses the long-term use of such systems and their evolution in a changing environment, as described in the helper-data. Furthermore, the post suggests future evolution of the system to incorporate additional functionalities and services, underscoring sustainable software development practices."
+    },
+    {
+        "id": 315965,
+        "label": "Yes",
+        "justification": "This text discusses the sustainability of specific software techniques, more specifically server-side rendering and JSP as a templating system. It discusses factors such as system performance, cost-effectiveness, compatibility, and forward compatibility, all of which fit into the concept of technical and economic sustainability of software systems as described in the Helper-Data."
+    },
+    {
+        "id": "315931",
+        "label": "Yes",
+        "justification": "The task-data considers various aspects related to software sustainability like maintainability, flexibility, modularity, and evolution. It discusses platform choices and their impact on future scalability and software longevity. It also touches on the technical sustainability of client-side rendering and JavaScript frameworks. Therefore, this post is related to software sustainability."
+    },
+    {
+        "id": 315927,
+        "label": "Yes",
+        "justification": "The post discusses about the development and maintenance of a web application. The aspects touched upon - front-end development, performance, maintenance costs, and cross-browser compatibility issues - all relate to the technical sustainability of a software system, according to the definition given in the Helper-data."
+    },
+    {
+        "id": 315163,
+        "label": "No",
+        "justification": "The post provided is discussing Content Delivery Networks (CDNs) and their benefits such as reducing network latency, being highly available, and cost-effectiveness. Even though CDNs contribute to efficiency and effectiveness of software systems, this text doesn't directly relate or discuss the sustainability of software-intensive systems in social, environmental, technical, or economic aspects as defined in the Helper-Data text provided."
+    },
+    {
+        "id": 452263,
+        "label": "Yes",
+        "justification": "The text discusses a web application development issue, with particular focus on a feature that allows for the web application's operations to be sustainable. The concerns expressed match factors of technical sustainability described in the Helper-Data, namely, system maintenance, data integrity, and evolving with changing environmental conditions."
+    },
+    {
+        "id": 450653,
+        "label": "Yes",
+        "justification": "The text discusses about cloud hosting model for software systems, database management and requirements for technical staff for system maintenance and development, addressing the concepts of economic sustainability (regarding costs associated with staff and system maintenance) and technical sustainability (discussing the need for knowledgeable staff for long-term use and evolution of software systems). Therefore, it is related to software sustainability."
+    },
+    {
+        "id": 447666,
+        "label": "Yes",
+        "justification": "The post is discussing software architectures, how to plan for scalability, and how to optimize for security and economic efficiency in the design of a software system. These elements are crucial aspects of technical and economic sustainability in software-intense systems, as mentioned in the helper data."
+    },
+    {
+        "id": 440285,
+        "label": "Yes",
+        "justification": "The post is related to software sustainability as it addresses and discusses the technical and economic dimensions of sustainability. It talks about the practicality of using AWS Lambda and serverless applications, which comes under technical sustainability as it is directly linked with the system maintenance and its application. The user also discusses the cost-benefit analysis, which is an aspect of economic sustainability in software-intensive systems."
+    },
+    {
+        "id": 439256,
+        "label": "Yes",
+        "justification": "The given Task-Data is related to software sustainability. The user raises concern about the sustainability of their company's existing software system and is actively researching modern design patterns and architectural styles to enhance its sustainability. These concerns involve social sustainability (e.g., employment data and collective agreements), technical sustainability (Complexity of system), and economic sustainability (efficiency and the cost of redundancy)."
+    },
+    {
+        "id": "439240",
+        "label": "Yes",
+        "justification": "The post is related to software sustainability as it discusses the longevity and security of data in software systems. These aspects fall under the technical sustainability dimension as per the helper-data definition."
+    },
+    {
+        "id": 436432,
+        "label": "Yes",
+        "justification": "The text is related to software sustainability according to the Technical Sustainability in the Helper-Data, particularly focusing on aspects such as the longevity of systems, system maintenance, obsolescence, and data integrity. The post mainly discusses best practices and strategies associated with logging in software applications that support its long-term usage and evolution, which is consistent with the concept of Technical Sustainability in software-intensive systems."
+    },
+    {
+        "id": "433568",
+        "label": "Yes",
+        "justification": "The text discusses aspects of managing data and databases, including extracting, transforming, and loading data (ETL), managing system complexity and the total cost of ownership, and dealing with potential issues like data conflicts and duplications when handling software systems. These are aspects relevant to the technical and economic dimensions of software sustainability."
+    },
+    {
+        "id": "433023",
+        "label": "Yes",
+        "justification": "The text discusses the challenges and management of software development environments, specifically the difficulties experienced with integrating local development with cloud-based production environments, impacting the efficiency and technical sustainability of software development. Considering the requirements of software-intensive systems for efficiency and adaptation to the constantly changing execution environment mentioned in the Helper-Data, the relation to technical sustainability is clear."
+    },
+    {
+        "id": 433012,
+        "label": "Yes",
+        "justification": "The text discusses the importance of designing microservices for efficient and sustainably usable systems. This involves discussing how to reduce dependencies for tech sustainability and how to structure for streamlined deployment and scaling, aspects related to the long-term use and evolution of software-intensive systems as described in the 'Technical sustainability' part of the Helper-Data. Although it does not explicitly mention sustainability, the concepts discussed tie into software sustainability."
+    },
+    {
+        "id": 432796,
+        "label": "Yes",
+        "justification": "The text mentions a software-intensive system (an app) that involves the use of cloud storage and data security. It concerns the technical sustainability dimension, as the software developer seeks an appropriate way to evolve the software within its environment while considering issues of privacy and data access. It may indirectly concern social sustainability, as it pertains to the trust of the user community."
+    },
+    {
+        "id": "432288",
+        "label": "Yes",
+        "justification": "The Task-Data refers to technical sustainability. It discusses challenges regarding the longevity of information, systems, and infrastructure (concerns in technical dimension of sustainability) experienced in an event-driven system. It raises issue about a system's execution environment (AWS) and makes inquiries on efficient system maintenance and appropriate evolution of their design to accommodate conditions imposed by their execution environment, all of these concepts belong to the definition of technical sustainability of software-intensive systems."
+    },
+    {
+        "id": "431205",
+        "label": "Yes",
+        "justification": "The post is about managing software resources efficiently, which indirectly relates to the technical dimension of sustainability according to the Helper-Data. It advises on how to optimise software systems to avoid resource waste, which in turn contributes to sustainability in a broader sense."
+    },
+    {
+        "id": 426618,
+        "label": "Yes",
+        "justification": "The text is related to software sustainability based on the detailed explanation of two different solutions concerning a software architecture for handling data transfer via API REST CALL. It involves the longevity of information, systems, and infrastructure (i.e., technical sustainability). Additionally, it considers costs (economic sustainability) and community partnership (social sustainability)."
+    },
+    {
+        "id": 425900,
+        "label": "Yes",
+        "justification": "The text is referring to the efficient use of software and hardware resources in data management and workloads, which relates to the environmental and technical dimensions of sustainability in software-intensive systems as defined in the Helper-Data. Environmental sustainability in software systems addresses energy efficiency, and technical sustainability covers the long-term use and evolution of software systems."
+    },
+    {
+        "id": 425746,
+        "label": "Yes",
+        "justification": "The Task-Data provided talks about evolving a software-intensive system towards a more sustainable architecture using cloud resources. As such, it is implicitly related to the 'Technical Sustainability' dimension described in the Helper-Data, as it discusses the long-term use and appropriate evolution of a software-intensive system."
+    },
+    {
+        "id": 422736,
+        "label": "No",
+        "justification": "The text is about comparing different technologies to handle API endpoint logic such as AWS, EC2 and Lambda. While it does indirectly touch upon aspects of technical sustainability like elasticity and cost-effectiveness, it doesn't directly address the concepts of software sustainability as defined in the Helper-Data."
+    },
+    {
+        "id": "422123",
+        "label": "No",
+        "justification": "The text fragment is related to software development and architecture with focus on building an app using AWS tools. It does not mention anything about the sustainability of software-intensive systems or any aspects of sustainability in economic, social, environmental and technical dimensions."
+    },
+    {
+        "id": "421082",
+        "label": "Yes",
+        "justification": "The task talks about making improvements on how devices communicate with their cloud servers for updates, alerts, configurations, and execution which pertains to the technical sustainability of a software-intensive system. The discussion revolves around maintaining the long-term use of the cloud-based product and how to evolve it in a constantly changing execution environment. These aspects align with the technical dimension of software sustainability outlined in the Helper-Data."
+    },
+    {
+        "id": 420877,
+        "label": "Yes",
+        "justification": "The author of the post discusses decisions relating to software solutions (lambda/serverless vs containers/ECS), raising concerns particularly about efficiency, manageability and system maintenance, thus addressing aspects of technical sustainability in the context of software-intensive systems. The post therefore relates to software sustainability."
+    },
+    {
+        "id": 420772,
+        "label": "Yes",
+        "justification": "This paragraph is concerned with the concept of microservices, which are an essential part of modern software development practices that contribute to the technical sustainability. It discusses key characteristics of microservices, including their deployability and modularity, which are central to long-term use and evolution of software-intensive systems, key aspects of technical sustainability according to the helper-data provided. Therefore, this text is directly related to software sustainability."
+    },
+    {
+        "id": 420711,
+        "label": "Yes",
+        "justification": "The text is related to software sustainability, specifically the technical sustainability dimension. It discusses the design and use of software systems, specifically dealing with issues of system maintenance, idempotency, and approaches to handle unreliable calls common in a public cloud, which correspond to the technical sustainability of software-intensive systems as defined in the provided Helper-Data."
+    },
+    {
+        "id": 418620,
+        "label": "Yes",
+        "justification": "The task-data talks about the technical dimension of sustainability, addressing topics such as scalability, version control and efficient data management in software systems, specifically discussing Git\u2019s limitations handling large projects. It suggests ways to sustain large repositories using Git LFS and Microsoft's solution with Git VFS, thus it directly pertains to technical sustainability in software-intensive systems."
+    },
+    {
+        "id": 418163,
+        "label": "Yes",
+        "justification": "This text directly relates to software sustainability, specifically focusing on the technical dimension of sustainability. This is shown in the discussion of scaling, system maintenance, and the use of microservices for long-term use and evolution in different environments."
+    },
+    {
+        "id": 414686,
+        "label": "Yes",
+        "justification": "The Task-Data is about Device Management in IT, more specifically about deployment of services onto IoT devices fleets via automated tools. This falls under the definition of technical sustainability in the Helper-Data, which addresses the long-term use and proper evolution of software-intensive systems within a constantly changing environment. In this case, the evolution involves automating deployment processes for more efficient and reliable functioning. Building a 'full fledged management solution' also aligns to the aspect of maintaining and updating these systems for sustainability."
+    },
+    {
+        "id": "412144",
+        "label": "Yes",
+        "justification": "The task data is related to software sustainability, specifically concentrating on the technical sustainability dimension. This is shown in the user\u2019s quest to create a secure authentication flow for their web application, which significantly contributes to the longevity and evolution of the system in changing conditions, such as escalating security threats."
+    },
+    {
+        "id": "411788",
+        "label": "Yes",
+        "justification": "The user's text talks about the technical sustainability of software. It refers to security practices, need for a backend, risks of code obfuscation, and mentions concepts like system maintenance and evolution of the system with changing environmental conditions (Firebase Cloud Functions, anti-debugging techniques, etc.). These aspects are connected with the technical dimension of software sustainability as stated in the Helper-Data. Hence, it's related to software sustainability."
+    },
+    {
+        "id": 411735,
+        "label": "Yes",
+        "justification": "The text is related to software sustainability. It discusses considerations, such as scalability, speed, and cost, which programmers must consider when deciding whether to use a NoSQL or relational database. These are elements of Technical sustainability, which according to the Helper-Data, involves the long-term use of software systems and their appropriate evolution in a constantly changing execution environment."
+    },
+    {
+        "id": 404970,
+        "label": "Yes",
+        "justification": "The task data discusses the challenge of modernizing a legacy software system. This encompasses aspects of software sustainability such as technical sustainability (maintaining and evolving the system within changing environmental conditions), economic sustainability (using open source solutions to reduce cost of maintaining custom code) and potentially social sustainability (ensuring that the new system improves upon or benefits the wider community of users)."
+    },
+    {
+        "id": 401720,
+        "label": "Yes",
+        "justification": "The text is talking about maintaining and storing configuration for AWS lambda functions in a sustainable way. Even though it's not explicitly mentioned, it relates to Technical sustainability as defined in the Helper-Data: 'Technical sustainability addresses the long-term use of software-intensive systems and their appropriate evolution in a constantly changing execution environment'. Therefore it is relevant to software sustainability."
+    },
+    {
+        "id": 399960,
+        "label": "No",
+        "justification": "The Task-Data talks about cloud computing services and methods for switching between cloud providers. Even though this could potentially be related to the technical aspect of software sustainability, the text doesn't explicitly discuss or involve any dimensions of sustainability within software-intensive systems as defined in the Helper-Data. Thus, the text is not related to software sustainability."
+    },
+    {
+        "id": "394623",
+        "label": "Yes",
+        "justification": "The text is related to software sustainability. This is evident from the discussion on system planning, including post-processing packages, model storage, API services, and other considerations that factor into the long-term use and evolution of the system. Sustainable software systems need this type of careful planning to allow respectful use of resources and evolution over time."
+    },
+    {
+        "id": 391040,
+        "label": "Yes",
+        "justification": "The text focuses on microservices which are a part of software systems. It discusses their development, deployment, and scaling indicating Technical sustainability. The text also mentions independent development and deployment that implies a social sustainability aspect as it may positively affect communities using the system. Therefore, the text is related to software sustainability."
+    },
+    {
+        "id": 390552,
+        "label": "Yes",
+        "justification": "The message discusses building an email server to work consistently long-term without interruption (e.g., by avoiding blacklists). This relates to the technical sustainability dimension in software systems, which addresses the long-term use and appropriate evolution of such systems. The post also touches on economic concerns, with mentions of costs and seeking best practices for success, aligning with economic sustainability."
+    },
+    {
+        "id": "384565",
+        "label": "No",
+        "justification": "This post is talking about agile methodologies, cross-functional teams, and DevOps in software development. However, it does not directly address or discuss any aspects of software sustainability as defined in the Helper-Data, such as the impact on social communities, ecological resources, long-term use and evolution of software systems, or economic value preservation."
+    },
+    {
+        "id": 378569,
+        "label": "Yes",
+        "justification": "The text provided closely relates to technical sustainability of software. The user is seeking methods to enhance and maintain the long-term security of their REST API-based solution, an aspect that essentially helps guarantee the software's longevity and consistent evolution in light of changing execution conditions, such as the need to protect against unauthorized third-party applications."
+    },
+    {
+        "id": 378239,
+        "label": "Yes",
+        "justification": "The Task-Data discusses elements of software design patterns with respect to its sustainability, specifically in terms of Technical sustainability. It addresses the longevity of services and systems, their maintenance, possible obsolescence, and cost-effectiveness. This correlates with the concepts covered in the Helper-Data related to software sustainability. Therefore, it's labeled as 'Yes'."
+    },
+    {
+        "id": 376805,
+        "label": "Yes",
+        "justification": "This text is related to software sustainability \u2013 more specifically, to technical sustainability. It provides guidance on how to manage secrets in source control, creating sustainable and secure software systems. It specifies the practices like not committing secrets into source control, managing keys and secrets during the software's deployment stage, and following certain architecture and deployment paradigms (like the twelve-factor app). These practices support the 'longevity of information and systems', which is a key aspect of technical sustainability according to the Helper-Data."
+    },
+    {
+        "id": 373055,
+        "label": "Yes",
+        "justification": "The text given in Task-Data is related to software sustainability as we can see several aspects of the mentioned categories being discussed. The user discusses the impact of particular software tools and approaches on maintaining systems long-term (technical sustainability). He also addresses the financial implications associated with different choices and tools (economic sustainability). Finally, he talks about solutions that are adaptable to changing requirements (also part of technical sustainability). Therefore, the post is indeed related to software sustainability."
+    },
+    {
+        "id": 363962,
+        "label": "No",
+        "justification": "The post is asking about the concepts and practices in serverless architecture and its interaction with databases. It does not discuss or mention any aspect of sustainability in the context of software-intensive systems."
+    },
+    {
+        "id": 357689,
+        "label": "Yes",
+        "justification": "The task data is related to software sustainability, especially falling under the Technical Sustainability category from the Helper Data because it discusses optimizing a software-intensive system\u2014specifically, a web application with a REST backend and a frontend SPA\u2014with the goal of improving its long-term use and evolution via design alternatives and performance improvements. The generation, serving and maintenance of vector tiles from a GeoJSON is part of ensuring system longevity under changing environmental conditions."
+    },
+    {
+        "id": "351970",
+        "label": "No",
+        "justification": "The given text is concerned with web security, API management, and handling tokens, which is related to technical aspects of software systems, but does not directly address aspects of software sustainability as defined by the Helper-Data. Therefore, it's not directly related to software sustainability."
+    },
+    {
+        "id": 351507,
+        "label": "Yes",
+        "justification": "The text discusses creating a testing environment to ensure efficient operation of software systems, which relates to the technical sustainability dimension of software sustainability. Furthermore, it brings up the need to automate the production set-up, indicating a focus on the long-term use and evolution of software systems as mentioned in the helper data."
+    },
+    {
+        "id": "349301",
+        "label": "Yes",
+        "justification": "The task data contains a discussion about various aspects of software sustainability. It includes topics such as system maintenance, code distribution, security, scalability, and availability \u2013 all significant considerations in the sustainability of software systems. Furthermore, the discussion also touches upon the concept of 'decoupling' as a way to ensure the longevity of software systems by isolating them from third-party changes."
+    },
+    {
+        "id": 341113,
+        "label": "Yes",
+        "justification": "The post indeed talks about various kinds of cloud offerings and their role in software sustainability. As per the definitions in the Helper-Data, these aspects fall under the 'Technical Sustainability' dimension. The post discusses Infrastructure as a Service (IaaS), Platform as a Service (PaaS), and Software as a Service (SaaS). These services improve the sustainability of a software system by ensuring its long-term usage and the appropriate evolution in a constantly changing execution environment."
+    },
+    {
+        "id": "338755",
+        "label": "No",
+        "justification": "This detailed text primarily discusses concepts and strategies for ensuring continuous system operation and availability in cloud-based software systems. While it addresses aspects of technical sustainability regarding redundancy, resiliency, etc. as listed in the Helper-Data, it doesn't thoroughly encompass the holistic idea of software sustainability as it doesn't talk about other aspects of software sustainability such as environmental, economic, and social dimensions."
+    },
+    {
+        "id": "334664",
+        "label": "Yes",
+        "justification": "The text refers to various aspects of software sustainability. It mentions the configuration and customization of cloud-based enterprise systems and their incremental deployment, which relates to the technical sustainability. It also refers to the potential need for changes in business processes and training for end users, which touches upon social sustainability. Additionally, quick implementation for quicker value realization is a concern of economic sustainability."
+    },
+    {
+        "id": 334663,
+        "label": "Yes",
+        "justification": "This text is related to software sustainability, specifically in the context of microservices. The mention of improving architecture, the use of cloud providers, creating an in-house cluster, investing in better monitoring, orchestration and resource management allude to technical sustainability. These practices ensure longevity and appropriate evolution of software systems in changing conditions, aligning with the principles of technical sustainability as defined in the Helper-Data."
+    },
+    {
+        "id": 332982,
+        "label": "Yes",
+        "justification": "The text describes the approach to develop, test and maintain software systems. It involves decisions and actions related to the longevity of information, systems, and infrastructure and their adequate evolution, which is a critical aspect of technical sustainability - one dimension of software sustainability."
+    },
+    {
+        "id": "330808",
+        "label": "Yes",
+        "justification": "This post discusses several aspects of software sustainability, specifically technical sustainability. It talks about adopting version control systems (VCS like git) for long-term use and evolution of software systems. It also provides strategies for improving and sustaining software development practices and keeping code up-to-date, which is again related to technical sustainability in software-intensive systems. The post also highlights the use of different tools and systems which supports the longevity of information, systems, and their adequate evolution."
+    },
+    {
+        "id": 325112,
+        "label": "No",
+        "justification": "The text discusses the comparison of different database systems, their design characteristics and how to improve application's scalability through caching. Although the concept of sustainability in software-intensive systems covers longevity of information, systems, and infrastructure along with their adequate evolution within changing environmental conditions, this post does not specifically address any dimensions of software sustainability as defined in the helper-data. Therefore, it is not directly related to the topic of software sustainability."
+    },
+    {
+        "id": 322899,
+        "label": "No",
+        "justification": "The post discusses data storage, its security features and potential options for their implementation in DynamoDB. While these are technical aspects, they are not specifically related to any of the software sustainability dimensions defined in the Helper-Data."
+    },
+    {
+        "id": 322658,
+        "label": "Yes",
+        "justification": "The text is discussing the process of transitioning from a monolithic software system to a microservices architecture. This topic is directly related to technical sustainability as it pertains to the longevity of software systems, their adequate evolution within changing environments, and system maintenance. The queries about development planning, load balancing, test automation, deployment, infrastructure, and monitoring all relate to maintaining and improving the sustainable use of software systems."
+    },
+    {
+        "id": "322153",
+        "label": "Yes",
+        "justification": "The text discusses the maintenance, evolution, possible failure and solutions for software-intensive systems like Network Load Balancing and DNS Round Robin. These are relevant to the technical sustainability aspect of software sustainability, which involves the long-term usage and appropriate evolution of software intensive systems as defined in the Helper-Data."
+    },
+    {
+        "id": 322077,
+        "label": "No",
+        "justification": "The text describes cloud-based services and their limitations, including the use of logging services and deployment models. These details do not connect directly to sustainability in software-intensive systems as described in the Helper-Data. While it does mention issues related to scalability, it does not touch on the social, environmental, technical or economic dimensions of software sustainability."
+    },
+    {
+        "id": 316508,
+        "label": "Yes",
+        "justification": "The post discusses the design and implementation of a scalable software solution, making it relevant to the Technical sustainability dimension of software sustainability. By focusing on scalability, the software's long-term use and appropriate evolution in a changing execution environment is considered."
+    }
+]

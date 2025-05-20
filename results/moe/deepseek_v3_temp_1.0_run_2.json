@@ -1,0 +1,587 @@
+[
+    {
+        "id": 440285,
+        "label": "No",
+        "justification": "The text discusses the practicality and cost-effectiveness of using AWS Lambdas and serverless applications, focusing on architectural and billing considerations rather than addressing software sustainability directly. It does not mention environmental impact, resource efficiency, or long-term sustainability practices in software development."
+    },
+    {
+        "id": "432288",
+        "label": "No",
+        "justification": "The text discusses a technical challenge related to message processing time constraints in an event-driven system using AWS's managed RabbitMQ service. It focuses on system design and resilience features rather than addressing software sustainability directly. The conversation is about finding alternative patterns for long-running jobs within given constraints, not about sustainable software development practices."
+    },
+    {
+        "id": "370490",
+        "label": "Yes",
+        "justification": "The text discusses the migration of an application's architecture to support multiple clients, focusing on the scalability and efficiency of data storage and retrieval. This is directly related to software sustainability as it involves optimizing resource usage (data storage efficiency) and ensuring the application can scale to meet future demands without significant rework or performance degradation. The consideration of different database models (EAV vs. document-based) and technologies (MySQL, MongoDB, Postgres) to address current limitations and future needs further underscores the sustainability aspect, as it involves making long-term architectural decisions that affect the application's maintainability, scalability, and efficiency."
+    },
+    {
+        "id": 357689,
+        "label": "No",
+        "justification": "The text primarily discusses technical challenges and design choices related to building a web application with a focus on geo-enabled data and map display performance. While it touches on aspects like data mutability and hosting requirements, the core discussion is about optimizing the application's architecture and performance rather than addressing software sustainability. Therefore, it does not directly relate to the broader concerns of sustainability in software development, such as energy efficiency, long-term maintainability, or environmental impact."
+    },
+    {
+        "id": "324564",
+        "label": "No",
+        "justification": "The text discusses building a decoupled scalable system for fetching user activities from third-party services like FitBit and Google Fit, focusing on architecture and scalability rather than software sustainability. There is no mention of environmental impact, resource efficiency, or long-term maintenance, which are key aspects of sustainability."
+    },
+    {
+        "id": "382785",
+        "label": "No",
+        "justification": "The text discusses architectural considerations and scalability options using AWS services like Lambda and S3, focusing on cost, performance, and development simplicity. It does not address environmental, economic, or social aspects of software sustainability directly."
+    },
+    {
+        "id": "420711",
+        "label": "No",
+        "justification": "The text discusses transaction handling, idempotency, and error recovery in software design, particularly in the context of payment processing and database updates. While it touches on aspects of software reliability and design, it does not specifically address or relate to software sustainability, which concerns the long-term environmental, economic, and social impacts of software development and usage."
+    },
+    {
+        "id": "338692",
+        "label": "Yes",
+        "justification": "The text discusses strategies for achieving high availability (HA) in web and application tiers, including state management, load balancing, database handling, and system upgrades. These topics are directly related to software sustainability as they involve maintaining and improving the performance, reliability, and longevity of software systems in production environments. The mention of database upgrades, canary deployment patterns, and the evolution of systems for HA further underscores the focus on sustainable software practices."
+    },
+    {
+        "id": "347591",
+        "label": "No",
+        "justification": "The text primarily discusses database design, security, and performance optimization strategies, including normalization, row-level security, and the use of cloud providers for operational management. While it mentions cloud solutions and operational efficiency, the core focus is not on software sustainability but rather on database management and security practices. Therefore, it does not align with the criteria for being labeled as related to software sustainability."
+    },
+    {
+        "id": "439256",
+        "label": "Yes",
+        "justification": "The text discusses the modernization of a legacy software application, focusing on architectural styles like microservices and their compatibility with complex business domains. This directly relates to software sustainability as it involves evaluating and potentially changing the software architecture to ensure the application remains maintainable, scalable, and efficient over time. The discussion about the challenges of applying microservices to a complex domain and the importance of CAP principles further underscores the relevance to sustainable software design."
+    },
+    {
+        "id": "399960",
+        "label": "No",
+        "justification": "The text discusses the challenges of migrating between cloud providers and mentions frameworks that enable such transitions, but it does not address software sustainability directly. The focus is on cost savings and portability rather than sustainable software practices or environmental impact."
+    },
+    {
+        "id": "422736",
+        "label": "No",
+        "justification": "The text discusses the technical aspects of creating a RESTful API in AWS, comparing the use of API Gateway with Lambda versus EC2 for handling API logic, and mentions examples of large companies using EC2. It does not address or relate to software sustainability, which involves considerations like environmental impact, resource efficiency, and long-term maintainability of software systems."
+    },
+    {
+        "id": 376805,
+        "label": "No",
+        "justification": "The text discusses best practices for handling secrets in software development and deployment, emphasizing security measures and compliance with the AGPL. While it touches on aspects of software development and deployment, it does not specifically address software sustainability, which involves the long-term maintenance, environmental impact, and efficiency of software systems."
+    },
+    {
+        "id": "385346",
+        "label": "No",
+        "justification": "The text primarily discusses the technical challenges and considerations of transitioning from a monolithic architecture to microservices, including deployment strategies, database management, and the use of containerization technologies like Docker and AWS services. While it touches on cost-effectiveness and management overhead, the core focus is on architectural decisions and deployment practices rather than on sustainability aspects of software development."
+    },
+    {
+        "id": "338746",
+        "label": "No",
+        "justification": "The text discusses high availability, database migrations, and deployment strategies without mentioning or implying any considerations related to software sustainability, such as energy efficiency, resource optimization, or environmental impact."
+    },
+    {
+        "id": 372002,
+        "label": "No",
+        "justification": "The text discusses optimizing worker and queue management in a cloud environment, focusing on efficiency and cost rather than addressing software sustainability directly. It does not mention environmental impact, resource conservation, or long-term software maintainability, which are key aspects of sustainability."
+    },
+    {
+        "id": "402623",
+        "label": "Yes",
+        "justification": "The text discusses strategies for improving software performance, including profiling hot spots and wait times, which are directly related to optimizing resource usage and efficiency in software systems. This optimization is a key aspect of software sustainability, as it aims to reduce unnecessary resource consumption and improve the longevity and maintainability of software applications."
+    },
+    {
+        "id": "425746",
+        "label": "Yes",
+        "justification": "The text discusses architectural changes to a software application to make it more scalable and reliable by leveraging cloud services and message queues. This approach aligns with software sustainability as it focuses on improving the application's efficiency, scalability, and resilience, which are key aspects of sustainable software development. The use of cloud services and dynamic scaling also implies a consideration for resource optimization, further supporting the sustainability aspect."
+    },
+    {
+        "id": 436491,
+        "label": "Yes",
+        "justification": "The text discusses the implications of using common services versus isolated services in terms of security, downtime, and maintenance complexity, which are key considerations in software sustainability. It highlights the importance of isolation for security and operational stability, suggesting a sustainable approach to software architecture by minimizing risks and ensuring service reliability."
+    },
+    {
+        "id": "340772",
+        "label": "No",
+        "justification": "The text primarily discusses technical considerations for ID checksums and critiques the cost-effectiveness of AWS, rather than addressing software sustainability directly. While it touches on cost efficiency, which can be a component of sustainability, the main focus is not on environmental or long-term software sustainability practices."
+    },
+    {
+        "id": "349301",
+        "label": "No",
+        "justification": "The text discusses the use of Firebase for backend services, business logic placement, and considerations for app development architecture. While it touches on aspects of software development and maintenance, it does not specifically address or relate to the concept of software sustainability, which involves practices and principles aimed at ensuring long-term viability, efficiency, and minimal environmental impact of software systems."
+    },
+    {
+        "id": "333128",
+        "label": "No",
+        "justification": "The text discusses techniques for managing and optimizing JavaScript code structure and loading for web applications, such as using frameworks, module patterns, bundling, minification, and considerations for client-side caching and CDN usage. While these topics are related to software development and performance optimization, they do not directly address or relate to software sustainability, which typically concerns the long-term environmental, economic, and social impacts of software development and usage."
+    },
+    {
+        "id": 414686,
+        "label": "No",
+        "justification": "The text discusses various approaches to device management and edge computing, including the use of SaaS, configuration management tools, and custom solutions. While it touches on efficiency and resource management, the primary focus is on operational strategies and tools for IoT device management rather than on sustainability aspects of software development or deployment."
+    },
+    {
+        "id": "440067",
+        "label": "Yes",
+        "justification": "The text discusses the importance of designing robust systems for data management, including considerations for availability, redundancy, and the use of managed services to achieve high uptime. These topics are directly related to software sustainability, as they involve ensuring the long-term reliability and efficiency of software systems in production environments."
+    },
+    {
+        "id": "322077",
+        "label": "No",
+        "justification": "The text discusses AWS lambda functions and their limitations regarding resource allocation and deployment models, but it does not address software sustainability directly. The focus is on technical constraints and architectural considerations rather than sustainability practices or principles."
+    },
+    {
+        "id": "433012",
+        "label": "No",
+        "justification": "The text discusses microservices architecture, focusing on how to split them according to domains and the communication between them. It does not address software sustainability, which typically involves topics like energy efficiency, long-term maintainability, or environmental impact of software development and deployment."
+    },
+    {
+        "id": "392697",
+        "label": "No",
+        "justification": "The text primarily discusses considerations for ML modeling tasks, database querying, and architectural qualities for ML pipelines in a cloud environment. While it touches on cost-effectiveness and resource utilization, it does not directly address software sustainability, which typically involves topics like energy efficiency, long-term maintainability, or environmental impact of software development and deployment."
+    },
+    {
+        "id": 322658,
+        "label": "No",
+        "justification": "The text discusses the transition from a monolithic architecture to microservices, focusing on organizational, technical, and operational challenges. While it touches on aspects like infrastructure and deployment, the primary concern is not about the sustainability of the software but rather about the practicalities of implementing microservices in a .NET environment. Therefore, it does not directly relate to software sustainability."
+    },
+    {
+        "id": 394623,
+        "label": "No",
+        "justification": "The text discusses the architecture for training and serving NLP classifiers, focusing on technical setup, workflow, and cost-effectiveness. It does not address or relate to software sustainability, which involves practices and principles aimed at reducing the environmental impact of software development and operation, ensuring long-term viability, and minimizing resource consumption."
+    },
+    {
+        "id": 418620,
+        "label": "No",
+        "justification": "The text discusses the limitations of Git with large repositories and suggests alternatives for managing large files and assets, but it does not address software sustainability directly. The focus is on version control systems and file management rather than sustainable software development practices."
+    },
+    {
+        "id": "342331",
+        "label": "Yes",
+        "justification": "The text discusses the evaluation of cloud services versus in-house solutions, focusing on the balance between vendor lock-in and other software development costs such as time to market, maintenance resources, and operational costs. This is directly related to software sustainability as it involves making decisions that affect the long-term viability and efficiency of software development and deployment strategies. The discussion on avoiding premature optimization (YAGNI principle) and the comparison to dependencies like Docker, Linux, npm, and gcc further ties the topic to sustainable software practices by highlighting the importance of focusing on current needs and leveraging existing technologies to avoid unnecessary complexity and resource expenditure."
+    },
+    {
+        "id": "420772",
+        "label": "No",
+        "justification": "The text discusses microservices, their deployment, and infrastructure, but does not address software sustainability directly. It focuses on architectural and deployment aspects rather than environmental impact, resource efficiency, or long-term maintainability which are key to sustainability."
+    },
+    {
+        "id": "403412",
+        "label": "No",
+        "justification": "The text primarily discusses security measures, authentication, and authorization mechanisms such as OAuth2, API keys, and AWS services like Cognito and API Gateway. While these topics are important for secure software development, they do not directly address or relate to software sustainability, which focuses on the long-term maintainability, environmental impact, and efficiency of software systems."
+    },
+    {
+        "id": "356334",
+        "label": "No",
+        "justification": "The text discusses the technical aspects and challenges of using AWS Lambda and serverless architectures, including container reuse, connection pooling, and the immaturity of serverless technologies. It does not address or relate to software sustainability, which typically involves topics like energy efficiency, long-term maintainability, or reducing environmental impact of software development and deployment."
+    },
+    {
+        "id": "415998",
+        "label": "Yes",
+        "justification": "The text discusses the impact of architectural decisions on software sustainability, specifically focusing on the implications of enforcing a single technology stack in a microservices architecture. It highlights concerns about increased costs, decreased quality, and delays, which are directly related to the sustainability of the software development process and the long-term viability of the project. The argument for maintaining multiple stacks to allow for evolution and reduce costs aligns with principles of sustainable software development by advocating for flexibility, cost-effectiveness, and the ability to adapt to future needs."
+    },
+    {
+        "id": "316508",
+        "label": "No",
+        "justification": "The text discusses the implementation and scalability of a notification system using various Azure services, focusing on technical solutions and deployment strategies. It does not address or relate to software sustainability, which involves considerations like energy efficiency, long-term maintainability, or environmental impact of software development and deployment."
+    },
+    {
+        "id": "433568",
+        "label": "No",
+        "justification": "The text discusses the complexities and processes involved in exporting and importing data between two systems, including considerations for data integrity and system limitations. While it touches on cost considerations of cloud versus on-premise solutions, the primary focus is on data handling and system interoperability rather than software sustainability."
+    },
+    {
+        "id": "411788",
+        "label": "No",
+        "justification": "The text discusses concerns about security, authentication, and the structure of backend versus client-side functionality, but it does not directly address or relate to software sustainability. The focus is on security practices and backend architecture rather than sustainable software development or environmental impact."
+    },
+    {
+        "id": 445186,
+        "label": "Yes",
+        "justification": "The text discusses efficient cloud-native approaches to handle backing storage for a database query engine, focusing on cost minimization which includes storage costs, query execution costs, and development costs. It explores various strategies like compression, transcoding data into more efficient formats, and splitting data into individual columns or records to optimize performance and cost. These considerations are directly related to software sustainability as they aim to optimize resource use and reduce operational costs over time."
+    },
+    {
+        "id": "441569",
+        "label": "No",
+        "justification": "The text discusses the development of a chatbot for booking trips using AWS's DynamoDB, focusing on database structure and user interaction flow. It does not address topics related to software sustainability, such as energy efficiency, long-term maintenance, or environmental impact of software systems."
+    },
+    {
+        "id": 409372,
+        "label": "Yes",
+        "justification": "The text discusses the feasibility of using computing resources efficiently, mentions challenges in managing capacity, and compares outdated approaches with modern solutions like containers and serverless architectures. This is related to software sustainability as it involves optimizing resource use and considering the environmental impact of computing practices."
+    },
+    {
+        "id": "444704",
+        "label": "No",
+        "justification": "The text discusses the design of a SaaS system focusing on regional deployment, DNS management, and compliance with data localization requirements. While it touches on operational efficiency and the use of managed services to reduce maintenance overhead, it does not directly address software sustainability concerns such as environmental impact, resource efficiency, or long-term maintainability from a sustainability perspective."
+    },
+    {
+        "id": "412144",
+        "label": "No",
+        "justification": "The text discusses the development and security concerns of a web application, specifically focusing on authentication and authorization flows for a cloud-published app. While it touches on aspects of software development and cloud deployment, it does not address or relate to the concept of software sustainability, which involves the long-term maintenance, environmental impact, and efficiency of software systems."
+    },
+    {
+        "id": "444739",
+        "label": "No",
+        "justification": "The text discusses infrastructure considerations, environment segmentation, and operational strategies for software development and deployment, but it does not directly address software sustainability. The focus is on cost, regulatory compliance, and operational efficiency rather than the long-term environmental or societal impact of the software."
+    },
+    {
+        "id": "391040",
+        "label": "Yes",
+        "justification": "The text discusses microservices and their impact on software development, deployment, and scaling, which are key aspects of software sustainability. It highlights how microservices allow for independent development and scaling, contributing to more efficient resource use and faster deployment times, aligning with sustainability goals by optimizing performance and reducing waste. The mention of cloud platforms and containers further supports the sustainability aspect by emphasizing low-capex solutions and easier deployment, which can lead to reduced energy consumption and better resource utilization."
+    },
+    {
+        "id": "431205",
+        "label": "No",
+        "justification": "The text discusses optimizing data serving between Azure Blob storage and databases, focusing on performance and efficiency rather than software sustainability. It provides recommendations for improving application design and data handling but does not address environmental impact, resource conservation, or long-term sustainability practices in software development."
+    },
+    {
+        "id": "325112",
+        "label": "No",
+        "justification": "The text discusses database selection (PostgreSQL vs. MySQL), the use of Heroku, and caching strategies for improving application performance and scalability. While it touches on efficiency and optimization, it does not directly address software sustainability, which involves long-term environmental, economic, and social impacts of software development and usage."
+    },
+    {
+        "id": "350817",
+        "label": "No",
+        "justification": "The text discusses deployment options for a static site on Azure Storage, focusing on reliability, maintenance, performance, cost, and ease of deployment. While it mentions cost efficiency and low maintenance, it does not directly address software sustainability aspects such as environmental impact, long-term viability, or energy efficiency, which are key to labeling a text as related to software sustainability."
+    },
+    {
+        "id": 379926,
+        "label": "No",
+        "justification": "The text discusses the benefits and challenges of microservices and SOA, focusing on technological flexibility, team autonomy, and database management. While it touches on aspects like resource usage and efficiency, the primary focus is not on software sustainability but rather on architectural decisions and operational manageability. Therefore, it does not directly relate to the concept of software sustainability."
+    },
+    {
+        "id": 425900,
+        "label": "No",
+        "justification": "The text discusses the considerations for choosing between local and cloud-based data processing solutions based on the scale of the data and the efficiency of queries, but it does not directly address or relate to software sustainability."
+    },
+    {
+        "id": "442126",
+        "label": "Yes",
+        "justification": "The text discusses the challenges of maintaining and scaling a monolithic LAMP application to ensure uptime and scalability, which are key aspects of software sustainability. It highlights the risks associated with the current deployment setup, such as the use of a dynamic IP and hardcoded configurations, and the efforts to mitigate these risks by making minimal changes to the application code. These efforts are aimed at ensuring the application's long-term viability and reliability, which are central to the concept of software sustainability."
+    },
+    {
+        "id": "336154",
+        "label": "Yes",
+        "justification": "The text discusses the use of OpenSource and free servers like Tomcat in production environments, highlighting their suitability due to no licensing constraints and lightness, which relates to software sustainability by promoting efficient resource use and cost-effectiveness. It also contrasts PaaS solutions with self-hosting or private clouds, touching on the sustainability aspects of maintenance, monitoring, and the environmental impact of choosing between cloud and self-hosted solutions based on their features and the work involved."
+    },
+    {
+        "id": "424900",
+        "label": "Yes",
+        "justification": "The text discusses challenges and considerations related to the performance and scalability of a multi-tenant SaaS product's database, including the use of indexing, the potential impact of indexed views on system performance, and the exploration of a hybrid data access layer with Redis caching. These topics are directly related to software sustainability, as they involve optimizing resource use, ensuring efficient operation under varying loads, and managing cloud expenses effectively."
+    },
+    {
+        "id": "334664",
+        "label": "No",
+        "justification": "The text discusses the implementation and customization of cloud-based enterprise systems, focusing on the speed of implementation, incremental delivery, and change management. While it touches on aspects of software deployment and user adoption, it does not specifically address software sustainability, which involves the long-term maintenance, environmental impact, and efficiency of software systems. Therefore, the label 'No' is appropriate as the content is unrelated to sustainability."
+    },
+    {
+        "id": "315927",
+        "label": "No",
+        "justification": "The text discusses front-end development strategies, concerns about JSP usage, performance, maintenance costs, and cross-browser compatibility, but it does not address software sustainability directly. The focus is on development practices and technologies rather than on the long-term environmental, economic, or social impacts of the software."
+    },
+    {
+        "id": "450653",
+        "label": "Yes",
+        "justification": "The text discusses the implications of cloud hosting on software sustainability, particularly focusing on the need for technical staff and the potential future costs associated with cloud platforms. It highlights the balance between the convenience of cloud services and the necessity of in-house expertise for complex systems, which is a key consideration in sustainable software practices."
+    },
+    {
+        "id": "384565",
+        "label": "No",
+        "justification": "The text discusses agile methodologies and the composition of cross-functional teams but does not address software sustainability directly. It focuses on team dynamics and agile practices rather than the environmental, economic, or social aspects of software sustainability."
+    },
+    {
+        "id": "369596",
+        "label": "No",
+        "justification": "The text discusses Docker image management, including pulling official images, creating custom images, and the use of local versus cloud registries. While it touches on efficiency and reliability in deployment, it does not address software sustainability directly. The focus is on operational practices and infrastructure choices rather than on environmental impact, resource efficiency, or long-term sustainability of software development and deployment practices."
+    },
+    {
+        "id": "333291",
+        "label": "No",
+        "justification": "The text discusses optimizing computational resources and cost-effectiveness in a distributed computing environment, focusing on CPU performance, scalability, and cost management. It does not address software sustainability, which involves long-term maintenance, environmental impact, or social responsibility in software development and deployment."
+    },
+    {
+        "id": 439240,
+        "label": "Yes",
+        "justification": "The text discusses the protection of data in RAM and the measures taken by cloud providers to secure data, including encryption and confidential computing initiatives. It also touches on the trust in cloud providers and the viability of certain attack vectors, which are relevant to the sustainability of software by ensuring its security and reliability over time."
+    },
+    {
+        "id": "338755",
+        "label": "Yes",
+        "justification": "The text discusses the importance of designing applications for resilience, redundancy, modularity, and resiliency in cloud systems, which are key aspects of software sustainability. It also touches on operational management and continuous monitoring, which are practices that contribute to the long-term sustainability of software systems by ensuring their availability and reliability over time."
+    },
+    {
+        "id": "420466",
+        "label": "No",
+        "justification": "The text discusses architectural considerations, scalability, and system reliability in the context of a web service, focusing on write-throughput, read dominance, and the use of specific technologies like Redis, MongoDB, and PostgreSQL. While it touches on efficiency and resource optimization, it does not explicitly address environmental sustainability, energy efficiency, or the long-term environmental impact of software systems, which are key aspects of software sustainability."
+    },
+    {
+        "id": "363962",
+        "label": "Yes",
+        "justification": "The text discusses the architectural considerations and challenges of integrating databases with serverless architectures, such as AWS Lambda, which is a topic related to software sustainability. It touches on aspects like ownership, scaling, and security in the context of serverless computing, which are important for maintaining and evolving software systems sustainably over time."
+    },
+    {
+        "id": "332982",
+        "label": "No",
+        "justification": "The text discusses development process organization, testing strategies, and the use of API gateways, but does not address or relate to software sustainability topics such as environmental impact, energy efficiency, or long-term maintainability of software systems."
+    },
+    {
+        "id": 341113,
+        "label": "No",
+        "justification": "The text primarily discusses the different levels of cloud services (IaaS, PaaS, SaaS) and the development process within these frameworks, focusing on AWS as an example. While it touches on operational efficiency and scalability, it does not directly address software sustainability concerns such as energy efficiency, long-term maintainability, or environmental impact of software development and deployment practices."
+    },
+    {
+        "id": "365193",
+        "label": "No",
+        "justification": "The text discusses application scalability, server farms, load balancing, and hosting considerations, which are related to system performance and architecture rather than software sustainability. It does not address environmental impact, resource efficiency, or long-term maintainability, which are key aspects of sustainability."
+    },
+    {
+        "id": 382607,
+        "label": "No",
+        "justification": "The text discusses architectural decisions and design patterns for scaling and performance in a blog editing and display system, focusing on microservices, CQRS, and the use of technologies like Redis and ElasticSearch. It does not address or relate to software sustainability, which involves the long-term maintenance, environmental impact, or societal benefits of software development and deployment."
+    },
+    {
+        "id": "360022",
+        "label": "Yes",
+        "justification": "The text discusses considerations for hosting, cost, and management in the context of software development, specifically comparing self-hosted solutions versus cloud-based solutions like AWS. It evaluates the scalability, performance, and cost-effectiveness of different storage and database options (RDBMS vs. search servers like ElasticSearch) in relation to software sustainability. The discussion on the tradeoffs and the emphasis on scalability and cost-efficiency align with the broader concerns of sustainable software practices, which aim to optimize resource use and long-term viability of software systems."
+    },
+    {
+        "id": "432796",
+        "label": "No",
+        "justification": "The text discusses security and privacy concerns related to accessing user media stored in Azure blob storage, rather than addressing software sustainability. The focus is on implementing measures to prevent unauthorized access to personal data, which is a security issue, not directly related to the environmental or long-term viability aspects of software sustainability."
+    },
+    {
+        "id": "386307",
+        "label": "Yes",
+        "justification": "The text discusses the use of a serverless architecture (Azure Functions) which is related to software sustainability by mentioning auto-scaling solutions and reduced operational tasks, indicating a focus on efficient resource use and maintenance reduction."
+    },
+    {
+        "id": "403152",
+        "label": "Yes",
+        "justification": "The text discusses optimizing AWS Lambda functions by reusing resources like SDK clients and database connections to save execution time and cost, which directly relates to software sustainability by improving efficiency and reducing resource consumption."
+    },
+    {
+        "id": "403459",
+        "label": "No",
+        "justification": "The text discusses the pros and cons of storing blobs in a database versus an object store, focusing on technical considerations like security, access control, and transactional consistency. While it touches on operational costs and infrastructure waste, the primary focus is not on software sustainability but rather on architectural and operational decisions regarding data storage. Therefore, it does not directly relate to the broader concept of software sustainability, which encompasses environmental impact, long-term maintainability, and energy efficiency among other factors."
+    },
+    {
+        "id": "340747",
+        "label": "Yes",
+        "justification": "The text discusses converting a backend into a cloud app for better scalability, which is directly related to software sustainability as it involves improving the system's ability to handle growth and maintain performance over time. The mention of measuring which sub-workflow benefits most from scalable cloud services further emphasizes the focus on sustainable software architecture and practices."
+    },
+    {
+        "id": "365330",
+        "label": "No",
+        "justification": "The text discusses the comparison between Amazon DynamoDB and relational databases, focusing on scalability, management, performance, and reliability aspects of database systems. While it touches on the efficiency and scalability of cloud services, it does not directly address or relate to the concept of software sustainability, which involves the long-term maintenance, environmental impact, and energy efficiency of software systems."
+    },
+    {
+        "id": "411735",
+        "label": "No",
+        "justification": "The text discusses the considerations between using a relational database versus a NoSQL database for storing data, focusing on aspects like scalability, speed, and cost. It does not address or relate to software sustainability, which involves practices and principles aimed at minimizing the environmental impact of software development and operation over its lifecycle."
+    },
+    {
+        "id": "315931",
+        "label": "No",
+        "justification": "The text discusses concerns about the learning curve and maintainability of JSTL syntax in JSP's, the contemporary relevance of JSP's compared to JS frameworks, and strategies for front-end development including the use of microservices and client-side UI like Angular. While it touches on aspects of software development practices and technology choices, it does not specifically address software sustainability, which typically involves considerations of environmental impact, long-term maintainability, and energy efficiency of software systems."
+    },
+    {
+        "id": "388892",
+        "label": "Yes",
+        "justification": "The text discusses considerations for deploying caches in microservice architectures, emphasizing the importance of avoiding premature optimizations and sizing solutions according to actual problems. It highlights the potential financial and operational risks of oversizing architectures in the cloud, which relates to sustainable software practices by advocating for efficient resource use and cost management."
+    },
+    {
+        "id": "334294",
+        "label": "No",
+        "justification": "The text primarily discusses the evolution, popularity, and technical considerations of SQL and NoSQL databases, including factors like corporate influence, open-source community impact, physical storage technologies, and cloud computing advancements. While it touches on efficiency and cost, the focus is not on software sustainability but rather on the historical and current state of database technologies and their use in the industry."
+    },
+    {
+        "id": "378569",
+        "label": "No",
+        "justification": "The text discusses securing REST APIs against unauthorized use in on-premise server environments, focusing on technical and legal strategies to prevent clone apps. While it touches on software deployment and security, the primary concern is not about the sustainability of software in terms of environmental impact, energy efficiency, or long-term maintainability, but rather on protecting intellectual property and ensuring authorized use. Therefore, it is not directly related to software sustainability."
+    },
+    {
+        "id": "426618",
+        "label": "No",
+        "justification": "The text discusses software architecture solutions for data transfer between a partner and a client, focusing on the technical aspects and pros and cons of each solution. It does not mention or relate to software sustainability, which involves practices that ensure software can be maintained and evolved over time with minimal environmental impact. The discussion is centered around efficiency, cost, and control over data processing rather than sustainability concerns."
+    },
+    {
+        "id": "351507",
+        "label": "Yes",
+        "justification": "The text discusses setting up a testing environment that replicates the production environment and using cloud services like AWS to automate and scale testing processes. This approach emphasizes automation, scalability, and the use of cloud resources efficiently, which are key aspects of software sustainability. The mention of adopting 'best practices' further supports the relevance to sustainability in software development and operations."
+    },
+    {
+        "id": 372833,
+        "label": "Yes",
+        "justification": "The text discusses the cost and efficiency of using different storage mediums (RAM, SSD, hard disks, tapes, AWS services) for data access and processing, which is directly related to optimizing resource use and sustainability in software and hardware systems. It also mentions caching solutions and patterns designed to work with this topology, highlighting strategies for sustainable resource management."
+    },
+    {
+        "id": "315965",
+        "label": "No",
+        "justification": "The text discusses various aspects of web development technologies, such as JSP, server-side rendering, and client-side frameworks, focusing on performance, development concerns, and architectural styles. While it touches on efficiency and resource usage, it does not directly address software sustainability in terms of environmental impact, long-term maintainability, or energy efficiency, which are key aspects of sustainability in software engineering."
+    },
+    {
+        "id": "404970",
+        "label": "Yes",
+        "justification": "The text discusses the modernization of a legacy scientific program, focusing on improving both technical and organizational aspects to ensure the software's sustainability. It outlines a strategy to replace homegrown solutions with best practice open-source alternatives, implement testing, refactor code, and update architecture for cloud computing. These efforts aim to make the software more maintainable, scalable, and less reliant on outdated practices, which are key aspects of software sustainability."
+    },
+    {
+        "id": "401720",
+        "label": "No",
+        "justification": "The text discusses the management and configuration of AWS Lambda functions, including the use of AWS services like Secrets Manager and Parameter Store for configuration management. While it touches on efficiency and best practices in cloud infrastructure, it does not directly address software sustainability, which typically involves topics like reducing environmental impact, energy efficiency, or long-term maintainability of software systems."
+    },
+    {
+        "id": 315163,
+        "label": "No",
+        "justification": "The text discusses the benefits and technical aspects of using CDNs for improving user experience, reliability, and cost-effectiveness in serving content globally. While it touches on efficiency and cost savings, it does not directly address software sustainability, which typically involves considerations of environmental impact, long-term maintainability, and energy efficiency of software development and deployment practices."
+    },
+    {
+        "id": "405176",
+        "label": "No",
+        "justification": "The text discusses high availability, downtime, and the costs associated with ensuring minimal downtime across multiple cloud providers. While it touches on operational efficiency and cost-benefit analysis, it does not directly address software sustainability, which typically involves the environmental impact, long-term maintainability, and energy efficiency of software systems. The focus here is on uptime and cost rather than sustainability practices or principles."
+    },
+    {
+        "id": "448250",
+        "label": "No",
+        "justification": "The text discusses computational complexity, data storage, and reporting logic in the context of big data operations and ETL processes, but it does not address or relate to software sustainability, which involves the long-term maintenance, environmental impact, and energy efficiency of software systems."
+    },
+    {
+        "id": "391902",
+        "label": "Yes",
+        "justification": "The text discusses the organization of a database for multiple business clients, focusing on scalability and security, which are key aspects of software sustainability. It explores the trade-offs between a single shared database and separate databases for each business, which relates to sustainable software design practices in terms of resource utilization, security, and long-term maintainability."
+    },
+    {
+        "id": "363972",
+        "label": "Yes",
+        "justification": "The text discusses scalability and efficiency in handling large volumes of data and user requests, which are key aspects of software sustainability. It addresses how to manage resources effectively to ensure the software can scale without degradation in performance, aligning with the principles of sustainable software development."
+    },
+    {
+        "id": "423151",
+        "label": "No",
+        "justification": "The text discusses database architecture, performance considerations, and data storage solutions, but does not address software sustainability directly. It focuses on technical and performance aspects rather than environmental impact, resource efficiency, or long-term sustainability practices in software development."
+    },
+    {
+        "id": "452263",
+        "label": "No",
+        "justification": "The text discusses technical challenges and solutions related to web application deployment, cron jobs, and infrastructure choices (AWS Lambda vs. Redis with BullModule) for a NestJS application. While it touches on aspects like cost and system complexity, the primary focus is on technical implementation details rather than software sustainability. Software sustainability would involve considerations like long-term maintainability, environmental impact, or social responsibility, which are not the main topics of this discussion."
+    },
+    {
+        "id": "378239",
+        "label": "No",
+        "justification": "The text discusses the design and cost implications of adding an intermediary service for S3 access within a service-oriented architecture (SOA), focusing on development costs, maintenance, and the principle of keeping designs simple (KISS). It does not address or relate to software sustainability, which concerns the long-term environmental, economic, and social impacts of software development and usage. The discussion is centered around cost efficiency and design principles rather than sustainability practices or considerations."
+    },
+    {
+        "id": "447666",
+        "label": "No",
+        "justification": "The text discusses architectural decisions for a software system, focusing on security, scalability, and cost management, but does not address or relate to software sustainability directly."
+    },
+    {
+        "id": "406350",
+        "label": "Yes",
+        "justification": "The text discusses microservices architecture, which is related to software sustainability through its focus on scalable, efficient, and cost-effective deployment strategies. It emphasizes minimizing cloud expenditures and leveraging managed services, which are key aspects of sustainable software practices by optimizing resource use and reducing operational costs."
+    },
+    {
+        "id": "330808",
+        "label": "No",
+        "justification": "The text primarily discusses tools and practices for improving development workflows, version control, deployment strategies, and development environments. While it mentions efficiency and optimization, it does not directly address or relate to the concept of software sustainability, which involves long-term maintenance, environmental impact, and societal considerations of software development."
+    },
+    {
+        "id": "334663",
+        "label": "No",
+        "justification": "The text discusses microservices architecture, developer testing, and the use of clusters for integration testing, along with suggestions for monitoring and orchestration tools like Prometheus and Kubernetes. While it touches on efficient resource use and system reliability, it does not directly address software sustainability in terms of environmental impact, long-term maintainability, or energy efficiency, which are key aspects of sustainability in software development."
+    },
+    {
+        "id": "390552",
+        "label": "No",
+        "justification": "The text primarily discusses the architectural and operational considerations for setting up and maintaining an email server to avoid being blacklisted, focusing on technical and business practices rather than software sustainability. It does not address environmental impact, resource efficiency, or long-term viability in the context of software sustainability."
+    },
+    {
+        "id": 334800,
+        "label": "No",
+        "justification": "The text discusses the technical challenges and considerations of implementing push notification servers, comparing different protocols and suggesting improvements. While it touches on efficiency and future-proofing, the primary focus is on technical implementation details rather than sustainability in terms of environmental impact, resource efficiency, or long-term viability in a broader sense. Therefore, it does not directly relate to software sustainability as defined by the task."
+    },
+    {
+        "id": "433023",
+        "label": "Yes",
+        "justification": "The text discusses the challenges of maintaining development and production environment parity in a microservice-based architecture, which is a key aspect of software sustainability. It highlights the importance of efficient resource use and the need for automated processes to keep environments up-to-date, both of which are relevant to sustainable software development practices."
+    },
+    {
+        "id": "376325",
+        "label": "No",
+        "justification": "The text discusses the technical aspects of implementing a serverless architecture using AWS services for a specific application model (event-sourced, CQRS). It focuses on understanding AWS services, their integration, and addressing technical challenges like atomicity, performance, and cold starts. There is no mention or consideration of software sustainability, such as energy efficiency, long-term maintainability, or environmental impact of the chosen technologies. Therefore, the text is unrelated to software sustainability."
+    },
+    {
+        "id": "322899",
+        "label": "No",
+        "justification": "The text discusses best practices for limiting access to data in DynamoDB and mentions authentication and authorization, but it does not address software sustainability. The focus is on security measures and data storage options rather than sustainability aspects of software development or deployment."
+    },
+    {
+        "id": "331073",
+        "label": "Yes",
+        "justification": "The text discusses the development of a new product that aims to consolidate two existing solutions into one, focusing on a web service that can operate both on-site and in the cloud. This involves considerations of software architecture, deployment models (on-site vs. cloud), and the sustainability of maintaining and evolving software solutions over time. The mention of retiring old products in favor of a more sustainable, unified solution directly relates to software sustainability by addressing the need for long-term maintainability, scalability, and efficiency in software development and deployment."
+    },
+    {
+        "id": "403071",
+        "label": "No",
+        "justification": "The text discusses fault tolerance and high availability in software design, focusing on system reliability, scalability, and handling failures. While these are important aspects of software engineering, the discussion does not directly address software sustainability, which typically concerns the environmental impact, long-term maintenance, and energy efficiency of software systems. Therefore, the text is labeled as 'No' for being unrelated to software sustainability."
+    },
+    {
+        "id": 421082,
+        "label": "No",
+        "justification": "The text discusses the technical aspects of connecting embedded devices to the cloud using LwM2M for monitoring and configuration, including challenges and potential solutions for implementation. It does not address software sustainability, which typically involves considerations of long-term maintenance, environmental impact, or resource efficiency in software development and deployment."
+    },
+    {
+        "id": "373055",
+        "label": "No",
+        "justification": "The text primarily discusses the implementation of a logging system, the use of Big Data for analytics, and considerations for choosing between different database technologies. While it touches on efficiency and cost, it does not directly address software sustainability, which involves the long-term maintenance, environmental impact, and energy efficiency of software systems. The focus is more on operational and technical decisions rather than sustainability practices or principles."
+    },
+    {
+        "id": "363959",
+        "label": "No",
+        "justification": "The text discusses the comparison between RDBMSs and NoSQL solutions, focusing on flexibility, performance, and use cases for different types of data storage and retrieval. It does not address software sustainability, which involves practices and principles aimed at ensuring that software can be maintained and evolved over time with minimal environmental impact. The discussion is more about database technologies and their application in specific scenarios rather than sustainability in software development."
+    },
+    {
+        "id": "322153",
+        "label": "No",
+        "justification": "The text discusses various technical solutions for high availability and load balancing in a Windows environment, including Windows Failover Clustering, Network Load Balancing (NLB), DNS Round Robin, and hardware load balancers. It also mentions the potential use of cloud offerings like Azure for redundancy. However, the discussion is focused on system reliability, availability, and performance rather than on software sustainability, which pertains to the long-term environmental, economic, and social impacts of software development and usage. Therefore, the text is unrelated to the topic of software sustainability."
+    },
+    {
+        "id": "384682",
+        "label": "No",
+        "justification": "The text discusses the design and scalability of a notification system using AWS services like SQS and Lambda, focusing on technical challenges such as avoiding duplicate notifications and ensuring scalability. While it mentions cost reduction as a secondary concern, the primary focus is on system design and efficiency rather than on sustainability aspects of software."
+    },
+    {
+        "id": "436432",
+        "label": "No",
+        "justification": "The text primarily discusses logging strategies, log aggregation, and operational concerns in cloud deployments, which are more related to system architecture and operational efficiency rather than software sustainability. While efficient logging can indirectly contribute to sustainability by optimizing resource use, the core focus of the text is not on environmental impact, energy efficiency, or sustainable software development practices."
+    },
+    {
+        "id": "420877",
+        "label": "Yes",
+        "justification": "The text discusses considerations and trade-offs between using AWS Lambda and ECS for deploying services, focusing on aspects like maintenance, development efficiency, and operational reliability. These considerations are directly related to software sustainability, as they involve making decisions that affect the long-term maintainability, scalability, and efficiency of software systems. The discussion on the impact of architectural choices on team focus, deployment processes, and system isolation further underscores its relevance to sustainability in software engineering."
+    },
+    {
+        "id": "351970",
+        "label": "No",
+        "justification": "The text discusses security measures for API endpoints, authentication, and token storage, which are related to software security practices rather than software sustainability. The focus is on protecting data and preventing unauthorized access, not on the long-term environmental, economic, or social impacts of software development and usage."
+    },
+    {
+        "id": "402967",
+        "label": "Yes",
+        "justification": "The text discusses strategies for scaling and optimizing software systems, including the use of managed services, parallel processing, and automatic scaling technologies. These strategies are aimed at improving the efficiency and sustainability of software operations by reducing resource consumption and improving performance, which are key aspects of software sustainability."
+    },
+    {
+        "id": "422123",
+        "label": "No",
+        "justification": "The text is focused on learning system design/architecture and building a scalable app using AWS tools, specifically for searching and rating movies. It does not discuss or relate to software sustainability, which involves practices and principles aimed at making software development more environmentally friendly, economically viable, and socially responsible over time."
+    },
+    {
+        "id": 418151,
+        "label": "Yes",
+        "justification": "The text discusses re-architecting a monolithic application into a microservices architecture to handle scaling requirements more efficiently, which is related to software sustainability. It addresses the need for scalable, efficient resource use and the potential for reduced infrastructure overhead, aligning with sustainability goals by optimizing performance and resource allocation."
+    },
+    {
+        "id": 411767,
+        "label": "No",
+        "justification": "The text discusses methods to protect an app from reverse engineering and unauthorized access, focusing on technical and legal aspects of app security rather than software sustainability. It does not address environmental, economic, or social aspects of sustainability in software development or deployment."
+    },
+    {
+        "id": 418163,
+        "label": "No",
+        "justification": "The text discusses the architecture of a monolithic application and the potential transition to microservices, focusing on scaling and performance considerations within cloud environments like Google Cloud and AWS. It does not address or relate to software sustainability, which typically involves topics like energy efficiency, long-term maintainability, or environmental impact of software development and deployment."
+    }
+]

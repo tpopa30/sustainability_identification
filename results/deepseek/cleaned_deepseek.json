@@ -1,0 +1,52 @@
+[
+    {
+        "id": "322077",
+        "label": "No",
+        "justification": "The text discusses technical aspects of AWS Lambda functions, resource allocation, deployment models, and scalability challenges. While it mentions resource efficiency (e.g., 'ressources are allocated for the duration of the program, then fred'), the focus is on architectural limitations and cloud service mechanics rather than environmental impact, energy efficiency, long-term maintainability, or other aspects directly tied to software sustainability. The concerns raised (e.g., scalability of deployment packages) relate to system design rather than sustainability goals."
+    },
+    {
+        "id": 316508,
+        "label": "Yes",
+        "justification": "The text discusses architectural decisions focused on scalability, maintainability, and adaptability of a software system (e.g., modular design, replaceable components, and evaluation of cloud services like Azure Functions). These aspects align with software sustainability principles, which emphasize long-term viability, efficient resource usage, and minimizing technical debt. While not explicitly mentioning environmental impact, the emphasis on avoiding bottlenecks, enabling future scalability, and reducing system dependencies contributes to sustainable software practices by promoting enduring and efficient solutions."
+    },
+    {
+        "id": 442126,
+        "label": "No",
+        "justification": "The text focuses on mitigating operational risks (e.g., dynamic IP issues, tight coupling, manual deployments) and urgent scalability challenges for a legacy monolith, driven by a fixed deadline. While improving maintainability (e.g., centralizing configs) is mentioned, the discussion centers on immediate technical debt and deployment safety, not sustainability goals like long-term environmental impact, energy efficiency, or broader socio-technical resilience. No explicit connection to software sustainability principles is made."
+    },
+    {
+        "id": "404970",
+        "label": "Yes",
+        "justification": "The text discusses modernizing a legacy Fortran-based system to improve maintainability, replace outdated homegrown utilities with sustainable open-source alternatives (e.g., Git), introduce testing, adopt cloud computing, and address organizational processes. These efforts align directly with software sustainability goals, such as reducing technical debt, ensuring long-term maintainability, improving resource efficiency, and enabling adaptability to future needs. The focus on containerization, standardized practices, and reducing vendor lock-in further underscores sustainability concerns."
+    },
+    {
+        "id": 363959,
+        "label": "Yes",
+        "justification": "The text discusses database system choices (RDBMS vs. NoSQL) in the context of scalability, long-term adaptability, and efficient resource management. These factors contribute to software sustainability by emphasizing maintainability, avoiding premature architectural overhauls, and enabling systems to evolve with minimal technical debt. While not explicitly environmental, the focus on sustainable design practices\u2014such as selecting flexible technologies that reduce long-term rework\u2014aligns with broader software sustainability goals."
+    },
+    {
+        "id": "351507",
+        "label": "Yes",
+        "justification": "The text discusses automating infrastructure setup, leveraging cloud services for scalable testing, and adopting best practices like ephemeral environments. These practices align with software sustainability by promoting resource efficiency (reducing idle infrastructure via spin-up/tear-down cycles), cost optimization (using spot instances), and maintainability (automation via CloudFormation scripts), which collectively support long-term operational and environmental sustainability in software development."
+    },
+    {
+        "id": 421082,
+        "label": "No",
+        "justification": "The text discusses technical challenges related to integrating LwM2M protocol into a cloud-connected device, focusing on system design, coupling, and module interface improvements. While topics like reducing tight coupling and improving modularity can indirectly support software sustainability (e.g., maintainability), the text does not explicitly address sustainability goals such as environmental impact, energy efficiency, or long-term societal benefits. The primary focus is on functional requirements and architectural patterns (e.g., Observer, Mediator) to meet specific technical needs, rather than sustainability-oriented concerns."
+    },
+    {
+        "id": 433568,
+        "label": "Yes",
+        "justification": "The text discusses long-term system maintenance, total cost of ownership, and challenges in maintaining data integrity across systems, which relate to economic and technical aspects of software sustainability. It emphasizes avoiding inefficiencies and ensuring viable, maintainable solutions over time, aligning with sustainable software practices."
+    },
+    {
+        "id": 322658,
+        "label": "No",
+        "justification": "The text focuses on technical and organizational challenges of transitioning from a monolithic architecture to .NET-based microservices, including development planning, infrastructure scaling, deployment, and monitoring. While these topics relate to software maintainability and scalability (which are aspects of system design), they do not explicitly address environmental, economic, or social dimensions of software sustainability, such as energy efficiency, carbon footprint reduction, or long-term societal impact. The discussion centers on architectural best practices rather than sustainability-specific concerns."
+    },
+    {
+        "id": 432288,
+        "label": "Yes",
+        "justification": "The text discusses challenges in designing a resilient event-driven system with long-running processes under AWS RabbitMQ constraints, which directly relates to software sustainability. Sustainability in software involves ensuring systems are efficient, maintainable, and resource-conscious over time. The problem of endless message requeueing due to execution time limits highlights inefficiency and resource waste, while the search for alternative patterns to avoid this aligns with sustainable practices like optimizing resource usage and ensuring long-term operational viability."
+    }
+]

@@ -1,0 +1,57 @@
+[
+        {
+            "id": 315931,
+            "label": "Yes",
+            "justification": "The text discusses concerns about the maintainability and scalability of using JSTL/JSP, which are directly related to long-term software sustainability through team efficiency and adaptability."
+        },
+        {
+            "id": 315931,
+            "label": "Yes",
+            "justification": "Mentions the obsolescence of JSPs and hiring challenges, highlighting sustainability concerns tied to technology relevance and developer ecosystem support."
+        },
+        {
+            "id": 315931,
+            "label": "Yes",
+            "justification": "Explicitly references maintainability, flexibility, and appropriateness of technologies, which are core aspects of software sustainability."
+        },
+        {
+            "id": 315931,
+            "label": "Yes",
+            "justification": "Addresses scalability challenges in the event of massive growth, a key sustainability concern for long-term system viability."
+        },
+        {
+            "id": 315931,
+            "label": "No",
+            "justification": "Focuses on financial capacity to address future problems rather than sustainable development practices."
+        },
+        {
+            "id": 315931,
+            "label": "Yes",
+            "justification": "Advocates for nimble architectures and adaptability, aligning with sustainable design principles."
+        },
+        {
+            "id": 315931,
+            "label": "Yes",
+            "justification": "Discusses cost-effective resource usage (client-side rendering), which relates to operational sustainability."
+        },
+        {
+            "id": 315931,
+            "label": "Yes",
+            "justification": "Highlights compatibility risks with outdated browsers, affecting long-term usability and inclusivity."
+        },
+        {
+            "id": 315931,
+            "label": "No",
+            "justification": "Focuses on user expectations rather than sustainable software practices."
+        },
+        {
+            "id": 315931,
+            "label": "No",
+            "justification": "Vague reference to strategies without actionable sustainability context."
+        },
+        {
+            "id": 315931,
+            "label": "Yes",
+            "justification": "Promotes microservices and modularity, which enhance maintainability and scalability for sustainable systems."
+        }
+    ]

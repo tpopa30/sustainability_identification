@@ -1,0 +1,53 @@
+Id,Body
+"452263","<p>please note that while I refer to a specific web application framework in the following, the problem also arises with most other web application frameworks I know so please don't be afraid to reply even if you don't have experience with NestJS.</p>
+<p>I have a web application with NestJS that runs on Azure Appservices (or AWS ECS).
+There are at least 2 instances active at the same time.</p>
+<p>The application has a public RESTful endpoint allowing people to POST orders via HTTPS.
+These are then stored in a database table.
+The new orders shall be exported to a CSV file and the CSV file once a day at a fixed time to to orders processing department.
+The CSV must only be emailed at most once per day.</p>
+<p>Currently this does not work because the export is initiated by a @Cron (from @nestjs/schedule library) decorated method in a service class within the application.
+As there are multiple instances of the docker container, the export is initiated once per running instance instead of only once per day.</p>
+<p>My initial idea was to create another REST endpoint that is called once per day by a AWS lambda or Azure Functions function with a cron trigger for the lambda function. This endpoint will then invoke the export functionality.</p>
+<p>As the web application instances run behind the load balancer, the HTTP POST request to start the export procedure would only be forwarded to one instance.</p>
+<p>The only downside I see is that the lambda could be a single point of failure. If the cron trigger for some reason does activate or the HTTP request is lost somehow, the export would not be done right away.
+But if the HTTP request to trigger the export would fail or not be sent at all on one day, it could easily be resent by manually invoking the lambda function during the day.
+Another &quot;downside&quot; of this
+A very small additional cost for the lamdba function resource (0,000x cents?! if already above free tier limit)</p>
+<p>What the other developers suggested was to use the @nestjs/bull module which makes use of redis to synchronize a queue across all connected instances.</p>
+<p>This has multiple major disadvantages in my opinion:</p>
+<ul>
+<li>A redis cache needs to be served with a good enough availability -&gt; bigger additional infrastructure cost per month</li>
+<li>More code needed for the wrapping business logic that sets up the queues at app startup (@OnModuleInit in NestJS) compared to a small lambda function (~10 LoC) combinend with an additional HTTP POST endpoint (at most 15 LoC in NestJS)</li>
+<li>NestJS specific problems: I need THREE additional dependencies: @nestjs/bull, bull, ioredis (the latter to import Redis.RedisOptions interface in the app.module)</li>
+<li>Default BullModule implementation lets app startup fail when redis is not available -&gt; additional single point of failure (could potentially be circumvented by a custom wrapper module but this requires more code again)</li>
+<li>Migration to other web application framework would be harder because the new framework would need to provide an implementation to consume the jobs from the redis queue. Quite unlikely that there would be an existing component that can also process the cron jobs stored in @nestjs/bull's data structures within redis. An HTTP POST API on the other hand can be replicated very easily using most web application frameworks (Spring, NestJS, Django, Golang Frameworks, etc.)</li>
+</ul>
+<p>Downsides both solutions have:</p>
+<ul>
+<li>Additional terraform resource (lambda function or redis cache)</li>
+<li>Increased overall system complexity</li>
+</ul>
+<p>Question 1:) What am I overlooking?</p>
+<p>Question 2:)
+What other advantages / disadvantages do you see in both approaches?</p>
+<p>Question 3:) what other approaches are there with having even fewer disadvantages?</p>
+"
+"450653","<blockquote>
+<p>where the data will be hosted by the software company</p>
+</blockquote>
+<p>The problem with that approach is that you end up effectively undoing that arms-length cloud hosting when you want to draw things together for bespoke reporting, because the data ends up back in your possession for you to manage.</p>
+<p>The real perceived advantage of most cloud hosting from a client perspective, is avoiding the need to retain staff who understand a particular application enough to keep it in working order, or understand a database enough to develop with it.</p>
+<p>For small businesses (i.e. a one- or two-man band) who have one system and can't afford any full-time technical staff, having the provider manage everything is a boon.</p>
+<p>But once you start having multiple systems to look after and extracting the data for bespoke reporting, you'll find you need all those technical staff again, not just to perform the practical work of configuration or development, but to retain the knowledge necessary to do the work and to orchestrate things in your particular business.</p>
+<p>And as well as undoing <em>part of what you're paying for</em> with a cloud model, the provider also might well have your pants down just for letting you extract your own data.</p>
+<p>Indeed it seems many cloud platforms are still in the subsidisation stage, where companies are going easy on the licensing charges to establish the popularity of the model, after which licensing prices will soar.</p>
+<p>It's something to think carefully about.</p>
+<blockquote>
+<p>I'm not sure if anyone is familiar with those applications, but I'm more interested in the prospect of the organization storing data in this way without an in-house DBA to manage everything.</p>
+</blockquote>
+<p>For a setup of any complexity, you'll likely need internal technical staff to manage and oversee the technical setup, ongoingly.</p>
+<p>If your reporting from each core system is simple (and always will be) and there isn't any need for integration of the data, you might be able to do without a data warehouse, and pipe data directly from core systems to Power BI.</p>
+<p>But in my experience, you also find that core systems usually already have a simple reporting capability built-in, and people only consider facilities like Power BI when they have serious bespoke reporting needs which are not &quot;simple&quot; in the relevant sense.</p>
+<p>Instead the needs are usually &quot;complex&quot; in that you need (at least) a real development environment with programming languages (at least SQL), and proper scheduling facilities. You might also need to think about test environments, source code management, credential management, network and data security, and so on. All this adds up to needing skilled staff.</p>
+"

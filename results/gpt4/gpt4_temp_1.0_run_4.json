@@ -1,0 +1,12 @@
+[
+    {
+        "id": 452263,
+        "label": "cloud services",
+        "justification": "The post is discussing about how to handle a specific scheduling problem in a web application that runs on Azure Appservices or AWS ECS. The solutions being discussed like AWS Lambda, Azure Functions, as well as concerns about load balancing and use of HTTP POST API, are all elements related to managing and implementing cloud services."
+    },
+    {
+        "id": 450653,
+        "label": "cloud services",
+        "justification": "The post revolves around the discussion of data hosting by a software company, exploring the advantages and disadvantages of cloud hosting. The considerations and implications for small and big businesses, in terms of staff, resources, and management, are discussed. It's evident that the topic falls under the category of 'cloud services'."
+    }
+]
