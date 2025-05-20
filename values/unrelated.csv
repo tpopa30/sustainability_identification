@@ -1,0 +1,1341 @@
+Id,Body
+452263,"<p>please note that while I refer to a specific web application framework in the following, the problem also arises with most other web application frameworks I know so please don't be afraid to reply even if you don't have experience with NestJS.</p>
+<p>I have a web application with NestJS that runs on Azure Appservices (or AWS ECS).
+There are at least 2 instances active at the same time.</p>
+<p>The application has a public RESTful endpoint allowing people to POST orders via HTTPS.
+These are then stored in a database table.
+The new orders shall be exported to a CSV file and the CSV file once a day at a fixed time to to orders processing department.
+The CSV must only be emailed at most once per day.</p>
+<p>Currently this does not work because the export is initiated by a @Cron (from @nestjs/schedule library) decorated method in a service class within the application.
+As there are multiple instances of the docker container, the export is initiated once per running instance instead of only once per day.</p>
+<p>My initial idea was to create another REST endpoint that is called once per day by a AWS lambda or Azure Functions function with a cron trigger for the lambda function. This endpoint will then invoke the export functionality.</p>
+<p>As the web application instances run behind the load balancer, the HTTP POST request to start the export procedure would only be forwarded to one instance.</p>
+<p>The only downside I see is that the lambda could be a single point of failure. If the cron trigger for some reason does activate or the HTTP request is lost somehow, the export would not be done right away.
+But if the HTTP request to trigger the export would fail or not be sent at all on one day, it could easily be resent by manually invoking the lambda function during the day.
+Another &quot;downside&quot; of this
+A very small additional cost for the lamdba function resource (0,000x cents?! if already above free tier limit)</p>
+<p>What the other developers suggested was to use the @nestjs/bull module which makes use of redis to synchronize a queue across all connected instances.</p>
+<p>This has multiple major disadvantages in my opinion:</p>
+<ul>
+<li>A redis cache needs to be served with a good enough availability -&gt; bigger additional infrastructure cost per month</li>
+<li>More code needed for the wrapping business logic that sets up the queues at app startup (@OnModuleInit in NestJS) compared to a small lambda function (~10 LoC) combinend with an additional HTTP POST endpoint (at most 15 LoC in NestJS)</li>
+<li>NestJS specific problems: I need THREE additional dependencies: @nestjs/bull, bull, ioredis (the latter to import Redis.RedisOptions interface in the app.module)</li>
+<li>Default BullModule implementation lets app startup fail when redis is not available -&gt; additional single point of failure (could potentially be circumvented by a custom wrapper module but this requires more code again)</li>
+<li>Migration to other web application framework would be harder because the new framework would need to provide an implementation to consume the jobs from the redis queue. Quite unlikely that there would be an existing component that can also process the cron jobs stored in @nestjs/bull's data structures within redis. An HTTP POST API on the other hand can be replicated very easily using most web application frameworks (Spring, NestJS, Django, Golang Frameworks, etc.)</li>
+</ul>
+<p>Downsides both solutions have:</p>
+<ul>
+<li>Additional terraform resource (lambda function or redis cache)</li>
+<li>Increased overall system complexity</li>
+</ul>
+<p>Question 1:) What am I overlooking?</p>
+<p>Question 2:)
+What other advantages / disadvantages do you see in both approaches?</p>
+<p>Question 3:) what other approaches are there with having even fewer disadvantages?</p>
+"
+450653,"<blockquote>
+<p>where the data will be hosted by the software company</p>
+</blockquote>
+<p>The problem with that approach is that you end up effectively undoing that arms-length cloud hosting when you want to draw things together for bespoke reporting, because the data ends up back in your possession for you to manage.</p>
+<p>The real perceived advantage of most cloud hosting from a client perspective, is avoiding the need to retain staff who understand a particular application enough to keep it in working order, or understand a database enough to develop with it.</p>
+<p>For small businesses (i.e. a one- or two-man band) who have one system and can't afford any full-time technical staff, having the provider manage everything is a boon.</p>
+<p>But once you start having multiple systems to look after and extracting the data for bespoke reporting, you'll find you need all those technical staff again, not just to perform the practical work of configuration or development, but to retain the knowledge necessary to do the work and to orchestrate things in your particular business.</p>
+<p>And as well as undoing <em>part of what you're paying for</em> with a cloud model, the provider also might well have your pants down just for letting you extract your own data.</p>
+<p>Indeed it seems many cloud platforms are still in the subsidisation stage, where companies are going easy on the licensing charges to establish the popularity of the model, after which licensing prices will soar.</p>
+<p>It's something to think carefully about.</p>
+<blockquote>
+<p>I'm not sure if anyone is familiar with those applications, but I'm more interested in the prospect of the organization storing data in this way without an in-house DBA to manage everything.</p>
+</blockquote>
+<p>For a setup of any complexity, you'll likely need internal technical staff to manage and oversee the technical setup, ongoingly.</p>
+<p>If your reporting from each core system is simple (and always will be) and there isn't any need for integration of the data, you might be able to do without a data warehouse, and pipe data directly from core systems to Power BI.</p>
+<p>But in my experience, you also find that core systems usually already have a simple reporting capability built-in, and people only consider facilities like Power BI when they have serious bespoke reporting needs which are not &quot;simple&quot; in the relevant sense.</p>
+<p>Instead the needs are usually &quot;complex&quot; in that you need (at least) a real development environment with programming languages (at least SQL), and proper scheduling facilities. You might also need to think about test environments, source code management, credential management, network and data security, and so on. All this adds up to needing skilled staff.</p>
+"
+447666,"<p>I recommend going with &quot;<em>Set up a two-hop architecture</em>&quot; option you provided. This approach adds an extra layer of security and control, as the costly machine learning API is not directly exposed to the client. You can implement rate-limiting, logging, or any other security measures at the cloud function level.</p>
+<p>This architecture allows you to keep your database and machine learning API separate, enabling you to scale each component independently based on its own requirements. It also mitigates the risk of having to manage two separate authentication systems, as you mentioned with the &quot;<em>JWT and Fast API</em>&quot; option.</p>
+<p>To address your concerns about pricing and provider lock-in, you can design your architecture in a way that allows you to easily switch providers. Use environment variables for configuration and keep provider-specific code isolated. Most cloud providers offer cost calculators to help you estimate expenses, and you can set up monitoring and alerts to keep track of usage and any unauthorized access attempts.</p>
+<p>I think your approach offers a more secure and scalable solution that aligns well with best practices for API gatekeeping.</p>
+"
+440285,"<p>AWS Lambdas never made any sense.</p>
+<p>Or perhaps I should say &quot;serverless applications&quot; never made any sense. Because it seems to me that's what you are doing, moving application code to lambdas for cost reasons.</p>
+<p>As you note, actually the lambdas all run on instances that get billed by the hour, so unless you have long periods of nothing running at all you hardly save any money over always having a tiny instance up.</p>
+<p>You also have the various complexities you outline, essentially you are forced into a nano-service++ architecture with complex orchestration problems.</p>
+<p>Now you can in theory imagine an application where this architecture is ideal, lots of queues, events and mini functions all working together, but in practice its a bit like functional programming. Nice in theory, but difficult to apply to standard &quot;line of business&quot; applications.</p>
+<p>In summary, only use Lambdas where you have a specific need for them. Don't use them because the billing model appears different.</p>
+"
+439256,"<p>I work in a software company with a single product, a 25 year old monolith application (1.2m lines of code) handling all HR related data (employments, salary, collective agreements etc.).</p>
+<p>I've been put on a team that needs to research how we can modernize our application and so I've started reading up on different design patterns and architectural styles. The entire developer department, including me, have had this idea that a cloud native, microservices architecture is a no brainer, but the more I read about the style the more I seem to doubt that this style is actually compatible with our extremely complex and large business domain.</p>
+<p>A couple of examples for better clarification:</p>
+<p><strong>An employment is terminated</strong></p>
+<ul>
+<li>All work times and absence items after the termination date must be deleted.</li>
+<li>According to the employees collective agreement, a last date of salary must be set.</li>
+<li>The employees vacation, flex, time off in lieu account etc. must be paid out or used before this date</li>
+<li>The employees logins our platforms must be revoked</li>
+<li>Our integration partners must get the information that this employee is no longer with the company</li>
+<li>etc...</li>
+</ul>
+<p><strong>A shift is created</strong></p>
+<ul>
+<li><p>If the shift is on top of a vacation period, the vacation account must be deducted.</p>
+</li>
+<li><p>if the shift exceeds the collective agreements max work hours for the given period(month, week etc.). The shift should not be created OR there should a created an overtime addition for said shift</p>
+</li>
+<li><p>+a million other events triggered in the dependencies</p>
+</li>
+</ul>
+<p>These examples does not even start to cover the complexities of what happens when a collective agreement changes and the impact that can have on salary, accounts etc.</p>
+<p>It seems to me that our business boundaries are too large to cover by small microservices without having an absolutely wild amount of redundancy, in addition we are handling peoples salaries. Every part of the CAP principles (consistency, availability, partition tolerance) are all of high importance.</p>
+<p>What are your immediate thoughts on the matter?</p>
+"
+439240,"<blockquote>
+<p>at some point the data must exist on some server somewhere in RAM. How is the data protected at that point? From attackers? From the cloud provider? From other customers?</p>
+</blockquote>
+<p>We are rapidly moving towards a world where data is encrypted in RAM; see for example GCP's <a href=""https://cloud.google.com/blog/products/identity-security/confidential-computing-data-encryption-during-processing"" rel=""nofollow noreferrer"">confidential computing initiative</a> which means that data in RAM is encrypted with a VM-specific key. It is still unencrypted in the CPU itself (including caches) but that removes a number of the attacks you are worried about.</p>
+<p>As for your cloud provider, you to a large extent have to trust them. Again, the major vendors are making moves to reduce the amount of trust you have to give them - see e.g. <a href=""https://aws.amazon.com/blogs/security/confidential-computing-an-aws-perspective/"" rel=""nofollow noreferrer"">this post from AWS</a> - but that trust is still to some extent required.</p>
+<blockquote>
+<p>Is this even a viable attack vector to be concerned about? Why? Why not?</p>
+</blockquote>
+<p>Without a threat model, this is an impossible question to answer. If you are being attacked by a nation-state level actor, you're probably screwed no matter what you do.</p>
+"
+436432,"<p>I think you need to start by figuring out how the logging will be consumed.  One of the hallmarks of cloud deployments is scaling out capacity, so the concept of ephemeral instances of a microservice or application is important.  Even if you scale the app manually, you'll likely have multiple instances of the app running simultaneously.</p>
+<p>With that in mind, you have the following constraints on how that logging would be useful:</p>
+<ul>
+<li><strong>Log aggregation</strong>: Having one place to view and filter your logs makes maintenance much easier.  The alternative is having to log in to multiple instances of your app to figure out the general health of the application is tedious and error prone.  Particularly if the instance was automatically replaced by the operations team.</li>
+<li><strong>Ephemeral instances</strong>:  If an instance of your app can come and go based on demand, your logs will no longer exist.  That's where log shipping to your log aggregation server is critical</li>
+<li><strong>Tracing Failures</strong>:  When you have ephemeral instances, or multiple instances of an app or microservice, you need the ability to reconstruct what happened after the fact.  That means you need some additional context.</li>
+</ul>
+<h2>Splitting Responsibility</h2>
+<p>Systems like the Elastic Stack, Splunk, DataDog, etc. all have the concept of a log shipper which can provide all the necessary context to your log events so you can trace it to the container or server that the application is running on.  They also have the concept of centralized log aggregation.</p>
+<p>That means that you can do the following:</p>
+<ul>
+<li>You can add any set of constants to the shipped log entries.  For example adding a &quot;role&quot; for a log file so you can use it in search terms later.  This seems to fit your intended use.</li>
+<li>Your application only needs to worry about logging its behavior.</li>
+</ul>
+<p>As to whether you log to STDOUT or to a file, that really depends on how the application is run.  If you are running inside a kubernetes cluster, then K8s will make all STDOUT logs accessible through the container.  However if you are running on actual machine instances, those STDOUT logs will be lost.  Most logging libraries allow you to customize the output with configuration, so leverage that to make the decision on where the logs end up an operations concern.</p>
+<h3>Logs are an operational concern</h3>
+<p>You can easily create a lot of log traffic if you are not careful, and not all of those logs are useful all the time.  When you have control over log levels, it's useful to separate what is needed for local debugging vs. what is needed to understand day to day operations.  Log levels were intended for this purpose.  <strong>Caveat:</strong> if you are using 3rd party frameworks, you can't control how those tool vendors set up log levels.</p>
+<p>When you do have control, it's useful to set your logs like this:</p>
+<ul>
+<li>DEBUG (and lower): should be reserved for software developers, as they are logging low level events to help debug the internal workings while running locally.</li>
+<li>INFO: should be reserved for normal operational activity of your application</li>
+<li>WARNING: should be used for when you detect conditions that may make your app/microservice unstable (nearing memory limits or disk space limits for exaample)</li>
+<li>ERROR: should be used for error reporting that is not expected behavior.  Good example: file permission issues preventing the app from saving data.  Bad example: parse error that is a normal part of processing data and normally reported back to the user through an API</li>
+<li>SEVERE: unrecoverable errors leading to shutdown</li>
+</ul>
+<p>Many logging providers have a variation on a theme here, but you can usually map the concepts above to the library's term for the same concept.</p>
+<p>This allows the operations team to lower the volume of log traffic by eliminating the DEBUG and lower messages, and set up alerts on the WARNING and higher messaages.</p>
+<h3>OpenTracing</h3>
+<p>It's great that you have a session ID to track user behavior.  Including that information in your logs helps track things at a session level.  Going a step further than that, many cloud log systems have support for something called Application Performance Monitoring (APM).  And one of the most commonly supported standards to support that is <a href=""https://opentracing.io/"" rel=""nofollow noreferrer"">OpenTracing</a>.</p>
+<p>This allows you to trace a specific request from start to finish, even across asynchronous communications.  There's work to be done to define where each context begins and ends, but OpenTracing provides a way to track child contexts with parent contexts.  That way the logging aggregator you use can visualize that for you in a dashboard, and you can drill in to the specific log messages that apply.</p>
+<p>It's particularly useful for the following reasons:</p>
+<ul>
+<li>You can calculate the overall processing time of every action</li>
+<li>You can detect outliers where the performance is way out of normal</li>
+<li>You can drill in and find out what happened in the outlier</li>
+</ul>
+<h2>Conclusion</h2>
+<p>Make sure you know how you are going to consume your logging data, and design for that use case.  Know where you can decorate your logs outside of your application so you can divide the responsibilities appropriately.  And think about what is necessary to support the application once it's deployed.</p>
+<p>Your first step into the process may not be 100% correct, and that's OK.  If the app is successful, you'll have the opportunity to add in log messages that are needed, and remove or downgrade the level of log messages that are no longer useful.</p>
+"
+433568,"<p>As <a href=""https://softwareengineering.stackexchange.com/a/433551/327061"">Doc Brown said</a>, there's no generic solution for that!</p>
+<p>I would still advise you revisit your limitations, as you need to consider the total cost of ownership, IMHO. A cloud database may end up cheaper in the long run than building and maintaining this system, especially considering fixing the bugs over time due to its complexity.</p>
+<p>If your limitations are legitimate (such as an air-gapped computer for security purposes) then be prepared to deal with lots of locking and merging...! A process for a user exporting from system 1 <em>may</em> be:</p>
+<ol>
+<li>user selects &quot;parent&quot; rows to be exported, and starts the process</li>
+<li>the system will mark those rows as &quot;exported&quot; or &quot;locked&quot;. From then on they can't be edited</li>
+<li>the system exports the data (this is tricky, if you have a relational system, so you're going to have to look into CSV vs backup scripts vs ETL jobs); including generating checksums</li>
+<li>the user loads these files to a flash drive and &quot;imports&quot; them into system 2</li>
+<li>system 2 checks checksums and loads data back into a similar relational model</li>
+<li>system 2 stores the &quot;source system ID&quot; for each row, which you <em>may</em> decide will be the PK on system 2, or you may decide to use a separate PK.</li>
+<li>potentially if system 2 can create data of it's own, then use a nullable source system ID to identify this</li>
+</ol>
+<p>You would have to ensure that:</p>
+<ul>
+<li>since system 2 can edit the data from system 1, you can't import the same source ID twice, lest you overwrite your own changes</li>
+<li>system 1 can't edit data that is exported</li>
+<li>the user can't export rows that have already been marked as exported</li>
+</ul>
+<p>Now this is getting into the realms of data warehousing, so I would recommend you read up on that (I don't have a link, there's heaps on the web around that). Also read up on ETL (Extract, Transform and Load).</p>
+<p>The only free ETL tool I found for MySQL is <a href=""https://www.benetl.net/"" rel=""nofollow noreferrer"">Benetl</a>. I have no idea how good it is, but if you read the documentation you can decide if that's easier to work into your process than doing it manually.</p>
+"
+433023,"<p>According to the 12-factor-app <a href=""https://12factor.net/dev-prod-parity"" rel=""nofollow noreferrer"">dev/prod parity</a> principle, the developers' local environments and production should be similar.</p>
+<p>For developers working on a system with a complex microservice-based architecture, my understanding is that, this would mean that they need to build and deploy dozens of components to their local cluster (minikube for e.g.) -- even if they work only on a small part of the overall application. I see some problems with this approach:</p>
+<ul>
+<li>Developer machines are obviously not as powerful as the cloud staging/prod environments. Plus they need to be able to run development software (IDE etc) on top of the cluster (including data stores).</li>
+<li>Time lag before the developers can start contributing. Though this can be somewhat managed with a sufficiently automated deploy process.</li>
+<li>Time spent keeping the local cluster up-to-date constantly. While cloud environments can be kept up-to-date automatically through commit hooks etc, this has to be done manually for local environment.</li>
+<li>In effect, doesn't this make it similar to working on a monolithic system where to touch one part of the application, you need to build and run the entire thing.</li>
+</ul>
+<p>Is there a better way to handle this? Or am I misinterpreting the principle?</p>
+"
+433012,"<blockquote>
+<p>Is correct I say that microservices are split up according to their domains? (Some references about architecture say yes) but looks like it is not a thing we must do.</p>
+</blockquote>
+<p>There are no absolute right nor wrong ways to define these boundaries, however to get the most benefits, separation is often focused on technical design and coupling.</p>
+<p>Ideally the boundaries would leave microservices with one or more entirely self-contained capabilities - i.e. services which give users the ability to 'do something' useful/meaningful with as few dependencies as possible, ideally none.</p>
+<p>For example, an authentication capability is a user login which verifies their identity using their credentials.  Many systems rely upon stand-alone services (often from a cloud provider) for authentication because that capability on its own is useful; every other part of a system could fail while that service still allows users to log in.  Similarly, it can be deployed and scaled independently without affecting the rest of the system, even reused for other systems.</p>
+<p>The more dependencies a service has on other services the tighter its coupling and therefore the less value its separation has for your architecture; any change or failure in any one of its dependencies can break some or all of that service's capabilities.</p>
+<p>When two or more microservices are so tightly coupled and inter-dependent on each other, their value as separate services becomes highly questionable; at this point it might really be a <em>distributed monolith</em> with very little architectural value beyond a traditional monolith, yet suffering disadvantages in gaining extra complexity with deployment, configuration, infrastructure, project structure, communication...</p>
+<p>With that in mind, try to focus on capabilities which can be self-contained as far as possible to decide the boundaries and separation between services, grouping closely-related and tightly inter-dependent functionality together.</p>
+<p>Some capabilities and functionality may naturally have a lot of far-reaching dependencies; you might also consider putting this functionality in their own service(s) to avoid &quot;polluting&quot; the other services with unwanted dependencies.</p>
+<blockquote>
+<p>What approach we should use to make the communication between the projects? I've heard about direct API calls, use table storage. Does anyone have a different idea about it?</p>
+</blockquote>
+<p>This depends upon your communication needs and the manner in which functionality within a service is dependent upon other services.</p>
+<p>No pattern can be a one-size-fits-all; obviously the best way to minimise complexity is to minimise the dependencies in the first place, and therefore minimise the number of communication paths.</p>
+<p>Web API calls via HTTP are a Request/Response pattern, which is likely to be an easy and sensible default to start with.  It may be possible to use this pattern for most of your communication paths, which might minimise complexity.    Many other patterns exist and technologies which support those patterns.</p>
+"
+432796,"<p>This <em>would be</em> a broad question - but I'm asking specific to the situation around an app that I've developed.</p>
+<p>In short, I've written an app that allows users to persist their photos and videos to the 'cloud'.</p>
+<p>In an effort to keep this brief I won't go into too much detail but, essentially, any media captured through the app will be sync'd to Azure blob storage. Should they wish to access this again in the future I have a bit of .Net that will generate a sas token.</p>
+<p>That's fine, from what I understand it's a typical implementation for secure storage of media.</p>
+<h2>Question</h2>
+<p>As the developer - I can jump onto the Azure portal at any time and view <em>any</em> media that I want.</p>
+<p>Even if I were to take on other developers in the future, naturally there'd be serious restrictions over the team accessing data in the prod environment, but still - somebody has access.</p>
+<p>This doesn't feel quite right, am I missing a security/privacy measure here?</p>
+<p>I'm thinking about pushing this app soon, potentially marketing it but, at first, simply handing the APK to family and friends for wider use and testing of the beta - I'll have access to their most personal memories. Is it a matter of trust or is there some way I can implement a certificate or something somehow for this?</p>
+<p><em>Note: Obviously only the original authors can download via sas token, I don't just generate the sas token for anybody authenticated/anonymous.</em></p>
+"
+432288,"<p>Hello we have an async event-driven system (kotlin, spring cloud stream, rabbitmq) where there might be an event <code>FooPayloadArrived</code>, published by an ingress rest-controller.
+Processing this <code>FooPayloadArrived</code> and publishing the follow-up result in a subscribe may take some time, let's say 1h.</p>
+<p>Being in AWS and using a managed RabbitMQ via the AWS MQ service, <a href=""https://www.rabbitmq.com/consumers.html#acknowledgement-timeout"" rel=""nofollow noreferrer"">we are constrained in the maximum execution of any such message</a>: After 30 minutes (AWS just decided on this new max and you cannot change this setting either....) the message/event currently being processed is basically aborted and requeued, aborting any long-running event-subscriber and restarting it (because message/event is requeued automatically) - so we are in an endless aborted-after-30-minutes loop.</p>
+<p>We are currently very much in favour of the event-driven async mode of processing anything, since any failure puts your failed event into a dead-letter-queue (DLQ) which allows you to simply retry the operation after you fixed something. We don't want to abandon this resilience feature for long-running jobs.</p>
+<p>Is there some alternative pattern how to design running those jobs vs. the enforced timebox?</p>
+"
+431205,"<p>There's two issues in your problem statement:</p>
+<ol>
+<li>A cache is a subset of the larger data to server files that are accessed more frequently.  <strong>You have to invalidate low hit rate cache entries</strong> or you will consume all your resources.</li>
+<li>Azure Blob storage is designed to serve up your blob's bytes over HTTPS with high speed, reliability, and scalability.</li>
+</ol>
+<p>By copying your blobs into your database, you are simply duplicating data.  I highly doubt serving from the database is faster than having Azure blob storage serve the data for you.  While databases can store binary data, that's not really their main use, so it is rarely optimized as storage mediums designed from the ground up for that purpose.</p>
+<p>I highly recommend that you examine the ways that you have designed your application to find where it is causing bottlenecks.  If you need to have your application as a proxy to the data, make sure of the following:</p>
+<ul>
+<li>Do not read the whole blob as an array of bytes--it wastes memory and can cause massive garbage collections</li>
+<li>Make sure you stream the bytes from the blob storage stream to the response stream</li>
+<li>Design around passing single use URLs (Azure storage can do this), and let the browser pull the data directly</li>
+<li>Look at the differences in how you are handling binary data in the database to how you are handling it in blob storage.  Your algorithm may need to be optimized</li>
+</ul>
+<p>In short, make sure you understand what makes Azure storage &quot;slow&quot;.  If you are testing locally on your machine and your test database is local on your machine, you are artificially penalizing Azure storage.</p>
+<p>Granted, I come from an AWS background, and AWS S3 is much faster than serving binaries from an RDS database--particularly at scale.  Microsoft is also a smart company, I'm sure the Azure storage is at least close to S3 in performance and scalability.</p>
+"
+426618,"<p>I am in the process of carrying out a software architecture for my client, in fact</p>
+<p><strong>THE HISTORY OF THE REQUIREMENT :</strong></p>
+<p>MY PARTNER SEND cvs files via MFT to MY CLIENT , many times a day .</p>
+<p>MY CLIENT has a listener ( cron job in linux and batch ) , when a file is received in a folder , the client consumes it and store it in database ( SQL SERVER)</p>
+<p>Regarding data , the estimated trafic :
+700 files a day
+Millions of lines in cvs file to be consumed
+there is no order in data , each time a file is received it is processed by batch .</p>
+<p><strong>The new solution is to transfer data via API REST CALL and not OLD MFT :</strong></p>
+<p>The need is to retrieve huge data from a partner by calling API REST  (JSON) to finally store the result in our SQL database (not too much processing to do in between)</p>
+<p>I proposed two solutions:</p>
+<p><em><strong>SOLUTION 1 : Event Driven Architecture and PARTNER EXPOSE API REST TO RETRIEVE DATA :</strong></em></p>
+<p>THERE ARE STEPS OF THIS SOLUTION :</p>
+<p>OUR PARTNER : create an event in our BROKER QUEUE ( Message indicates that there is new data to get : name API RESSOURCE TO CALL  / parameters  / Bussines Domain )</p>
+<p>MY CLIENT : GET the message and read it from the QUEUE</p>
+<p>MY CLIENT : Based on this message , my client CALL the REST API ( GET exposed  by our PARTNER ) to GET THE DATA FROM JSON RESPONSE of the call HTTP ( this will be implemented for example by spring batch )</p>
+<p>MY CLIENT : STORE The result of this huge response on SQL DATABASE without many modification</p>
+<p><strong>SOLUTION 2 :  THE PARTNER DO NOT EXPOSE API , MY CLIENT WILL DO THIS !</strong></p>
+<p>THERE ARE STEPS OF THISE SOLUTION :</p>
+<p>MY CLIENT  ==&gt; EXPOSE A REST API to our PARTNER : THIS ENDPOINT IS a POST HTTP OPERATION</p>
+<p>OUR PARTNER ==&gt; THIS time , our Partner will call THIS POST API REST AND send all data in REQUEST BODY , as a result , the partner update our SQL DATABASE when he calls our API REST ( CLIENT CALL THE POST API WHEN HE WANTS TO UPDATE DATA)</p>
+<p><strong>MY Notes :</strong></p>
+<p>THE PARTNER IS OPEN to ALL OUR SUGGESTIONS ( SOLUTION 1 or 2 ) and we estimates that it there will be huge data transfers between Partner / Client</p>
+<p><strong>My requirements : evaluates the pros and cons of these solutions</strong></p>
+<p>For my part, I opt for the SOLUTION 1 because  :</p>
+<p>pos1 :  the processing will be asynchronous
+pos2 : we will be the master of our data to be added to our database ( is it good as an argument ? )
+pos3 : processing in almost real time
+cons1 : architecture is complex when in we move to cloud
+cons2 : Partner is not familiar perhaps with this solution</p>
+<p>The second solution ( we expose API , the partner simply call it )
+pos1:  is rather light (less expensive) it is an advantage,
+cons1 :  but has the disadvantage that the processing will be done synchronously
+cons2 : that we will not be master of the data to add to our REF (unless checks to be made in the POST action to be exposed)
+cons3 : call of API will be an additional charge by our partner</p>
+<p>Thank you for your feedbacks :  (advantages / disadvantages)
+Regards</p>
+"
+425900,"<p>Some patterns only make sense at a scale. It often makes sense to separate analytical from transaction workloads, but not everything has to be cloud-scale. Many gigabyte-scale problems can be efficiently approached e.g. by loading data into a local database (such as Postgres or SQLite) and performing queries there. In contrast, cloud based approaches make a lot of sense when:</p>
+<ul>
+<li>the data is too much for a single computer</li>
+<li>your data is too much to efficiently transfer, so you'll have to take the compute to the data (instead of bringing the data to the compute)</li>
+<li>the data cannot be structured for efficient queries, so reasonable query performance relies on massive parallelization (e.g. with a Map-Reduce architecture, or search products like Amazon Athena).</li>
+</ul>
+<p>Don't get tricked into paying for an expensive cloud product that you simply don't need.</p>
+"
+425746,"<p>Change your application from a console app that takes parameters and is started per job to a service that runs constantly listens to a message queue.</p>
+<p>Run instances in the cloud so that you are able to dynamically spin up new instances via the cloud providers API.</p>
+<p>Your architecture then works as follows</p>
+<ul>
+<li>Users click button in UI specifying input parameters.</li>
+<li>Message with the parameters is sent to the message queue</li>
+<li>Worker applications listen to queue and pick up the new message</li>
+<li>If worker crashes mid processing the MQ software itself will manage re-queuing the - - message so its picked up by another server.</li>
+<li>On successful completion the worker posts a message to a second queue with the - results, which can then be saved to a db, email to the user, whatever</li>
+</ul>
+<p>To manage scaling, have a second app keep track of the number of messages in the queue and the number of avaialble workers. If jobs arent being done fast enough have it call the clouds API to spin up a new VM with your service installed. As the service runs continually this will immediately pick up a new job from the queue without having to send it parameters, change master directories etc</p>
+<p>Essentially here you are using the out of the box Message Queue (RabbitMQ, ZeroMQ, Cloud offering of your choice) functionality to do the fiddly orchestration of your applications.</p>
+"
+422736,"<p>In AWS you can easily create a RESTful API using API Gateway. With a serverless approach, you would have API Gateway integrate with Lambda to handle your endpoint logic. This seems like the most obvious approach, as its very elastic and cost effective, however, looking into architectures for large companies, most of them use a form of EC2 to handle their API logic.</p>
+<p>Here are some examples:</p>
+<ul>
+<li><a href=""https://www.youtube.com/watch?v=-8FK9p_lLy0"" rel=""nofollow noreferrer"">McDonald's</a> uses ECS instead of Lambda for their API.</li>
+<li><a href=""https://www.youtube.com/watch?v=ZDUKRnLfW58"" rel=""nofollow noreferrer"">Under Armor</a>, uses an Application Load Balancer with EC2.</li>
+</ul>
+<p>What is the benefit of using EC2 for your API instead of Lambda?</p>
+"
+422123,"<p>Firstly, I want to state that this is my first time trying to build an app. I am doing this for fun, mostly as an exercise to learn system design/architecture. The goal is to build an app that would be scalable to millions of users (not that this app will actually have millions of users-- its just to build my own understanding of large scale distributed systems).</p>
+<p><strong>What I am using:</strong>  AWS architecture tools - Lambda, DynamoDB, Amplify</p>
+<p><strong>What I would like to build:</strong>
+I downloaded and imported Movies from IMDB into DynamoDB. The goal is to allow the user to search for a movie and display its info from the DB. The user should also be able to rate the movie.</p>
+<p><strong>What I am asking:</strong></p>
+<ol>
+<li>Which AWS tool should I use for searching the DynamoDB?</li>
+<li>Alternatively, should I be using a different database to search from? If I understand correctly, AWS ElasticSearch is actually a database. Should I just be using this instead?</li>
+</ol>
+<p>Please also let me know if you have any general advice, or if I am thinking about all of this incorrectly.</p>
+"
+421082,"<h2>Introduction</h2>
+<p>A customer of ours has embedded products with sensors and actuators. Now they would like to connect this device to the cloud so they can remotely monitor and configure it. It should support:</p>
+<ol>
+<li>Periodic data updates (LwM2M read or notify? Depends on how we implement it)</li>
+<li>Alerts (e.g. data above threshold) (LwM2M notifies)</li>
+<li>Configuration updates (LwM2M writes)</li>
+<li>LwM2M Execute triggers</li>
+<li>Optionally Cloud-to-Device data requests (that gets the most recent reading)</li>
+</ol>
+<p>They want us to provide them with a simple module to accomplish this.</p>
+<p>Our company is already using LwM2M quite extensively. More specifically, we have devices running Zephyr RTOS that use the built-in LwM2M engine. This engine requires to know the layout of the OMA/IPSO objects (which resources, what are their properties, etc.). Also, we register data pointers to the resources, and register read callbacks so that a read from the cloud triggers an update of those data before responding. Lastly, we also register write callbacks for e.g. configuration settings, so that they can trigger the required actions.</p>
+<p>The LwM2M object .c files use an Observer pattern to observe the sensors/status/data in the appropriate other software modules, and the write callbacks call &quot;SetConfig&quot; type of functions directly at the target modules. This has led to quite tight coupling.</p>
+<h2>Now I'm investigating how to best integrate this functionality in an easy-to-use and generic module</h2>
+<p>I think the first step is to get rid of the tight coupling I described above, and thus maybe move all the Observers to a single module that handles all communication between the LwM2M objects/engine and the rest of the system? (Mediator / Facade pattern?)</p>
+<p>I made this analysis of what that module would need to support the wished functionalities:</p>
+<ol>
+<li><strong>Periodic data updates</strong> -&gt; An <strong>update interval</strong> must be set per resource. Alternatively, the LwM2M server could set observe attributes <em>pmin</em>, <em>pmax</em> to trigger periodic notifies and thus periodic reads, these reads would then trigger <strong>read callbacks</strong> that update the info before responding to the server.</li>
+<li><strong>Data threshold alerts</strong> -&gt; <strong>Alert trigger</strong> that trigger a notify to the server.</li>
+<li><strong>Configuration updates</strong> -&gt; <strong>Write callbacks</strong> that take appropriate action (e.g. configure interrupt threshold).</li>
+<li><strong>LwM2M Execute triggers</strong> -&gt; <strong>Execute callback</strong> that takes appropriate action (e.g. reboot device).</li>
+<li><strong>Optionally Cloud-triggered data updates</strong> -&gt; <strong>Read callbacks</strong> that update the info before responding to the server.</li>
+</ol>
+<h2>What I find difficult</h2>
+<ol>
+<li>As you can see, functionality 2 and 5 are sort of opposite (push vs.
+pull), but functionality 1 can be implemented in 1 of 2 ways, either push or pull. This is part of what I find
+challenging, there seems no generic solution for all 3?</li>
+<li>If we would choose server-triggered periodic updates (via the observe attributes), I see two problems: If the customer requires that no periodic sensor-data is lost on network failure, this can't work. Also, I think all resources in an object with different settings would require separate observes?</li>
+<li>The other thing I find challenging is the module interface design.
+From the above ideas, it would require aliases for each resource to abstract away the LwM2M internals object/resource structure, and the following data per alias:
+<ul>
+<li>Update interval (if the device is the one with the update schedule)</li>
+<li>Alert trigger</li>
+<li>Read callback</li>
+<li>Write callback</li>
+<li>Execute callback</li>
+</ul>
+</li>
+<li>If going with the idea from challenge 3: This is quite an extensive list, and if the embedded firmware
+changes at the LwM2M module boundary, or if the LwM2M cloud API
+changes, this would require our interference, as we would have to
+update the internal resource mapping.</li>
+</ol>
+<h2>I'm very curious for your opinions, remarks and ideas on this! I would very much appreciate your advice.</h2>
+"
+420877,"<p>I work for an organization that heavily leverages AWS.  There is a strong push that every team move from containers deployed on ECS to leverage AWS Lambda and step functions for (almost) every project.  I know that there are workflows for which lambdas are the best solution, for example if you are running infrequent, short duration processes or processing S3 uploads for example.  However I feel like my project isn't a great use case for them because:</p>
+<ol>
+<li><p>We have many calls to a database and I don't want to have to worry about having to re-establish connections because the container a lambda was running in isn't available anymore.</p>
+</li>
+<li><p>We have many independent flows which would require too many lambdas to manage efficiently.  With each new lambda you create you have to maintain an independent deployment pipeline and all the bureaucratic processes and items that go with owning a deploy-able component.  By limiting the number of these the team can focus on delivering value vs maintenance.</p>
+</li>
+<li><p>We run a service that needs to be available 24/7 with Transactions Per Second around 10 to 30 around the clock. The runtime for each invocation is generally under 10 seconds with total transactions for a day in the 10's of thousands.</p>
+</li>
+</ol>
+<p>Also generally, I'm not bought into the serverless ecosystem because of a few pain points:</p>
+<ol>
+<li><p>Local development. I know the tooling for developing AWS Lambdas on a developer machine has gotten much better, but having to start all these different lambdas locally with a step function to test an application locally seems like a huge hassle.  I think it makes much more sense to have a single Java Spring Boot application with a click of a button you can test end to end and debug if necessary.</p>
+</li>
+<li><p>Reduced Isolation.  If you have two ECS clusters and one is experiencing a huge throughput spike, the other ECS cluster will not be impacted because they are independent.  Not so for lambda.  We've seen that if other lambdas are using all the excess provisioned concurrency and we have to go over our reserved concurrency limit, then we are out of luck and we'll be rate limited heavily leading to errors. I know this should be a niche scenario, but why risk this at all?  I think the fact that lambdas are not independent is one of things I like least about this ecosystem.</p>
+</li>
+</ol>
+<p>Am I thinking about lambdas/ serverless wrong?  I am surrounded by developers who think that Java and Spring are dead and virtually every project must be built as a go/python lambda going forward.</p>
+<p>@Mods if there are any ways that I can make this question more appropriate for the software engineering stack exchange community or rephrase it, I'm happy to make changes here as well.</p>
+<p>Here's some links to research I've done so far on the topic:</p>
+<ol>
+<li><a href=""https://stackoverflow.com/questions/52275235/fargate-vs-lambda-when-to-use-which"">https://stackoverflow.com/questions/52275235/fargate-vs-lambda-when-to-use-which</a></li>
+<li><a href=""https://clouductivity.com/amazon-web-services/aws-lambda-vs-ecs/"" rel=""nofollow noreferrer"">https://clouductivity.com/amazon-web-services/aws-lambda-vs-ecs/</a></li>
+<li><a href=""https://www.youtube.com/watch?v=-L6g9J9_zB8"" rel=""nofollow noreferrer"">https://www.youtube.com/watch?v=-L6g9J9_zB8</a></li>
+</ol>
+"
+420772,"<p><strong>Yes</strong> - a cloud/lambda function is a microservice.</p>
+<p><strong>Independently deployable</strong></p>
+<p>see <a href=""https://microservices.io/"" rel=""nofollow noreferrer"">https://microservices.io/</a></p>
+<blockquote>
+<p>Independently deployable</p>
+</blockquote>
+<p><a href=""https://martinfowler.com/articles/microservices.html"" rel=""nofollow noreferrer"">https://martinfowler.com/articles/microservices.html</a></p>
+<blockquote>
+<p>to describe a particular way of designing software applications as suites of independently deployable services</p>
+</blockquote>
+<p>Microservices are &quot;mostly&quot; about the ability to deploy a service individually (or in a small grouping). This is the only objective aspect about microservices.</p>
+<p>In fact, people often contrast a Microservice with a Monolithic &quot;Project&quot; that is deployed with all of the defined services at the same time.</p>
+<p>Other subjective attributes:</p>
+<blockquote>
+<p>Highly maintainable and testable, Loosely coupled, Organized around business capabilities, Owned by a small team</p>
+</blockquote>
+<p><strong>Yes, but there are more</strong></p>
+<p>GCP Cloud Function / AWS Lambda are not the only infrastructure. There are other providers, and you can also use Kubernetes and deploy each of your services as a separate task. Often people are imagining an &quot;elastic&quot; provider. One where they deploy and the infrastructure takes care of the scaling.</p>
+<p>However, it is possible to view PHP files as microservices, where they run on PHP-FPM, and served via Nginx. You can create PHP files that are too big, the same that you can deploy a Cloud Function to GCP that is too big. The fact that Microservice Architecture includes good old PHP, should be a good indicator that most people are thinking of Cloud Functions and Lamda when they say &quot;microservice&quot; - they are thinking of that &quot;infrastructure&quot;.</p>
+<p><strong>Bonus: Infrastructure Not &quot;Architecture&quot;</strong></p>
+<p>Microservice architecture is not really an architecture. The idea of breaking up services into small &quot;loosely coupled&quot; units has a long history in Computer Science. The only unique aspect for Microservices is how they are deployed. In total they are:</p>
+<ul>
+<li>DevOps to deploy to elastic (per-service) infrastructure</li>
+<li>The elastic infrastructure itself.</li>
+</ul>
+<p>In fact, services can be contained in a single monolithic code project, run together in a programmer's development environment, and then deployed separate in production. The Deployment (DevOps) and Destination (Infrastructure) are the full extent of Microservices.</p>
+"
+420711,"<p>Consider unwinding the idempotent transaction to the pre-buy state or a &quot;may try again&quot; state on error. This leaves you with two or three terminal states to handle (in total).</p>
+<p>By doing this you can also safely reuse the id. Reusing the id preserves the duplicate prevention benefits of the idempotent approach.</p>
+<p>You may discover that reliably unwinding the transaction is very hard. If so, it may be time to rethink the design and/or use of idempotency.</p>
+<p><em>Addition #1 (based on comments):</em>
+Consider starting with a database update of e.g. PAYMENT_STARTING or whatever. include a timestamp. If this fails, you're at &quot;sorry we're offline right now, please try again later.&quot;</p>
+<p>Next, call the gateway itself. If this fails you're at &quot;something went wrong, your credit card cannot be charged, please try again later.&quot;</p>
+<p>Finally, update the database to e.g. PAYMENT_COMPLETE. If this fails you are responsible for retrying based on e.g. the timestamp from the first update. The ideas in other answers about how to handle the user experience are valid.</p>
+<p>However you chose to handle the user experience, the goal should be a solution that converges on one of two states: order completed or fully unwound.</p>
+<p><em>Addition #2 (based on comments):</em>
+It seems that an underlying question is how to handle unreliable calls e.g. in a public cloud. One common approach is a retry library e.g. <a href=""https://docs.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/implement-http-call-retries-exponential-backoff-polly"" rel=""nofollow noreferrer"">Polly</a>.</p>
+"
+418620,"<p>Git just does not scale to huge projects. Repos should not generally grow beyond 5GB including the entire history if you want a good user experience (or if you want to use commercial hosting services). Thus, binary assets such as images or even videos should typically be managed separately from the Git repository. Git LFS is just a way to automate management of assets through another storage mechanism, but in principle you could also manage assets “by hand”, e.g. by writing a script to fetch them from a network share that can snapshot versions with ZFS¹.</p>
+<p><sup> 1: ZFS and Btrfs are advanced file systems that support features such as block-level deduplication and atomic snapshots. This is roughly similar to Git except that they can deal with arbitrarily large amounts of data and that there is no branching, though copies are super cheap due to block-level copy-on-write. </sup></p>
+<p>What Microsoft did was deciding that it cost less to pour thousands of engineer-hours into hacking around Git's restrictions instead of getting developers to use a proprietary version control system. This doesn't mean that Git now has good support for huge repositories by default. Instead, Microsoft's solution hinges on Git VFS, a virtual file system that allows Git to work more efficiently. You too could use this VFS, but I doubt it will help much with huge files. Microsoft's use case is more concerned with monorepos where each individual only needs a small subset of files so that a full checkout is not physically necessary.</p>
+<p>Since you're somewhat new to version control, it probably doesn't make too much sense to try to bend Git to your will. You <em>should</em> use Git and Git is the most popular version control system, but that doesn't mean it is the best possible version control system that can theoretically exist – many aspects of it are objectively crappy, and large repo support is one of them. To a large degree, these problems are inherent in the design and cannot be directly fixed.</p>
+<p>I would suggest that starting to use Git only for source code files will already be a significant step up for your version control setup. In contrast, assets and large files should be managed with more traditional methods, such as LFS if the assets are fairly static. Instead of version control, you might prefer more traditional/linear backup. Even rotating through a few external hard drives is a great approach already, though a NAS or storage server can also be cost-effective compared to more convenient online or cloud backup services when considering the cost of a restore.</p>
+"
+418163,"<blockquote>
+<p>I have a monolithic application which can be divided into multiple steps and different steps have variable scaling requirement</p>
+</blockquote>
+<p>This has nothing to do with a state machine.  This is a pipeline.</p>
+<p>You probably should break it into microservices so you can scale per logical component.  Why do you need a state machine?  Do calls affect subsequent calls?  Generally back-end calls are designed to NOT change state of other backend calls.  If there is only a little state per call, then just pass it along the microservice pipeline as parameters.</p>
+<p>If you really need a truly global state, a microservice is probably the wrong answer.</p>
+<p><strong>EDIT in response to comments</strong></p>
+<p>In the comments, you say step 2 acts on step 1 (and step 3 acts on step 2).  This is a pipeline.  If package A goes into step 1 -&gt; Spits out Package A1, package A1 is fed into step 2, becomes package A2.  If this is the flow, then I don't see why you need a state machine.  You need to dynamically scale &quot;step containers&quot;.</p>
+<blockquote>
+<p>The only concern which I feel is that if Service1 container instance and service2 container instances are in different servers/hosts, then there would be some network latency which would be multiplied by the no. of requests.</p>
+</blockquote>
+<p>If you're using Google Cloud all the physical machines will likely be in one very well connected data center.  In my experience, latency inside the data center has never been an issue with either Google Cloud or AWS.</p>
+<blockquote>
+<p>So based upon my understanding the microservices architecture is not a good candidate for state machines, if we are looking for real time performance.</p>
+</blockquote>
+<p>I don't understand the fixation on state machines.  Why do you need one.  In a cloud environment, a state machine is a way of sharing global state between instances.  The way the question reads now I don't think you need one.</p>
+<blockquote>
+<p>resources which can be used by those services i.e. allocating more resources to service which needs them more and then we can auto scale the whole server based upon load.</p>
+</blockquote>
+<p>So you're essentially redoing Google Cloud's work for them.  Google Cloud offers something called a <a href=""https://cloud.google.com/dataflow/docs/guides/deploying-a-pipeline"" rel=""nofollow noreferrer"">pipeline</a>, which sounds like exactly what you need.  The point of both Google Cloud and AWS is to move away from &quot;I bought the box&quot; to &quot;I bought computing power&quot;.  Google Cloud will auto-scale the pipeline, bringing more instances of each microservice online as it's needed, and deleting it when load tapers off.  Don't redo this - you're probably not as good at this as Google or Amazon.  Let them handle it - that's what you're paying for!</p>
+"
+414686,"<p>Device Management is quite hard to achieve so we've seen the rise of many SaaS, from big providers and small startup, which automate the deploy of edge services onto IoT devices fleet. Some of them rely on containerization (and Docker is pushing towards a top level support on ARM archs) some other else act in a &quot;serverless fashion&quot; which means that let you load some script in some language and then copy it through your fleet</p>
+<p>Basically what you can do is</p>
+<ol>
+<li>Evaluate these tools (eg. Azure IoT Edge)</li>
+<li>Work With some configuration management tool (eg. Saltstack)</li>
+<li>Roll you own solution</li>
+</ol>
+<h1>Evaluate Edge Computing Tools</h1>
+<p>It's clear that this is the safest choice since you have to do nothing but some benchmark and then integrate your pipeline. But as with all cloud services, they come with their costs and their constraint</p>
+<h1>Work With some configuration management tool</h1>
+<p>Yes, I'm not crazy. We know config management tools (Ansible, Terraform etc) since we use them to provision hundreds of cloud VMs, but there is not so much difference between a cloud VM and a linux device accessible through SSH and VPN. You just have to make sure that you are using a tool that is scalable enough and has the needed resiliency to work over unreliable channels. Saltstack dose this job quite good, it uses ZeroMQ as event bus and have small footprint agents. You can define your desired state through versioned files and change them accordingly to requirements, or take control of some devices for some specific maintenance tasks. Pay attention on managing all Ops aspects (security, scalability, availability) that are the major burden that this solution carries to you project</p>
+<h1>Roll your own solution</h1>
+<p>If you have a very simple use case, you wouldn't be eager to pay cloud bills or to manage large scale configuration application for High Avaliability and so on.... You are able to communicate with your devices in a bidirectional way, you could write some platform service able to send events to the edge whenever a config update is available. Then the edge send back some tracking event to understand whether you should retry on some unavaliable device, rollback the deployment or perform some deployment strategy such as canary. But this worth only with the simplest scenario, because building a full fledged management solution takes a huge effort and distract your team for the real valuable activities</p>
+"
+412144,"<p>I have a front end (WEB GUI) app that I designed (Python for now + JavaScript in the future) that I use to access a controller, it uses REST APIs.</p>
+<p>I want to publish this app in the cloud so that others could use it.</p>
+<p>The biggest issue I am seeing is the security side as the app needs to authenticate with the remote server (a controller itself) and start sending tasks to the controller that will translate that in internal REST APIs to control for processes on downstream servers</p>
+<p>Is there an authentication flow that will guarantee the owners of the controllers that I (the publisher of the front end) do not intercept the authentication flow and I gain unwanted access to their servers ?</p>
+<p>My idea is to use a two steps authentication/authorization process like below. Is there a better way?
+Please edit <a href=""https://dreampuf.github.io/GraphvizOnline/#digraph%20G%20%7B%0A%20%20node%20%5Bmargin%3D0%20fontcolor%3Dblue%20fontsize%3D8%20width%3D0.5%5D%3B%0A%20%20edge%20%5Bmargin%3D0%20fontcolor%3Dblue%20fontsize%3D8%20%5D%3B%20%20%0A%0A%20%20DesktopClient%20-%3E%20GUICloud%20%5B%20label%20%3D%20%22Step1%3A%20authentication%22%20%5D%3B%0A%20%20DesktopClient%20-%3E%20OnPremController%20%5B%20label%20%3D%20%22Step2%3A%20authorization%5Cn%20the%20user%20manually%5Cn%20allows%20the%20session%22%20%5D%3B%0A%20%20GUICloud%20-%3EOnPremController%20%5B%20label%20%3D%20%22cookie%22%20%5D%3B%0A%20%20OnPremController%20-%3E%20Server1%3B%0A%20%20OnPremController%20-%3E%20Server2%3B%0A%20%20OnPremController%20-%3E%20Server3%3B%0A%20%20GUICloud%20-%3EOAuth%3B%0A%20%20OAuth%20-%3E%20GUICloud%20%5B%20label%20%3D%20%22cookie%22%20%5D%3B%0A%0A%20%20OnPremController%20%5Bshape%3Ddoublecircle%5D%3B%0A%20%20GUICloud%20%5Bshape%3Dsquare%5D%3B%0A%7D"" rel=""nofollow noreferrer"">this diagram</a> if you have suggestions<br />
+<a href=""https://i.sstatic.net/yBHYa.png"" rel=""nofollow noreferrer""><img src=""https://i.sstatic.net/yBHYa.png"" alt=""enter image description here"" /></a></p>
+<p>After looking closer at the issue I think this is a better architecture</p>
+<p><a href=""https://i.sstatic.net/tnCrh.png"" rel=""nofollow noreferrer""><img src=""https://i.sstatic.net/tnCrh.png"" alt=""enter image description here"" /></a></p>
+"
+411788,"<blockquote>
+<p>Is this something to really worry about?</p>
+</blockquote>
+<p>This is very dependent on the product. A lot of the time, someone doing it will &quot;cost&quot; you $30 a month—who cares if four or five (or most likely zero!) people do it? You can monitor the situation over time and make changes if necessary. It's a bit like profiling code; engineers make notoriously bad estimates of good and bad bits.</p>
+<p>Also, think rationally. If you are &quot;angry&quot; at people who do it, put that aside. Etc.</p>
+<h1>HOWEVER!!</h1>
+<blockquote>
+<p>they could just comment out that bit of code and they get access to the entire app again</p>
+</blockquote>
+<p>If this is a problem, there is a good chance your users could do <strong>more serious things you haven't thought of,</strong> like impersonating other users, messing with their profiles, buying things with their money.</p>
+<blockquote>
+<p>If so should I be using something like Firebase Cloud Functions?</p>
+</blockquote>
+<p>Yes, &quot;something like&quot; that. For 95% of people asking this question, the problem is pretty much eliminated if you perform authentication and authorisation and sensitive functionality on the server/cloud rather than the client (and follow best practices correctly.) You don't necessarily need Firebase Functions if you can set up Firebase security rules to do the job. It depends on your application.</p>
+<p>However in some cases code really needs to run on the client (e.g. in games or proprietary number-crunching algorithms) or it is too slow. In these cases, obfuscation is where to put your attention. But nobody has mentioned <em>anti-debugging techniques.</em> Malware authors use these to shut down the program if it suspects it is being run in a debugger or VM. This makes reverse-engineering even more time-consuming.</p>
+<blockquote>
+<p>Should I be creating a proper backend? If so what would its structure be, would my app just be a client for the backend?</p>
+</blockquote>
+<p>Backends tend to implement <em>behaviour</em> and your client can sometimes access functionality partly through the backend and partly not. If you have complex rules like users managing other users or teams, loyalty points and so on, that goes on the backend. It is madness to try to securely authorise that sort of thing on the client.</p>
+<p>Otherwise, it's a matter of taste as to how much functionality to put on the server. On the one hand it creates an extra layer to implement and maintain. On the other hand, you can update backend code &quot;in one go&quot;, so if you want to add new features or fixes, you don't need to worry about rollouts and conflicting versions of your client app everywhere. Doing intensive things on the backend is good for client battery life (at the expense of server $). So on.</p>
+"
+411735,"<p>The answer is (as usual) that is depends.  If this data is going to be used for reporting and especially ad-hoc reporting, you probably want to pull the variables out into a proper relational model.  Another reason might be if you need to expose that data in multiple formats.  If you don't need to do any of that then the option of keeping the documents as-is becomes more appealing.</p>
+<p>As amon notes, you can store JSON in blobs in a relational DB.  The reason you might want to use NoSQL is scalability, speed, and potentially cost.  If you already have a relational DB and you don't have a large amount of documents to store (e.g. millions) it might not be worth adding an additional DB.  A lot depends on the context.  If you are running on a cloud provider, spinning up a NoSQL DB for this might be less effort than getting the DB setup to hold the blobs.</p>
+"
+404970,"<h1>Problem Background</h1>
+
+<p>Recently, I joined a government agency as a software engineer/scientist/analyst. Previously, worked in software industry - gained 3 years of software engineering experience at previous job (to add to about 7 years in computational science/scientific computing). My current job is to come up with a strategy for modernizing a legacy scientific program.</p>
+
+<p>The scientific program to modernize is a large legacy computational system that basically does mathematical optimization. Development started in the 1990s and has not kept up with best practices, unfortunately. It was/is written by scientists and analysts.</p>
+
+<p>The main component of the system is a Fortran-based (various versions starting from 90, some newer versions incorporated, compiling with 2018 compiler) program that does the optimization. The program consists of 400K lines of Fortran code, 20K lines of shell scripts, and 60K lines of external math solver code. There is no test suite, hence the legacy label. The program can be thought of as a dozen modules that describe a particular physical component's behavior in the optimization. The general flow of the Fortran program is described in a <code>main</code> routine, where these dozen modules are called sequentially. The <code>main</code> routine does some other data orchestration and I/O as well. There is some interface to commercial products and optimization solvers, probably through a home grown Fortran wrapper. One of the biggest issues IMO is the use of global variables - both <code>main</code> and the modules have access to these globals, so change to the state can be made from anywhere (see <a href=""https://softwareengineering.stackexchange.com/questions/405059/global-variables-and-common-block-management-in-fortran"">my specific question</a>).</p>
+
+<p>There is a lot of home grown code for sub-systems or utilities that manage the main Fortran program, written mainly as shell scripts. These sub-systems include:</p>
+
+<ul>
+<li>a queuing system that manages the executions of the main Fortran program on internal prem Windows servers, </li>
+<li>post-processor that converts the Fortran UNF files to CSV and Excel format,</li>
+<li>custom visualization package written in Visual Basic that plots the results of the Fortran program,</li>
+<li>version control utilities as wrappers around RCS VCS, </li>
+<li>compiler utility that wraps the Fortran compilation.</li>
+</ul>
+
+<p>Those are the main sub-systems or utilities necessary to work with the Fortran
+program and its input/output, but there are loads of other Fortran programs and
+shell scripts that do longer-term things like server space management and license management.</p>
+
+<p>My immediate team is responsible for the Fortran code execution and integration
+with other modules (so not all 400K lines of Fortran is in our scope, just maybe 10-20%, the rest is with other groups responsible for the dozen modules, which introduces some organizational pains since we have no control over their code). My team consists of me and another software developer, both mid-level software developers converted from scientific computing. A junior software developer with a traditional background in software and CS is joining shortly. Our senior software developer (one of the original developers of the entire system) is retiring in 1 month, and we are in the process of trying to find a replacement.</p>
+
+<h1>Problem</h1>
+
+<p>My question is: <strong>What are the components and sequence of the modernization plan/strategy that I should consider?</strong> The modernization is basically the process of moving from legacy to a more modern process, both technically (e.g., architecture, frameworks) and organizationally (e.g., agile process management for development).</p>
+
+<h1>Proposed strategy</h1>
+
+<p>Currently, at a high level, my plan is to:</p>
+
+<ol>
+<li>assess extent of home grown code for systems that are not part of the main Fortran program;</li>
+<li>replace each of these home grown solutions with best practice open source
+solution, so we maintain as little code as possible;
+
+<ul>
+<li>current order is modern VCS (Git/Gitlab), then queuing system, then viz package, but order will be determined by how much code there is per sub-system.</li>
+</ul></li>
+<li>with the remainder of the code - hopefully just the main Fortran program and not some vital sub-system that we cannot find an open source solution for - capture current behavior with characterization tests;</li>
+<li>refactor (update Fortran, port all functionality that doesn't do number crunching from Fortran to Python, etc.), make sure tests pass, repeat;</li>
+<li>""futurize"" code by updating architecture to enable cloud compute (to avoid vendor lock in), using Docker for containerization.</li>
+</ol>
+
+<h1>Research</h1>
+
+<p>I've looked at some great discussion of similar topics:</p>
+
+<ul>
+<li><a href=""https://softwareengineering.stackexchange.com/questions/155488/ive-inherited-200k-lines-of-spaghetti-code-what-now"">I&#39;ve inherited 200K lines of spaghetti code -- what now?</a></li>
+<li><a href=""https://www.joelonsoftware.com/2000/04/06/things-you-should-never-do-part-i/"" rel=""nofollow noreferrer"">https://www.joelonsoftware.com/2000/04/06/things-you-should-never-do-part-i/</a></li>
+<li><a href=""https://softwareengineering.stackexchange.com/questions/362848/how-to-deal-with-a-large-codebase-with-no-requirements-and-the-responsible-perso?noredirect=1&amp;lq=1"">How to deal with a large codebase with no requirements and the responsible person leaving the company soon</a></li>
+<li><a href=""https://softwareengineering.stackexchange.com/questions/114542/how-can-a-large-fortran-based-number-crunching-codebase-be-modernized"">How can a large, Fortran-based number crunching codebase be modernized?</a></li>
+<li><a href=""https://softwareengineering.stackexchange.com/questions/122014/what-are-the-key-points-of-working-effectively-with-legacy-code"">What are the key points of Working Effectively with Legacy Code?</a></li>
+</ul>
+
+<p>But notice that some of these questions and answers are almost 10 years old,
+so I wonder if there are better approaches available. Also, I am dealing with
+a procedural scientific computing environment, rather than a heavy OOP business app, so perhaps the principles mentioned in the above Stackexchange links don't carry over as well. I am also not a senior software engineer, so not sure if I am even using the right terms in search and question formulation. There is the complication of scripts and utilities in the system that makes this effort not just about porting or refactoring Fortran, that makes this situation and problem unique.</p>
+
+<p>Thanks!</p>
+"
+401720,"<p>In AWS I've got lots (dozens) of lambda functions. As my organization has gained experience with AWS, we've gone through various generations of infrastrucure around building and maintaining our functions. Currently we're making use of the SAM template and Code Pipline created from a CodeStar project to keep track of things. Most of our lambda functions are small and have their own git repos.</p>
+
+<p>When we have configuration that's different between our stage and prod environments, we make use of environment variables pulled in from the <code>template-configuration.json</code> and <code>template.yml</code> provided by CodeStar. For sensitive configuration, we make use of Secrets Manager.</p>
+
+<p>This has been working well for us. If I need to update a piece of sensitive configuration that's being used by ten different lambda functions, I can just update it once in Secrets Manager. What I'm noticing though, is that for configuration that's not sensitive, if it's something that's used by ten different functions, I've got to go update the value in ten different <code>template-configuration.json</code> files, and I have to try and make sure not to miss one!</p>
+
+<p>Surely there's a better way.</p>
+
+<p>I'm aware of Parameter Store in AWS Systems Manager, but I haven't used it before. Is this my best option? Store non-sensitive environment configuration in Parameter Store, and store sensitive environment configuration in Secrets Manager? Is the performance of Parameter Store similar or better to Secrets Manager?</p>
+
+<p>Is there another pattern or AWS Service or something else I should be considering?</p>
+"
+399960,"<p><strong><em>No, however there are frameworks available to enable easily migrating between cloud providers.</em></strong></p>
+
+<p>The basis for my answer is found within the definitions provided below.</p>
+
+<p>Per <a href=""https://en.m.wikipedia.org/wiki/Function_as_a_service"" rel=""nofollow noreferrer"">Wikipedia</a>,</p>
+
+<blockquote>
+  <p>a category of cloud computing services that provides a platform allowing customers to develop, run, and manage application functionalities without the complexity of building and maintaining the infrastructure typically associated with developing and launching an app.</p>
+</blockquote>
+
+<p>Likewise, <a href=""https://en.m.wikipedia.org/wiki/Least-cost_routing"" rel=""nofollow noreferrer"">Least-cost routing (LCR)</a> is defined as follows:</p>
+
+<blockquote>
+  <p>the process of selecting the path of outbound communications traffic based on cost.</p>
+</blockquote>
+
+<p>Public cloud companies provide integrations and functionality that is not easily portable to other providers. In practice, most companies end up being locked in to certain providers due to these architectural differences. Therefore, unless developing separate codebases that perform the same task, (which would be redundant), there is no way to leverage the cost savings found on another provider without accouting for these changes.</p>
+
+<p>While recommendations are off-topic, I can provide two arbitrary examples of frameworks that provide the portability required to enable rapid transitions between various cloud services.</p>
+
+<ul>
+<li><p><a href=""https://knative.dev"" rel=""nofollow noreferrer"">Knative</a> is a kubernetes-based solutions for running ""serverless"" code.</p></li>
+<li><p><a href=""https://serverless.com"" rel=""nofollow noreferrer"">Serverless</a> is a framework for deploying functions as a service.</p></li>
+</ul>
+"
+394623,"<p>I'm planning to construct a workflow/environment for training and serving NLP classifiers, that follows something like:</p>
+
+<ol>
+<li>The model training system takes in annotated documents from a subset of a variety of preconfigured sources, along with a set of user-defined parameters on how to run the model (e.g. which n-gram features to generate, whether to apply negation/lemmatization, etc)</li>
+<li>Model training system outputs a model file to an S3 bucket</li>
+<li>A Flask-based API service loads the model from S3 on startup, and uses it to provide real-time prediction</li>
+</ol>
+
+<p>However, there are a few caveats:</p>
+
+<ul>
+<li>The training workflow will feed into multiple stand-alone services, not just one</li>
+<li>Each service might have multiple models attached to it (so an incoming POST of a document would receive a response with multiple classifications, based on multiple different model predictions)</li>
+<li>The calls per minute per service would be relatively low (maybe one call to a service every few minutes)</li>
+</ul>
+
+<hr>
+
+<p>I've looked into existing offerings like SageMaker, but that's limited to one API service per model. It's also seemingly designed for API services that would <a href=""https://stackoverflow.com/questions/49422065/aws-sagemaker-hosting-multiple-models-on-the-same-machine-ml-compute-instance"">receive thousands of calls per second</a>, which is not at all cost-effective for my needs.</p>
+
+<hr>
+
+<p>As such, here's my plan:</p>
+
+<p><strong>Pre-/Post-processing Package</strong>. Have a code repo containing all the pre- or post-processing methods that might be called by the classifier pipeline (both in training and in prediction). These methods all include a high amount of logic variance, dictated by input params. This code is, on its own, not deployed anywhere.</p>
+
+<p><strong>Training service</strong>. A high-resource EC2 instance which imports the above pre-/post-processing package, has input connectors to all possible data sources, and outputs to an S3 bucket. Data scientists would input a set of params and data source(s) and run the training on this instance.</p>
+
+<p><strong>Model storage</strong>. Outputted models are stored in various S3 buckets, based on some organizational structure related to the data sources and classifier type.</p>
+
+<p><strong>API services</strong>. A series of low-resource Flask-based API services which use config files to dictate which models to load from the S3 bucket. This <em>also</em> would need to import the pre-/post-processing package, so it could apply said methods during prediction of incoming docs.</p>
+
+<hr>
+
+<p>So, my questions:</p>
+
+<p><strong>Does this general architecture make sense? Or are there sections I should rethink?</strong></p>
+
+<p><strong>Are there existing cost-effective systems I should be looking into which would handle this better than constructing the entire ecosystem myself?</strong></p>
+"
+391040,"<p>Microservices have technical and social aspects:</p>
+
+<ul>
+<li>each microservice can be <em>developed</em> and <em>deployed</em> independently</li>
+<li>each microservice can <em>scale</em> independently</li>
+</ul>
+
+<p>For each of these aspects – development, deployment, scaling – it took some time until microservices became a sensible option.</p>
+
+<p>&nbsp;</p>
+
+<p>Most problems then and now are simply not so big that scaling would be a concern. And long ago, the cheapest way to scale was not to build distributed systems but to build bigger machines. What has changed since then: now we are solving many more problems with computers, in particular internet-related stuff, and quite a few problems have performance requirements that cannot be satisfied by a single blade server. Bigger machines are not an option beyond some point due to physical limits. So distributed systems it is.</p>
+
+<p>As a sub-point of this, distributed systems can be attractive because they are potentially more highly-available. This doesn't imply microservices as a monolithic architecture can be made HA as well, but microservices are a popular way to build highly available systems.</p>
+
+<p>Microservices aren't necessary for a system to scale, but it allows different parts of a system to scale <em>independently</em>. For example, some web app might need a different number of frontend servers, database replicas, and worker nodes for optimally cost-effective performance.</p>
+
+<p>&nbsp;</p>
+
+<p>Software development used to be release-oriented: requirements go in on one side of the process, developers do their thing, and some time later a release emerges on the other side. Such a view causes difficulties if requirements are uncertain and need to be tested by putting them into practice, if there is ongoing maintenance without clear releases, or if the project is simply very big so that it's ineffective and too risky to release all components together.</p>
+
+<p>The dot-com bubble shifted priorities towards minimizing time to market. “Rapid Application Development” was a big thing. Agile techniques emphasized iteration and early deployment. One of the most influential agile techniques were things like automated unit testing, continuous integration, and (much later) continuous deployment. DevOps builds upon these agile ideas and suggests a strong focus on making deployments automated.</p>
+
+<p>All of this is relevant for a service architecture because services can be modified and deployed independently so that changes reach production faster. That involves a lot more total deployments than for a monolithic architecture, so that automated build and deployment systems are a prerequisite. Independent development also means that different services can be built with different technology stacks, as long as the services can communicate via some common interface.</p>
+
+<p>Containers are not necessary for microservices, but containers simplify system administration and container images make automated deployment a lot easier. Similarly, “the cloud” is not necessary for microservices. But a microservice system does need a cluster of machines to run on, and cloud platforms are an easy low-capex way to get that cluster.</p>
+
+<p>&nbsp;</p>
+
+<p>Microservices represent the current best practice for developing large systems that need independent development, deployment, and scaling. This is based on the currently known technologies and development techniques.</p>
+
+<p>However, microservices are not the first occurrence of service-based architectures. Before that, service-oriented architectures (SOA) were already popular, especially in an enterprise context. SOA and microservices have overlapping goals and techniques, but SOA tends to be about integration of different services over a common message bus/queue. Microservices are an evolution of SOA, but may favour more fine-grained services and don't necessarily have a centralized message queue.</p>
+
+<p>Microservices will also not be the last occurrence of these ideas. Now that the microservice hype is dying down they are becoming an ordinary tool in the system architect's toolbox, but our technologies and techniques continue to evolve. Interesting directions include scaling <em>down</em> with FaaS, and moving computations to the data with edge computing.</p>
+"
+390552,"<p>I am considering what it takes to implement an email server. <a href=""https://cloud.google.com/compute/docs/tutorials/sending-mail/"" rel=""nofollow noreferrer"">Google Cloud</a> basically doesn't allow you to send emails at scale (they block the email ports pretty much), though it sounds like you could receive email. <a href=""https://aws.amazon.com/blogs/messaging-and-targeting/amazon-ses-now-offers-dedicated-ip-addresses/"" rel=""nofollow noreferrer"">AWS</a> on the other hand allows you to send emails for about $1 per 10k. <a href=""https://www.codeinwp.com/blog/best-smtp-providers/"" rel=""nofollow noreferrer"">This</a> sums up some other SMTP services like SendGrid, and the costs involved.</p>
+
+<p>I am aware (vaguely) that there are lots of problems Internet Service Providers (ISPs) want to prevent, like email <a href=""https://help.campaignmonitor.com/how-why-isps-block-emails"" rel=""nofollow noreferrer"">spam</a>. It sounds like they have IP blacklists, and somehow intercept the emails and can figure out if they are spam by checking their content. Somehow also they get access to abandoned email accounts and check who is emailing there (I have no idea how this works, but if there are some helpful links I'd love to know, though not relevant for the question). Basically, the ISP uses all kinds of techniques to figure out if your email service is spammy, so they can block your IP and shut it off. I don't see why this needs to happen at the ISP level, but that's beside the point.</p>
+
+<p>What I'm wondering about is how to architect an email server so as to not get black listed, and to have it ""work"" 24/7, for years and years without interruption. Say I want to implement a service like Gmail or SendGrid. I'm wondering what measures you should take to architect an email server. That is, what the best practices are architecture-wise to create a successful email server.</p>
+
+<p>Specifically where I'm at currently is, it seems using Amazon SES is the best option. It is the cheapest by far and doesn't have any bells and whistles. Otherwise you would have to buy your own hardware and build your own cloud if you wanted to get any cheaper or lower level I'd imagine, and buy your own IP addresses. But short of that, using AWS SES sounds like a good option.</p>
+
+<p>They give you the ability to use <a href=""https://aws.amazon.com/blogs/messaging-and-targeting/amazon-ses-now-offers-dedicated-ip-addresses/"" rel=""nofollow noreferrer"">dedicated IP addresses</a>, and as they state:</p>
+
+<blockquote>
+  <p>most email certification programs require you to have dedicated IPs because they demonstrate your commitment to managing your email reputation.</p>
+</blockquote>
+
+<p>So email server architecture principle 1, have dedicated IP addresses. But I don't want to do this just yet and then get blacklisted for an unknown reason, which brings me to the crux of the question. <em>How not to get blacklisted</em>. Given this is a service like Gmail or SendGrid, which could be sending millions of marketing emails and millions of personal emails, from millions of different email accounts, <em>every day</em>. I don't see how to tell if I am putting the right things in place for the email server to be top quality and to potentially be ""certified"" (not sure what email server certification really is or if it's a thing, Google search doesn't reveal anything, but AWS mentions it). That is, what the high level <em>things</em> are that you should put in place to <strong>guarantee</strong> that all emails will always get delivered (or all emails from all ""good"" email accounts on your system get delivered). If it's not possible to <em>guarantee</em> this, then I'd like to know why not, and the answer could just be tailored to whatever is closest to a guarantee that we can get.</p>
+
+<p>Basically, the architectural measures to put in place for an email server to consistently deliver email without being blocked.</p>
+
+<p>I am not (for this question) considering anything about scaling the email server or building the email server itself, just the architectural best practices to prevent being blacklisted.</p>
+
+<p>From my understanding so far, some of the initial principles are:</p>
+
+<ol>
+<li>Have a dedicated IP address. (Not sure if you should just have one, or if you can have 2 or 3, or 100).</li>
+<li>Don't send spam.</li>
+</ol>
+
+<p>That's all I can think of. For (2), this means you have to have good spam filters in place, and other security measures such as verifying that there is a person behind the email account, etc. But for (2) as well, I am unsure how to handle the problem of false negatives. That is, some users might send 100+ individuals a day, maybe even a few mass marketing emails like on those ""get rich with adwords"" marketing sites with email lists in the 10's of thousands. I would like to know if purely the <em>volume</em> of emails causes a red flag, and how to get around that. Then the content, just want to make sure this is purely based on in-house spam filters, and that the ISP wouldn't block that kind of stuff.</p>
+
+<p>If this is a broad topic, I would like to keep it narrowly focused. I imagine one part of this is to learn more about <a href=""https://rads.stackoverflow.com/amzn/click/com/1908422009"" rel=""nofollow noreferrer"" rel=""nofollow noreferrer"">email spam prevention</a>, which I will do. So this question doesn't need to cover the spam stuff in any detail. To keep it narrowly focused, I'm wondering what architectural measures should be put in place not to be blacklisted. This might include (just making this up):</p>
+
+<ul>
+<li>Have a fixed number of dedicated IP addresses, less than x number.</li>
+<li>Contact some ISP providers and tell them manually (on the phone even) about your business goals.</li>
+<li>Implement spam filters to prevent spam going out in the first place.</li>
+<li>If you have geographically distributed email servers, perhaps something there as well.</li>
+<li>Programmatically send the abandoned accounts or closed accounts to the ISP for checking.</li>
+<li>Give access of ISP to some other stuff perhaps, by manually creating an API integration and partnership or something.</li>
+<li>Associate phone numbers with the accounts.</li>
+<li>etc.</li>
+</ul>
+
+<p>I can understand how to <em>implement</em> an email/SMTP server, and send/receive messages at scale. So architecturally that makes sense. What's missing in the picture is the architectural components to prevent being blacklisted at this sort of scale.</p>
+
+<p>To put it succinctly, I'd be interested to know how Gmail and SendGrid avoid getting blacklisted, but that's probably proprietary :)</p>
+"
+384565,"<p>No. This is definitely not agile. Nor is it a good idea.</p>
+
+<p>Cross-functional teams, i.e. teams that include every role (analyst, server admin, database admin, UX designer, QA tester, technical writer, graphic designer) that is needed to successfully deliver working software, are a staple of many agile methodologies. In fact, in many methodologies, the customer itself is also considered to be part of the team.</p>
+
+<p>Actually, this is orthogonal to agile, though. Cross-functional teams are simply a good idea, <em>regardless</em> of whether you are doing agile or not.</p>
+
+<p>What <em>is</em> true, however, is that with the constant rise of automated testing, developer testing, test-driven and behavior-driven development on the one hand, and software-defined infrastructure, highly automated commissioning, configuration, and deployment, DevOps, and cloud hosting, some of the workloads may have shifted from admins to DevOps engineers, and from QA to development. That does <em>not</em>, however, mean that those roles are extinct. It just means that QA has more interesting bugs to chase because all the trivial ones have been found by developer testing, and admins focus more on enabling DevOps to manage the infrastructure with automated tools than managing it themselves.</p>
+
+<p>There is an easy test to check whether something is agile: when someone says ""you do this because it is agile"", then it is not agile. Agile is all about self-managing teams that constantly reflect on their processes and adapt them. Whenever someone says ""you do this"", then it is not agile. It is only agile when <em>the team</em> says ""<em>we</em> do this, because after reflecting on our past experiences, we have determined that it works, and we will keep reflecting on it and stop doing it as soon as we determine it doesn't.""</p>
+"
+378569,"<p>Goal: Prevent unauthorized 'clone' apps from using REST API-based solutions <strong>where the customers manage their own servers and services instead of the vendor doing so</strong> (database, resource, and identity). In other words: on-premise servers instead of a cloud-based solution. </p>
+
+<p>My company wants to be able to authorize only some third-parties to be able to create apps that can use our APIs, but not just anybody, in addition to our own apps. So we will likely have some process where third parties will submit their apps to us for signing and adding to some kind of 'white-list' (whatever form that ends up taking.. hence the question.)</p>
+
+<p>(Why no cloud? Some countries and industries are subject to stricter regulations where cloud or off-site servers is not an option for some classes of sensitive operational data. If that is not good enough of a reason, then please consider this a thought experiment). </p>
+
+<p>This question is a variation on <a href=""https://softwareengineering.stackexchange.com/questions/219028/how-to-safeguard-a-rest-api-for-only-trusted-mobile-applications"">this near identical question</a>, but with the additional constraint that the software vendor doesn't own or manage the servers.</p>
+
+<p>I have zero affiliation with CodeBlue, the makers of Approov, but they did publish a decent explanation of the typical process for securing REST APIs for both web apps and mobile apps. Here is a link to part 2 of 3 which covers some of the critical points such as the mediation server and the attestation process for authorizing the client and techniques for keeping shared secrets out of public clients (i.e.: mobile apps).</p>
+
+<p><a href=""https://www.approov.io/blog/mobile-api-security-techniques-part-2.html"" rel=""nofollow noreferrer"">https://www.approov.io/blog/mobile-api-security-techniques-part-2.html</a></p>
+
+<p>The solution described by the above article from CodeBlue sounds dandy for a cloud-based or vendor-controlled environment. However, I have been struggling to find a way to protect against clone apps when the customer has physical access to not only the clients, but to the servers. Configuration alone could probably enable unauthorized apps, and if that doesn't work the app itself could be modified.</p>
+
+<p>Of course there is a legal safety net here (license agreement, terms of service), but is there anything code-wise that can be done to harden against this, if not prevent it outright?</p>
+
+<p>I am aware of - and pursuing - various techniques for obfuscating solutions (like spreading the secrets around, and protecting against reverse engineering) and for client attestation, but in all of my models so far there exists the possibility that a malicious customer (or agent) can trick the REST API into believing that requests are made by an authorized client. I know I'm in some kind of arms race here - so I'm reaching out to the community for thoughts on this because all of the methods I have researched over the past week rely on the vendor owning the server.</p>
+"
+378239,"<p>A goal of a service in SOA is to perform some logic which, otherwise, would have to be duplicated among other services. That logic is, in turn, the reason for the service to exist.</p>
+
+<p>In your case, you add no value through the service. Any other service could easily access S3 directly, given that S3 <em>is</em> itself a service (it is not <em>your</em> service, but that is irrelevant here).</p>
+
+<p>Not only there is no added value to the intermediary service, but its cost is rather prohibitive. You may imagine that you can draft one in a few hours, which is true. However, in order to have something that works reliably and handles all the edge cases, you have to deal with caching, redundancy, interrupted uploads and recovery, large files, timeouts, brute force and DDOS, special characters in parameters, permissions and IAM, and dozens of other pretty things.</p>
+
+<p>Therefore, you're about to spend two or three weeks of development and possibly one week of debugging (YMMV; I don't know your experience in HTTP, SOA and the technology you want to use to create your service, but even if you're highly experienced, you shouldn't expect spending less than two weeks on that, which is <em>a lot</em>).</p>
+
+<blockquote>
+  <p>I just wanted to know how it's done in commercial/big projects.</p>
+</blockquote>
+
+<p>Companies pay on average $700/day for a highly experienced developer, so given my estimate of two weeks, you're at $7,000 for a task. Commercial projects are about money; when there is an opportunity to save an amount even as small as $7,000, they'll do it.</p>
+
+<p>Additional to this direct cost, there is a cost in terms of hosting and code maintenance. This service will have to be maintained for years, adding to the bill much more than the original price. Again, all this money wasted without the clear understanding of what could such service <em>save</em> to the company. It doesn't save bandwidth, nor other resources. It doesn't reduce the amount one will pay to Amazon, so...</p>
+
+<p>This is not all. The cost of maintenance of all the projects which depend on the intermediary service will also increase. If a service:</p>
+
+<ul>
+<li>Has to be patched and the patch requires an interface change,</li>
+<li>Has to be moved to another location, with a change in its URL,</li>
+<li>Is down, requiring to have a circuit breaker to ensure the client service doesn't go down in turn,</li>
+<li>Is deprecated, requiring to migrate the client to something else,</li>
+</ul>
+
+<p>the immediate and unforeseen maintenance is required and is usually costly as well. Now, it is much more likely that those four things happen to <em>your</em> service than to Amazon's S3. Not because <em>you</em> are a bad developer, no. But because Amazon's scale is slightly different than the scale of your service, which means that they have much more workforce to pay to ensure the clients can rely on S3.</p>
+
+<p>Finally, many developers have prior experience with Amazon AWS (and possibly S3). This means that when you hire a new guy, he can easily understand how a service is storing files if it uses S3 directly. If you add a level of indirection, this benefit is lost. And, more importantly, every time someone has a problem with the storage, he would need to ask himself if the problem comes from the client service, from your intermediary or from S3. This adds to the debugging time.</p>
+
+<p>So:</p>
+
+<blockquote>
+  <p>Is it a clean/good-design-patterns-compliant approach ?</p>
+</blockquote>
+
+<p>No. Add services when they add value. Don't make things more complex than they need to be (KISS) and, specifically, don't add layers which bring no benefits.</p>
+
+<blockquote>
+  <p>What is good/bad about that approach?</p>
+</blockquote>
+
+<p>What is good: the fact that you provide an interface which is much simpler compared to S3. For developers unfamiliar with AWS, S3 can be quite complex.</p>
+
+<p>What is bad: already told it above.</p>
+
+<blockquote>
+  <p>How could I do that in a better way ? (don't want to store files (content) on the machine where application is running [locally] )</p>
+</blockquote>
+
+<p>By calling directly S3.</p>
+"
+376805,"<p>Never ever commit secrets to source control. And by extension, never build a container image that includes secrets. Instead, secrets should be provided during deployment, e.g. as environment variables. If you are using some cloud provider, they probably have special tooling to manage keys and other secrets.</p>
+
+<p>If you need to store secrets during development, perhaps use a config file but never commit these files. Instead, explicitly .gitignore them.</p>
+
+<p>Now that you aren't version-controlling any secrets, your repository is already in a publishable state, and complying with the AGPL is easy. The (A)GPL does not force you to make any passwords, API keys, or other secrets publicly available, except under the very limited circumstances that you are embedding (A)GPLv3 software into an embedded device, and such secrets are necessary for installing modified versions on that device.</p>
+
+<p>Recommended reading: <a href=""https://12factor.net/"" rel=""noreferrer"">The twelve-factor app</a>, a short guide to web app architecture and deployment. Especially consider their definition of <a href=""https://12factor.net/config"" rel=""noreferrer"">configuration</a> and their <a href=""https://12factor.net/build-release-run"" rel=""noreferrer"">distinction between build, release, and run phases</a>.</p>
+"
+373055,"<p>This might be a partial answer but I think there's some info that might be useful in it, so...</p>
+
+<p>First, I'll try to answer the questions:</p>
+
+<ol>
+<li>""<strong>Would you all recommend sticking with the above plan or if you suggest doing something different, what would it be?</strong>""</li>
+</ol>
+
+<p>I would actually try to convince the stakeholders (money payers) that using an enterprise software would be in their best interest 'cause you're describing a very hard problem and you'll likely spend more money developing it than something like New Relic costs.</p>
+
+<p>That said, the implementation totally changes based on what you're currently doing for releases and if you control the application code you're trying to monitor or if it's some 3rd party plugin you want to get data about too.  I'm going to guess that the app is your company's and that your might have <em>some</em> CICD but it's not 100%.</p>
+
+<p>If that's close enough, I think it would be easy enough to stand up a Kafka cluster or three and log everything you can get your hands on into them.  Maybe one is for RESTFUL calls and one is for app-level errors or whatever you decide.  This could stand as your centralized logging system.</p>
+
+<p>Since you control the application code, you can log pretty much anything you like by asking the developers to add more logging, where you want.  That's not usually a favorite request but if it makes sense and especially if higher ups back the idea, you can probably get all the logging you want to get.  That will tell you about RESTful calls, app errors and things like that but you'll have to go deeper to get latency reporting and info on slow SQL queries and all that.  I believe you can get some good info out of some free Nagios logging too.  At a minimum, you should be able to get stats about how the hosts are doing; e.g. Memory available, CPU consumed, Disk space, etc.</p>
+
+<p>You can then have something consuming all these messages and tie in some pretty useful automations, based on the state of your system and the actions coming in.  ""Oh look, everyone is buying all the X-product!  Let's make a promotion to capitolize on it!"" or ""Oh look, all of our apps are throwing 500s!  Let's go hide somewhere until this all blows over!""</p>
+
+<p>I'd say you should use something like AWS's SQS because you don't have to worry about managing the Kafka/Zookeeper cluster <em>on top of</em> managing your application(s) code.  SQS is pennies for millions of messages but if you're going 100% open source, Kafka is a solid choice, in my humble opinion.</p>
+
+<p>Choosing NoSQL...that one's tough here.  I think it's probably the right choice but maybe, if you can, hold off on deciding about that level in your system until you find out how you want to use that data, in other words, make sure the use case fits NoSQL before you commit.  Switching and keeping any history would be tricky.</p>
+
+<ol start=""2"">
+<li>""<strong>What I lack knowledge in is ""BigData"". What exactly is BigData in a nutshell? Can we apply it for our needs? Are there open source solutions for BigData?</strong>""</li>
+</ol>
+
+<p>I'm no PHD but I dabble and I work with those teams, daily.  With that history, I'll try to explain in my words.  Big Data is a blanket term you can use to talk about problems and solutions with, when the problem you're trying to solve has a grip of data tied to it by nature.  It's usually not helpful to work from this mentality when your data is still in the GB range but I'm sure there's plenty of use cases where it makes sense.</p>
+
+<p>Anyways, it works like this; Say there's this thing that we all do, like use the internet.  Pretend, if you will, that there was some way to collect data about our internet usage, like what sites we visit and what search term we used to get to that site.  That's a looooot of data and when you think of it and use it as kind of a resource, you get a lot of insights and benefits out of it but it's also really hard to sift through all that data and reason about it.  In this example, the data is all our internet usage.  The problem is how to sale crap to us, using google adwords or whatever, and the ""Big Data"" in this is that we're considering all this data and how we can use it.  A big part of ""Big Data"" is also the infrastructure used to run it.  It's not trivial so it usually gets a lot of attention.</p>
+
+<p>There's lots of open source tools you can use for using your data.
+If your apps were to use any tools, Spark comes to mind.  You could set up streaming from your logging message system to modify all the incoming data so that it's easier to use for humans and machines.  I guess if you get really ambitious, you could try to implement some machine learning based on all your data.  You'll have to come up with the problems you want to solve first, though.</p>
+
+<ol start=""3"">
+<li>""<strong>Would using BigData or any other solution help with faster analysis/querying of data for our analytics dashboard?</strong>""</li>
+</ol>
+
+<p>Yes.  That's the whole point of it all.  The problem is, you have to hire a bunch of expensive people to implement it.  Your best bet is to tackle that hurdle when you get to it.  If you can create your logging system and the dashboard, you'll be worlds better than you are now.  No need to build an F1 car when you just need a tractor, ya know?  And if I were to continue the F1 car and tractor metaphor, you can think of it like this -> The tractor that you're going to build now is creating the paved surface for your BigData F1 car to do impressive things with.  You'll need all that data your logging system is going to collect before you can use the data to reason about, if that makes sense.</p>
+
+<ol start=""4"">
+<li>""<strong>Is there an out of the box open source solution for dashboards(UI) so that we don't have to build it from scratch?</strong>""</li>
+</ol>
+
+<p>I don't know of one but that doesn't mean it doesn't exist.  Building the dashboard can be as big or small a project as you make it.  Honestly though, I think this is the easiest part of the work ahead of you.  Enjoy, if you build it yourself!  It should be fun.</p>
+
+<ol start=""5"">
+<li>""<strong>If sticking with NoSQL is a good plan, what NoSQL DB would you recommend? MongoDB? Cassandra?</strong>""</li>
+</ol>
+
+<p>My opinion here is just to use a cloud tool and let them decide the engine.  I doubt, from what I'm hearing, that you'll be taxing any graph database on tough queries.  Your issue is most likely going to be from reads and writes, so maybe figure out how much you think you'll be pushing into the DB and how you'll be querying that data.  It should lead you to whether or not NoSQL is a better fit and during your reading, I bet you'll stumble on some article that makes up your mind on which engine you chose.</p>
+
+<p>It's an interesting problem and it sounds really fun to work on.  </p>
+
+<p>Good luck and I hope that helps, at least a little!</p>
+"
+363962,"<p>My question is in context with the Serverless Architecture (e.g. AWS Lambda) and how does one interact with the Databases in this system.</p>
+
+<p>Typically in a 3 Tier architecture, we have a web service which interacts with the Database. The idea here is to ensure that one database table is owned by one component. So changes in there, does not require changes in multiple places and there is also a clear sense of ownership so scaling and security are easier to manage.</p>
+
+<p>However, moving to serverless architecture, this ownership is no more clear and exposing a web service to access a database and having a Lambda use this web service does not make sense to me.</p>
+
+<p>I would like to know a bit on the common patterns and practices around this.</p>
+"
+357689,"<p>I'm building a web application, which involves (currently) a REST backend and a frontend SPA. The backend is hosting massive geo-enabled data, and the frontend is displaying it on a mapbox map. I'm hitting performance issues, because of the stack I set up. Here's the stack, when it comes to displaying a map.</p>
+
+<pre><code>    MapboxGl.js player
+        ^          ^
+        | (HTTP)    \
+ Node.js backend     Mapbox APIs vectors
+        ^
+        |
+     MongoDB
+</code></pre>
+
+<p>The HTTP endpoints serve both <em>GeoJSON</em> and REST data. The GeoJSON part is dynamically generated from a set of MongoDB collections (say, <code>gpspoints</code>, <code>images</code>, <code>lines</code> etc.). The Mapbox API is my Mapbox Studio style.</p>
+
+<p>I'm looking for the best alternative to this design. And reading about maps, vectors, tiles, rendering and stuff, I came up to the idea that I should trade my GeoJSON server for a Vector tiles server (only for the map part). I'd like to end up with something like.</p>
+
+<pre><code>         MapboxGl.js player
+       ^         ^           ^
+      /          | (HTTP)     \
+Vector tiles  Node.js backend   Mapbox APIs vectors
+   Server            ^
+     ^               |
+     |               |
+Other backend ?   MongoDB
+</code></pre>
+
+<hr>
+
+<p>I'm struggling at the point of making design choices.
+The questions I have in mind are :</p>
+
+<p><strong>About generating :</strong></p>
+
+<ul>
+<li>I came to the idea that I must <em>generate</em> my vector tiles from a GeoJSON. Is that correct ? Would it be possible to generate vector tiles from scratch, I mean, say, from a node.js routine script, parsing datas from various sources (.csv, other databases, etc.) and make operations on it (using turf.js), then generating vector stuff, like pushing, maybe updating, deleting, etc ?</li>
+<li>I found <a href=""https://github.com/mapbox/geojson-vt"" rel=""nofollow noreferrer"">geojson-vt</a> which seems to be able to translate GeoJSON to vector tiles, but only in json format. I found <a href=""https://github.com/mapbox/vt-pbf"" rel=""nofollow noreferrer"">vt-pbf</a>, am I on the right direction ?</li>
+</ul>
+
+<p><strong>About serving</strong></p>
+
+<ul>
+<li>Once I would have been able to generate whatever-format-vector-tile, I am going to be willing to serve it. I found <a href=""https://github.com/mapbox/tilelive"" rel=""nofollow noreferrer"">Tilelive.js</a> which seems very good, and has plenty of modules, including backend ones. Is that a good option ?</li>
+<li>Speaking generaly, would it be possible not to generate any static file stuff, and maybe dynamically serve any-vector-format from a database, <strong>through</strong> something like tilelive ?</li>
+</ul>
+
+<hr>
+
+<p>Additional info :</p>
+
+<ul>
+<li>My datas are ""mutable"", but I have routine scripts that run at night and parse new datas. Thus, live-map-displayed-data mutability is not a requirement : I can update / re-parse a whole dataset at night to serve it on the morning</li>
+<li>Both generating and hosting on Mapbox studio is not an option, since my data is critical and must be hosted in specific coutries. A self-hosted option is mandatory, any cloud-based stuff is not ok :/</li>
+</ul>
+
+<hr>
+
+<p>This question is redundated in <a href=""https://gis.stackexchange.com/questions/255926/self-hosting-vector-tiles"">gis.stackexchange</a></p>
+"
+351970,"<blockquote>
+  <p>Is this approach secure? Specifically:</p>
+  
+  <ul>
+  <li>Is sending the username and password through JSON safe if done over HTTPS?</li>
+  </ul>
+</blockquote>
+
+<p>Yes. Headers, request params and request body are encrypted during the communication. </p>
+
+<p>Once on the server-side, do not log the request body :-)</p>
+
+<blockquote>
+  <ul>
+  <li>How would I prevent unauthorised domains from making calls to this endpoint?</li>
+  </ul>
+</blockquote>
+
+<p>You can not. Basically, once the API is on the WWW, it's automatically exposed to all sort of malice. The best you can do is to be prepared and to be aware of the threats. At least about those that concern you. Take a look <a href=""https://www.owasp.org/index.php/OWASP_API_Security_Project"" rel=""nofollow noreferrer"">here</a>.</p>
+
+<p>A possible approach to the problem could be implementing (or contracting) an <a href=""https://en.m.wikipedia.org/wiki/API_management"" rel=""nofollow noreferrer"">API Manager</a>.</p>
+
+<p>On-premise API Managers can reduce the attack surface because all the endpoints behind the AM are not necessarily public.</p>
+
+<p>You could achieve the same result with some products in the cloud, but they are absurdly expensive for the mainstream.</p>
+
+<p>Anyways, the API Management endpoints will remain exposed to attacks.</p>
+
+<blockquote>
+  <ul>
+  <li>Furthermore, how would I prevent programmatic logins?</li>
+  </ul>
+</blockquote>
+
+<p>If by programmatic logins you mean attacks by brute force, a <em>threshold</em> (max number of allowed requests per second) and a black list should be enough to deter the attacker's insistence. For further information, take a look <a href=""https://www.owasp.org/index.php/REST_Security_Cheat_Sheet#Protocol_for_Authentication_and_Authorization"" rel=""nofollow noreferrer"">here</a>.</p>
+
+<p>Many of the API Managers provide out of the box API Rate Limit configurations and <a href=""https://en.m.wikipedia.org/wiki/Whitelist"" rel=""nofollow noreferrer"">Whitelists</a>.</p>
+
+<p>If you are familiar with the Google API Console, then you can guess what an API Manager can do.</p>
+
+<blockquote>
+  <ul>
+  <li>Should the refresh tokens be hashed before storing them in the
+  database, or am I just being paranoid?</li>
+  </ul>
+</blockquote>
+
+<p>Whether the refresh token is a plain UUID or anything else, I don't like to expose this sort of implementation detail. So I would suggest to hash it. To me, the more opaque are the implementation details of the security layer, the better.</p>
+
+<p>Regarding the JWT security, take a look <a href=""https://www.owasp.org/index.php/JSON_Web_Token_(JWT)_Cheat_Sheet_for_Java#NONE_hashing_algorithm"" rel=""nofollow noreferrer"">here</a>.</p>
+
+<blockquote>
+  <ul>
+  <li>If the client were a web browser, how would I securely store the
+  refresh token on the client?</li>
+  </ul>
+</blockquote>
+
+<p>You might be interested in <a href=""https://www.owasp.org/index.php/JSON_Web_Token_(JWT)_Cheat_Sheet_for_Java#Token_storage_on_client_side"" rel=""nofollow noreferrer"">JSON Web Token (JWT) - Storage on client side</a>.</p>
+"
+351507,"<p>You (almost) already said the answer:</p>
+
+<blockquote>
+  <p>a [not so] quick solution would include setting up an entire testing environment (outside Travis, of course), literally replicating the production environment, and using a dedicated system to spawn 100k separate processes, hitting the application running on the testing environment, and collecting reports.</p>
+</blockquote>
+
+<p>Yes, this is a good solution. And, even better, <em>it will force you to automate your production set-up</em>. There is a way to do it that is <em>not</em> to use a ""dedicated"" system, instead to spin up and tear down the entire system so that it only runs when you need it.</p>
+
+<p>Use a cloud service like AWS to spin up a production-capable cluster in seconds or minutes (and also able to tear it down in seconds or minutes), and then use a cloud service like AWS to spin up hundreds or thousands of instances to test your app.</p>
+
+<p>This is definitely possible and will force you and your team to adopt a whole lot of ""best practices"". You don't have to do this in AWS, I'm sure that Azure or Google Cloud should also work just fine.</p>
+
+<p>Disclaimer: I attended AWS reInvent a few years ago and saw a talk by a company that did exactly this. They had CloudFormation scripts that could spin up an entire production cluster (in a VPC no less) in less than ten minutes, and then used <em>thousands</em> of spot instances to hammer on the production cluster. It ran daily in a matter of minutes and the cost was very cheap.</p>
+"
+349301,"<p><em>Q: <strong>But that also means I would have to put the business logic in the
+front-end, in the Angular2 web app, right</strong>?</em></p>
+<p>Yes. If it's not backed by a server, the business should be implemented somewhere.</p>
+<p>After Google's acquisition, Firebase evolved and became a platform for developers of apps that could not afford to build and deploy their own backend.</p>
+<p>Most of the Firebase featured services are transversals (storage, login, analytics, and messages service) but few address the problem in question.</p>
+<p>It's true that Firebase provides with <a href=""https://firebase.google.com/products/functions/?hl=es-419"" rel=""nofollow noreferrer"">Cloud Functions</a> (sort of lambdas) which can be used to perform business-specific rules. However, for enterprise applications or large applications with a complex domain, this kind of support falls short. Even if we manage to implement the business with cloud functions, the overall could make the solution very hard to maintain. Mainly for the complexity.</p>
+<p><em>Q: <strong>So if I someday in the future I would like to make a mobile app front-end, I would have to duplicate the business logic code?</strong></em></p>
+<p>Not necessarily. If the web app is built on Angular, cross platforms like <a href=""http://www.nativescript.org"" rel=""nofollow noreferrer"">NativeScript</a> may allow you to reuse the web components, libs, utilities, models, etc. I haven't delved into the subject so I can't assure you full compatibility. The key is <a href=""https://www.typescriptlang.org"" rel=""nofollow noreferrer"">TypeScript</a>, both Angular and NativeScript requires us to code on TS.</p>
+<p>The matter then is <em>where we host the Javascript for its distribution and versioning?</em>. A word <a href=""https://en.wikipedia.org/wiki/Content_delivery_network"" rel=""nofollow noreferrer"">CDN</a>.</p>
+<p>You could also hire a hosting service with Web support and host the JavaScript yourself.</p>
+<p><em>Q: <strong>I guess the alternative would be to create a backend that contains the business logic and uses Firebase for the data storage, but that seems a bit weird (couldn't I just use an ORM or something directly in my backend to achieve the same result without a lot more work?)</strong></em></p>
+<p>Some considerations.</p>
+<p>On one hand, hosting, rolling out, managing and maintaining a database is no little thing. Not to mention handling security, scalability, availability, etc. So, having a DB provider looking after these things is interesting. It's not a crazy idea these days to roll out our database somewhere on the cloud. Of course, I would not suggest this if we were implementing the middleware or the back-end of a bank. But it could make sense for the client's session, user's profiles, preferences and this sort of data that usually lives on the client-side temporarily.</p>
+<p>On the other hand, deploying our back-end is useful for a simple reason, <em>decoupling</em>.</p>
+<p>Instead of <a href=""http://en.wikipedia.org/wiki/Mashup_(web_application_hybrid)"" rel=""nofollow noreferrer"">coupling our clients to all sorts of services</a> we don't manage and control, we deploy a server-side application from where we look after these things so that our clients don't have to worry about issues like services shutdowns or breaking changes. Additionally, we gain on simplicity because our back-end acts like a facade.</p>
+<p><em>Q: <strong>How do people usually structure these kinds of apps, if they want to make use of Firebase for example?</strong></em></p>
+<p>It varies widely from project to project. For instance, we use Firebase + back-end.</p>
+<ul>
+<li><p><strong>Firebase DB</strong> to share data between <em>devices-accounts-sessions</em>. Also as a changelog, when our backend is temporarily unavailable clients send the write operations to the log, which is synchronized later.</p>
+</li>
+<li><p><strong>Firebase Cloud Messages</strong> provides us with upstream/downstream push notifications and topics. We use the service for pub/sub message exchange.</p>
+</li>
+<li><p><strong>Firebase analytics</strong> Mostly for metrics.</p>
+</li>
+<li><p><strong>Back-end</strong> for everything strictly related to the business</p>
+</li>
+</ul>
+"
+341113,"<p>There are a number of things that go into the term ""cloud development"". I'm focusing on AWS because it's the platform I know, but this should be generalizable. I include the AWS terminology to give you somewhere to start searching. There are three things that AWS or other cloud providers can provide:</p>
+
+<h2>Infrastructure as a Service (IaaS):</h2>
+
+<p>Here the cloud provider is selling roughly-speaking plain old machines (almost always virtual machines). Essentially this is a replacement for on premise server: instead of buying a physical machine with so much memory / CPU / etc. and install an OS, the provider sells you a ""VM"" (in AWS: an EC2 instance) with so much capacity (in AWS: an instance type) that comes pre-loaded with an operating system and maybe some software (in AWS: an AMI). I put ""VM"" in scare quotes because the relationship between an instance and any physical machine can be quite slippery, but from a user's perspective instances are basically VM's running in some datacenter you can access over the internet. Leveraging these offerings of a cloud provider can reduce the headache that goes into making sure the application has somewhere to run.</p>
+
+<p>At the most basic level of cloud development, you are doing exactly what you did with traditional on-premise applications except your servers are not physical machines but instances running in some data centers. At a more advanced level, you have started to leverage the unique advantages of these instances (namely: they are easy to spin up and creating a new instance can be automated, see AWS Cloud Scaling) to run your applications distributedly across instances. This can buy you availability (if one of your instances dies, it can be replaced) and scalability (if you need better performance, you can always add more instances).</p>
+
+<h2>Platform as a Service (PaaS):</h2>
+
+<p>At this level, the cloud provider is selling you not only ""machines"" but also important parts of your architecture like databases and storage in a way that is fully managed and abstracted even further from the notion of VMs running on machines. For example, AWS' RDS is a managed RDMS that abstracts away all of the details of maintaining, say, SQL Server on an instance(s) (OS patches, software updates, backups, replication, sharding). Or S3 will encapsulate an instance(s) acting as a blob storage server. At this point the cloud provider is not only giving your application somewhere to run but also providing basic parts of the application in a way that saves time and provides more easily for the big watch words of cloud development: availability and scalability.</p>
+
+<p>At the deepest end of this pool, you are writing serverless architectures using technology like AWS Lambda and have more or less fully abstracted away the fact that there are real machines running your application.</p>
+
+<h2>Software as a Service (SaaS):</h2>
+
+<p>This is usually what cloud developers are working towards: they are developing software (image editing, email, whatever) that from the user's perspective is abstracted from any machine (and in particular requires nothing more than a thin client to use, which in turn is usually a blob of javascript downloaded when visiting a website). It's worth noting that cloud providers can also mosy in on this space: AWS has WorkMail or Elastic Transcoder that are firmly SaaS.</p>
+
+<h1>When are you doing Cloud Development</h1>
+
+<p>To state almost a tautology: doing cloud development is developing with cloud technology, which means leveraging at least one of those *aaS technology. In my mind cloud development is much more about what you use than what you provide. So if you have a SaaS web application, but you own and manage all the data centers and the platform on which the application runs, you are more of a cloud provider than an actual cloud developer (of course at this point you are both). So in my mind 3 is kind of the hallmark of cloud development and offers the most promise: to be able to write applications with nice features (availability, scalability, etc.) at lower operational cost. At 2 you probably are doing cloud development and 1 is so nebulous that it could be anything.</p>
+
+<p>To wrap this up, we can have a quick and dirty questionairre for what sort of development you are doing:</p>
+
+<p>Q: Can you tell me exactly where the machines running your application are?</p>
+
+<ul>
+<li>No idea -> on premises</li>
+<li>Some of them -> hybrid</li>
+<li>All of them -> on premise</li>
+</ul>
+"
+338755,"<p>TL;DR:  Build redundant, modular; test for availability; monitor closely.</p>
+
+<p>After realizing that trying to squeeze in any explanation might go very long so I will write down all the observations I have made.</p>
+
+<h1>Questioning the premise</h1>
+
+<h3>Cloud system is panacea</h3>
+
+<p>Even if you were to go fully on cloud, with a top cloud provider, you will still need to design your application for resilience, grounds up. AWS might replace your VM, but your application should be capable of restarting if left in the middle of computation.</p>
+
+<h3>We don't want to use cloud system, because of x/y/z</h3>
+
+<p>Unless you are an ultra large organization, you are better-off using cloud systems. Top-3 cloud systems (AWS, MSFT, Google), employ thousands of engineers to give you promised SLAs and the easy to manage dashboard. Its actually a good bargain to use them in lieu of spending a dime on this in-house.</p>
+
+<h1>Problems in scoping and design</h1>
+
+<p>Defining,  quantifying and then continuously measuring the availability of a service is a bigger challenge than writing solution for availability issues.</p>
+
+<h2>Defining and measuring 'availability' is harder than expected</h2>
+
+<p>Multiple stakeholders have a different view of availability, and what may happen is the definition preferred by a person with highest salary trumps other definition. This is sometimes correct definition, but often the eco-system is not built around measuring the same thing because that ideal definition is much tricky to measure, let alone monitor in real time.  If you have a definition of availability that can't be monitored in real time, you will find your self-doing similar project again and again with eerie similarities.
+Stick with something that makes sense and something that can be easily monitored.</p>
+
+<h2>People underestimate the complexities of the always available system.</h2>
+
+<p>To address the elephant in the room, let me say this: ""No multi-computer system is 100% available, it may in future but not with current technology.""
+Here by current technology, I am referring to our inability send signals faster than the speed of light and such things.
+All comp-sci engineers worth their salt know <a href=""https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing"" rel=""nofollow noreferrer"">distributed computing limitations</a>, and most of them will not mention it in meetings, being afraid they will look like noobs.
+To make up for all those who don't mention <a href=""https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing"" rel=""nofollow noreferrer"">distributed computing limitations</a> I will say, its complicated but <strong>don't always trust computers</strong>.</p>
+
+<h2>People overestimate their/their engineer's capabilities</h2>
+
+<p>Unfortunately, availability falls in the category, where you don't know what you want but you know what you don't want. It is a bit trickier that 'know the wants' category such as UI. 
+It requires a little bit of experience and lot of reading to learn from other's experience and some more. </p>
+
+<h1>Building an available system from grounds-up</h1>
+
+<p>Make sure you will evangelize to every architecture and design team about the right priority of the availability as a system requirement.</p>
+
+<h2>Attributes of system helping availability</h2>
+
+<p>Following system characteristics have shown to have contributed to system availability:</p>
+
+<h3>Redundancy</h3>
+
+<p>Some examples of this are to never have only a single VM behind a VIP or never store only a single copy of your data. These are the questions that a good IAAS will make it easier for you to solve but you will still have to make these decisions.</p>
+
+<h3>Modularity</h3>
+
+<p>A modular <a href=""https://en.wikipedia.org/wiki/Representational_state_transfer"" rel=""nofollow noreferrer"">REST</a> is better than monolithic SOA. An even modular microservice is actually more available than the usual <a href=""https://en.wikipedia.org/wiki/HATEOAS"" rel=""nofollow noreferrer"">HATEOS</a><a href=""https://en.wikipedia.org/wiki/Representational_state_transfer"" rel=""nofollow noreferrer"">REST</a>. The reasoning could be found in Yield related discussion in next section.
+If you are doing batch processing then better to batch processing in a reasonable batch of 10s compared to dealing with a batch of 1,000,000.</p>
+
+<h3>Resiliency</h3>
+
+<pre><code>""I am always angry""
+                    - Hulk
+</code></pre>
+
+<p>A resilient system is always ready to recover. This resiliency applies to instances such as acknowledging ACK for a write only after writing to RAID disk, and possibly over at least two data centers. 
+Another latest trending is to use <a href=""https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type"" rel=""nofollow noreferrer"">conflict-free data structures</a>, where data structure assumes the responsibility to resolve conflicts when presented with two different versions.
+A system can not be resilient as an afterthought, it has to be predicted and built-in. A failure is guaranteed over the long term, so we should be always prepared with a plan to recover.</p>
+
+<h3>Log trail</h3>
+
+<p>This is technically a subtype of Resilience, but a very special one because of it's catch all capabilities. Despite the best effort, we may not be able to predict the pattern of unavailability. If possible, maintain enough log trail of the system activities to be able to playback system events. This will, at great manual cost, allow you to recover from unforeseen situations.</p>
+
+<h2>Attributes of availability</h2>
+
+<p>The non-exhaustive top-of-mind attribute list of 'availability':
+For discussion sake, let's assume the question user asks is, ""How many items do I have in my shopping cart?"" </p>
+
+<h3>Correctness</h3>
+
+<p>Do you <em>must</em> produce the most accurate possible answer or is it ok make mistakes? Just for a reference, when you withdraw money from ATM, it is not guaranteed to be correct. If the bank finds out it made a mistake, it might you to reverse the transactions. If your system is producing prime numbers, then I would guess, you may want right answers all the time.</p>
+
+<h3>Yield</h3>
+
+<p>Skip this point, if you answered always-correct for the previous topic question.
+Sometimes the answer to questions don't have to be precise, e.g. how many friends do I have on Facebook right now?
+But the answer is expected to be in the ballpark +/-1 all the time.  When you are producing expected result your yield is 100.</p>
+
+<h3>Consistency</h3>
+
+<p>Your answer may be correct at one point of time, but by the time the light has left the screen and entered the retina of the observer, things could have changed. Does it make your answer wrong? No, it just makes it inconsistent. Most applications are eventual consistent, but the trick is defining what kind of consistency model your application is going to provide. 
+By off chance your application can run on a single computer, your can skip this lovely reading on <a href=""https://en.wikipedia.org/wiki/CAP_theorem"" rel=""nofollow noreferrer"">CAP theorem</a>. </p>
+
+<h3>Cost</h3>
+
+<p>A lot depends on what total impact of short-term effects(loss of revenue) and long term effects (ill reputation, customer retention). Depending upon customer type (paying/free, repeat/unique, captive) and resource availability different levels of availability guarantees should be built in. </p>
+
+<h1>Towards improving the availability of an existing system</h1>
+
+<p>Operational management of individual machines and a network is such complex, that I assume you have left it to the cloud provider or you are already expert enough to know what you are doing. I will touch other topics under availability.
+For the long term strategy <a href=""https://en.wikipedia.org/wiki/DMAIC"" rel=""nofollow noreferrer"">Define-Measure-Analyze-Control</a> is a heavenly match, something I have seen myself.  </p>
+
+<ol>
+<li><em>Define</em> what is 'availability' to your stakeholders</li>
+<li>How will you <em>measure</em> what you have defined</li>
+<li>Root cause <em>analysis</em> to identify bottlenecks</li>
+<li>Tasks for <em>improvements</em></li>
+<li>Continuous monitoring(<em>control</em>) of the system</li>
+</ol>
+
+<h1>Causes of un-availability</h1>
+
+<p>Since we agreed that operational management which would cover any physical infrastructure management, ought to be done by professionals I will touch other causes of unavailability for completeness sake.
+IMO availability should also include lack of expected behavior, meaning if the user is not shown expected experience, then something is unavailable. With that broad definition in mind, the following could cause unavailability:
+- Code bugs
+- Security incidences
+- Performance issues</p>
+"
+334664,"<p>Today we have vendors selling cloud based enterprise systems which an organization can lease and also configure and customize to fit the organisations needs. Even if there is work in performing configuration and customization, the implementations can still be done quicker than if the system was to be built in house like maybe 10 years ago. This makes business happy because quick implementations means possibly quicker value realization. </p>
+
+<p>If using an incremental approach to conduct the configuration and customization, and at the same time phasing out the new functionality in the organization's countries- then the system can be delivered in an amazing speed. However.. For the system to be successfully implemented it will likely require change in some countries business processes to match the new system functionality, and the end users would have to be trained etc. I therefore wonder if it is common to use possibly natural drivers of having the system functionality delivered in increments to increase the usage of the system? </p>
+
+<p>Say that the first release was OK to satisfy all implemented countries needs but needs some fixes to be seen as good by the country managers, user etc. Possibly the second release would be really well accepted case the technical team working with the system has told everyone how much better this new version will be. Is it common to work like this? Or is the implementation and deployment usually seen as two different things? If so where does adoption/ change management come in?</p>
+"
+334663,"<p>Microservices should be relatively independent of each other.  During developer testing, you should be able to only start the one you are working on and perhaps two or three others, usually related to storage, messaging, or authentication.  If you can't, you should work on improving your architecture.</p>
+
+<p>If your full application won't fit properly on a developer machine, then provide a separate cluster for developer integration testing.  A lot of organizations simply budget extra time on their production cloud provider, or you can build an in-house cluster using something like OpenStack.  </p>
+
+<p>This cluster can be over-scheduled because every developer doesn't need it 100% of the time.  I estimate I do about 85% of my microservice development just with unit tests, about 10% just with the single-microservice environment on my own machine, and the remaining 5% on our shared cluster.</p>
+
+<p>You probably also want to invest in better monitoring and orchestration, so you know exactly why your microservices are crashing and can have them automatically restart when they do.  Perhaps something like Prometheus and Kubernetes.  Kubernetes also refuses to schedule microservices in the first place if they will require too many resources than the available nodes can handle.</p>
+"
+332982,"<p>I'm having some trouble understanding exactly what is the issue in your situation, but if I'm reading you right, your issue is how to organize your development process locally, while still having the flexibility to test externally.</p>
+
+<p>To this I say - <strong>don't</strong>.
+If you are going to use an API gateway, test <strong>your</strong> part of the contract - what happens after the gateway. This way you can capture many issues that may remain hidden otherwise due to the API gateway and furthermore any attempt to test the gateway itself are exercises in futility - you are essentially testing an intermediate layer that has already undergone much rigorous testing than your process (hopefully, that is) and which is <strong>designed</strong> to hide/obfuscate the finer details of your own API.</p>
+
+<p><strong>Note</strong>: I'm in no way suggesting you shouldn't test the end result, too, but I believe your main testing effort should go to testing the code <strong>you own and maintain</strong>, not an external abstraction layer. Testing the external view is (IMO) for integration testing and for status monitoring (though this is more often than not provided by the API gateway provider).</p>
+
+<p>As for how to setup and organize the process, I suggest using <a href=""https://aws.amazon.com/api-gateway/faqs/"" rel=""nofollow"">Amazon API Gateway</a> or its competition (I've only worked with AWS, sorry). The very purpose of this service is to abstract away API-specific concerns, while letting you focus on the substance (it ""lets you bring your value"" in marketspeak) of the service.</p>
+
+<p>Touching on the issue of redirecting requests to the 'local' development machine (note this isn't really in scope of this site, so I'm 'trespassing' somewhat, if you will), you can always use some VPN technology to connect the laptop to the API gateway. In terms of AWS, I believe VPC should allow this - <a href=""https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpn-connections.html"" rel=""nofollow"">take a look at this reference</a>.</p>
+
+<p>Finally, this question cries 'devops', which is why I'd like to take the time to point out that any such considerations are best discussed with the more 'sysadmin-y' colleagues, as their expertise will be essential in setting up something like this.</p>
+"
+330808,"<p>There are several tools that you can use to improve your workflow.  You don't need to adopt them all at once, but they work very well in concert, so you should plan to eventually adopt most of them.</p>
+
+<p>This got quite long, but I've tried to point you in various directions that will be valuable in the near-term.  </p>
+
+<p>The TL;DR: ""Start using git, and get comfortable running a basic linux server.  Once you've gotten those two down, you'll have solved your immediate problems and have a plenty of potential next steps to examine.""</p>
+
+<p><strong>VCS</strong> (git)</p>
+
+<p>You want to adopt some version control system.  <code>git</code> is the default choice, since it's ubiquitous.  Adopting a VCS like git is sort of a prerequisite for things like automated deployments, automated testing, and ultimately full-blown continuous integration (CI).  It even helps with manual deploys, and a little discipline about tagging releases can make rolling back a bad change a lot easier and more predictable.</p>
+
+<p>You'll want to maintain a remote repository as a central source of truth.  You'll have your remote repo set as the <code>origin</code> remote in your local repositories.  When you sit down to work, you'll <code>git pull</code> to make sure you have the most up-to-date version of your code.  After making some commits locally, you'll want to <code>git push</code> to your remote so your changes will be available elsewhere.</p>
+
+<p>You'll want to host that remote repository somewhere reliable.  You could just stick it on some VPS and access it via ssh, but you'd be leaving some nice tools on the table.  </p>
+
+<p>The quick-and-easy solution is to create an account at bitbucket.org.  It's free, including private repositories, and includes a nice web interface with an issue tracker, etc.</p>
+
+<p>If you're concerned about putting your code in a third-party service[1], or you want an opportunity to start managing a VPS (which is a great thing to do if you have the time and mental bandwidth), you can grab a $10/month VPS and install <a href=""https://about.gitlab.com/downloads/"" rel=""nofollow noreferrer"">GitLab Community Edition</a>.  It's a GitHub-like, but you run it on your own server.  It's pretty great, and the omnibus installer makes it relatively straightforward to install and update.</p>
+
+<p>As mentioned in <a href=""https://softwareengineering.stackexchange.com/a/330763/30410"">Sorin P's answer</a>, GUI clients are available for git.  SourceTree and GitHub Desktop are both good.  I prefer the former.  That said, you should git using the CLI tools as your primary interface.  The CLI works everywhere.  </p>
+
+<p>Git can be a bit intimidating, but you can start small and grow.  That said, a basic understanding of how git works will serve you very well.  <a href=""https://jwiegley.github.io/git-from-the-bottom-up/"" rel=""nofollow noreferrer"">Git From the Bottom Up</a> is pretty fantastic.  Understanding the terms on the first page is essential.</p>
+
+<p>To start, you'll want to have at least a sense of how git operates, and be familiar with the basic sub-commands <code>clone</code>, <code>checkout</code>, <code>add</code>, <code>rm</code>, <code>status</code>, <code>diff</code>, <code>commit</code>, <code>pull</code>, and <code>push</code>.</p>
+
+<p><strong>Development</strong></p>
+
+<p>I can't recommend using a local virtual machine enough, especially if your local environment is Windows.  Get familiar with VirtualBox and Vagrant ASAP.  This allows you to develop against a local environment that closely resembles your deployment environments.  It's also a great way to get your basic Linux-admin skills up-to-snuff.</p>
+
+<p>You'll use VirtualBox's ""shared folder"" feature so that a directory on the client (virtual, linux) machine is mapped to a directory on the host (physical) machine.  This means your virtual machine is running ""headless"", with no graphical interface, just a console.  Your editor/IDE, git client, etc, all run on your everyday computer, but your web server, PHP interpreter, SQL database, etc, all run inside the virtual machine.</p>
+
+<p>As far as Editor/IDE goes, you're really free to use whatever you like.  I know people who code in Vim, I was an emacs holdout for a long, long time, others prefer fancier IDEs.  That said, I highly doubt Dreamweaver is optimal.  </p>
+
+<p>My IDE of choice for PHP is PHPStorm.  It ain't free, but it's not expensive, and if you develop in PHP for a living it's a no-brainer IMO.  It understands git, has a nice database client built in, debugging with xdebug works very well, and the static analysis becomes something you can't live without.</p>
+
+<p>If paying is out of the question, you can usually get their ""EAP"" builds for free.  It's essentially the beta of their next release, but is typically very stable.</p>
+
+<p>The other alternative is NetBeans, which is free, and good.  But not as polished as PHPStorm last I checked.</p>
+
+<p>If you prefer something lighter-weight, lots of people like Sublime Text, and new(er) comers like Atom, or somewhat surprisingly, Visual Studio Code.</p>
+
+<p>Bottom line: spend some time checking out at least one or two alternative editors/IDEs.  Most people I know who clung to Dreamweaver did so because of it's FTP integration.  But you shouldn't be relying on that anyway (see below).</p>
+
+<p><strong>Deployment</strong> </p>
+
+<p>Deployment is about getting a new version of your site or app up onto a server.  The method you choose will depend on what your hosting infrastructure looks like.</p>
+
+<p><strong>VPSes</strong></p>
+
+<p>I host just about everything on commodity VPSes.  There are a ton of providers.  DigitalOcean and Linode are popular in this crowded field.  Amazon's AWS provides VPSes as well (the ""EC2"" service), but I don't recommend novices start there.  AWS really shines when you need automation and orchestration, but it's hard to estimate costs, and the complexity is intimidating.</p>
+
+<p>The core of updating a reasonably modern framework-based PHP project to a VPS looks like this (if done completely manually):</p>
+
+<pre><code>localhost$ ssh me@myvps.com
+myvps$ cd /path/to/project
+myvps$ git pull 
+myvps$ composer install
+</code></pre>
+
+<p>That's not what one would call a best practice, but if you get to the point that your deploy process looks like that, you're already miles ahead of trying to sync stuff over FTP. </p>
+
+<p>From there, you can start looking into deployment tools.  <a href=""http://capistranorb.com/"" rel=""nofollow noreferrer"">Capitstrano</a> is the grandaddy, but others exist.  Because these tools automate things, they can be a bit smarter than people.  For instance, capistrano will check out the correct version of your sources locally, bundle them up, send them over to the server, expand them into a timestamped directory, and then manipulate a symlink to point your webroot to the new version.  This makes rolling back (often) as simple as swapping back the symlink to the previous version.  It's definitely worth it to read up on these tools; they may or may not be overkill for your needs.</p>
+
+<p>Another tool to be familiar with is <a href=""http://linux.die.net/man/1/rsync"" rel=""nofollow noreferrer"">rsync</a>.  Rsync's job is to sync trees of files efficiently, and it's very good about it.  If you don't want to run git on the server, you can build your own deploy process around local git and rysnc where you checkout (or <code>git archive</code>) a local tree of your sources, do whatever build process is necessary (say, <code>composer install</code>), and then rsync the whole thing to the server.</p>
+
+<p>Any of these tools can be used to build up an automated deployment, using simple shell scripting.  I suggest you aim to have a script that pushes (or pulls) a new release, and does so in such a way that it's very easy to roll back if things go wrong (the capistrano-style symlink trick is a great place to start).</p>
+
+<p><strong>Non-VPS Environments</strong></p>
+
+<p>I can't really speak to these.  There is old-timey shared hosting like you're used to, where you're pretty much limited to SSH with no shell access.  There are also Heroku-alike platform-as-a-service offerings for PHP, but I've never liked that idea. </p>
+
+<p>That said, if you're absolutely married to shared hosting, you may be able to approximate an rsync-style workflow using a decent CLI FTP client.</p>
+
+<p><strong>What About Databases?</strong></p>
+
+<p>Deploying code is great, but sometimes a new code release requires some kind of database change (say a new column on some table, or some update that fixes artifacts of some bug you've just fixed).  </p>
+
+<p>This gets more complicated (especially when thinking about roll-backs), but there are tools to help.  I've used both <a href=""https://github.com/davedevelopment/phpmig"" rel=""nofollow noreferrer"">PHPmig</a> and <a href=""https://github.com/doctrine/migrations"" rel=""nofollow noreferrer"">Doctrine Migrations</a> with great success, and there are others.</p>
+
+<p>The basic idea here is that you write small migration classes and the migration tools track which ones need to be run, and then run them.  Your little bash script gets a new line it it somewhere that says something like <code>phpmig migrate</code> so when you run your deploy, any pending DB migrations get run automatically.</p>
+
+<p>[1] Most people shouldn't be concerned IMO, but I don't know your circumstances, politics, or level of paranoia.</p>
+"
+325112,"<p>PostgreSQL would be slightly better, because its design leans more towards analytical workload, unlike MySQL which was designed for transactional workload. That is if you want to do the calculations directly in the database. Getting player statistics is analysis of the data.</p>
+
+<p>The obvious drawback (while not really that important) of PostgreSQL is its lesser popularity, ie. it's more difficult to find a community where you could discuss a PostgreSQL specific issues.</p>
+
+<p>You should know that Heroku is a cloud application platforms, but that's it. Using Heroku alone will not suddenly improve your architecture and make your application scalable.</p>
+
+<p>What you are really looking for is caching. After performing statistical analysis on the data you currently have, you should store the results into cache so they do not need to be recalculated each time. During the API call this cache should then be freed, statistics should be recalculated and reinserted into the cache.</p>
+
+<p>But even then, you do not know yet what the biggest bottleneck is going to be. What I suggest you to do is to create a dummy database, fill it with millions of dummy records and try to run a query against it. The query you are likely to use. This way you can benchmark the database without actually having the application yet.</p>
+
+<p>Another approach is to update the data sequentially. Call the API multiple times a day and update (cache invalidate and reinsert) only the statistics for players which are affected by the recieved batch.</p>
+"
+322899,"<blockquote>
+  <p>Are there any best practices for limiting access to data in DynamoDB besides simply authentication and authorization?</p>
+</blockquote>
+
+<p>For DynamoDB, the entire security model is the authentication and authorization (IAM) supplied by AWS; there is nothing ""besides"" those two. However, you don't ever access DynamoDB directly from the Internet, but instead go through a service of some form (e.g. <a href=""https://aws.amazon.com/api-gateway/"" rel=""nofollow"">API gateway</a> backing onto a Lambda function, or some custom code running on an EC2 box). AWS will then manage the authorization for you (e.g. via <a href=""http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html"" rel=""nofollow"">IAM Roles for EC2</a>), and nothing outside of AWS ever needs to know what's going on. You should definitely <em>never</em> be putting any IAM keys into your applications.</p>
+
+<p>As an aside:</p>
+
+<blockquote>
+  <p>storing sensitive data (config info) in DynamoDb</p>
+</blockquote>
+
+<p>I wouldn't personally go down that route, not because of the nature of the data, but because of the lack of atomicity and isolation in DynamoDB. You don't need the blinding speed of DynamoDB, so just keep in it good old SQL.</p>
+"
+322658,"<p>We are contemplating breaking up our monolithic monsters into microservices based architecture progressively. We have 5 teams, each team containing 2-3 C# developers, at least 1 database developer, and 2 QA engineers. Besides the huge culture and paradigm shift going from a monolithic architecture to microservices there are also the technical challenges. I would like to ask the community for some wisdom and advice so we can avoid making the same mistakes. </p>
+
+<p>Are there any good industry examples where .NET based microservices have been successfully utilized in a production system? What was the strategy for the following?</p>
+
+<ul>
+<li><strong>Org</strong>: how did you organize the .NET solutions/projects?</li>
+<li><strong>Development</strong> planning: in terms of development planning, how did you break up the work across teams? What was the overall strategy for making sure contract compliance across microservices was negotiated across teams?</li>
+<li><strong>Load balancing/routing/API gateway</strong>: what was the strategy for load balancing, redundancy, and scaling? Did you just go with a complete async architecture and used a queue for microservice communication or did you do peer-to-peer through a load balancer/API gateway? And why?</li>
+<li><strong>Test automation</strong>: how did you handle test automation. This along with continuous integration seems absolutely necessary for microservices architecture. How did you go about it?</li>
+<li><strong>Deployment</strong>: how are you deploying? One VM/microservice or one container/microservice or something entirely else? How did you handle the fact that now you have tens of database if not more considering each microservice would have its data store, what did that do to your infrastructure and how did your DBAs handled it?</li>
+<li><strong>Infrastructure</strong>: how did your infrastructure scaled with this architecture. Was it super chatty and you had to fine tune it or did the network handled it without an issues? Are self-hosted or in the cloud?</li>
+<li><strong>Monitoring</strong>: what is your monitoring strategy? How are you keeping tabs on tens if not hundreds of microservices? Is it mostly through logging and central monitoring?</li>
+</ul>
+"
+322153,"<p>I'm pretty familiar with Windows Failover Clustering. It is a large chunk of admin work and budget (if actually fault tolerant. i.e. no using a single SMB3 file server for shared storage). It <strike>frequently</strike> weekly or monthly fails over for no discernible reason. When it fails over, service is lost for a few moments while the new active server takes over the resources (IP address, disk, etc.). The ongoing maintenance is irritating because some settings must be setup on each machine. This can require failing the server over and repeating config changes. Some things support shared configuration, avoiding this. (e.g. IIS, however IIS is not natively clusterable and requires setting up a script to migrate it between servers)</p>
+
+<p>All that to say, be sure your company is aware of the costs before deciding to go this route.</p>
+
+<p>A slightly less involved option is <a href=""https://technet.microsoft.com/en-us/library/hh831698(v=ws.11).aspx"" rel=""nofollow"">Network Load Balancing</a> (NLB). You can use it as active/active. It will handle failures and avoid failed servers. It does not require shared storage as failover clustering does. Bear in mind that it's designed for load balancing, not availability. You can set it up for an active/passive type of scenario by giving one server full priority, but <a href=""https://en.wikipedia.org/wiki/Split-brain_(computing)"" rel=""nofollow"">split-brain</a> may be possible there. There could also be some network level adjustments required, depending on how you set up NLB.</p>
+
+<p>There also exists the <a href=""https://en.wikipedia.org/wiki/Round-robin_DNS"" rel=""nofollow"">DNS Round Robin</a> approach where you essentially setup a DNS record that points to multiple IP addresses. Each IP address belonging to a different server with your service installed. The DNS server returns the IP addresses in rotating order. But the viability of this depends heavily on the client's implementation. Often, the client's system will pick one and cache the result. This can lead to perceived downtime because the particular server that the client cached could be the one that's down.</p>
+
+<p>In any case, your service really needs to be setup to be stateless. Otherwise, the next request could be handled by a server which is unaware of the user's previous session on a different server. (State could be centralized, but again it would need to be in the cluster so it wasn't a single point of failure. You'll notice clustering is a black hole which absorbs surrounding concerns too. Speaking of which...)</p>
+
+<p>None of this addresses other single points of failure, like network, database, hardware drivers (yes drivers... some people go as far as getting different hardware from different manufacturers to ensure that a driver or hardware bug doesn't impact all systems).</p>
+
+<p>You could also look at taking advantage of a cloud offering for redundancy, like Azure in the MS world. There is too much to list on this topic, but these services tend to offer a number of high availability features including at the network, storage, and database levels.</p>
+
+<p>I'm sure this is not a complete list of your options. And as always none of them are strictly ""better""... there are trade-offs.</p>
+
+<p><strong>Added</strong></p>
+
+<p>I also thought of hardware load balancers. It's a network device like a router or switch with servers plugged into it. But the basic idea is that it listens on an IP, and requests to that IP get forwarded to the connected servers in an alternating manner. Only using one load balancer is a single point of failure, since it is one device that can cut off access if it fails. In order to do redundant load balancers, you need redundant network paths and a routing protocol which can handle that.</p>
+"
+322077,"<p>AWS and maybe others provide a built-in service for logging that you are invited to use. If you don't want to use it, you probably have to push an object to a cloud storage instead. </p>
+
+<p>In a classic lambda function architecture, your service is launched on call, ressources are allocated for the duration of the program, then fred. You typically don't have access to low overhead persistance, because once your service execution is over, the ressouces are gone.</p>
+
+<p>For the deployment model, as far as I understand, AWS lamba does not offer the possibility to use a lib for several packages as far as I understand ; you'd have to pack all services in a single deployment package with your library included, which is not a very scalable architecture.</p>
+"
+316508,"<p>We ended up implementing the ""Windows Service"" scenario knowing that it would not scale but intending to build a scalable solution when we have to. With the current implementation a Web Job runs a console application that queries the DB for all notification definitions, runs appropriate queries and sends e-mails. It is easy to test (just run the console app) and easy to deploy (web jobs deploy with the web site). The best part is that if we go for the scalable solution we can just remove this part without affecting any other code because notification definition UI and database schema do not depend on the actual sending method.</p>
+
+<p>We ended up deciding against Stream Analytics because Stream Analytics are not very useful for ever changing queries. Changing the query requires a restarting the Stream Analytics job. Putting the notification definitions in the job is hard. There is something called training data that can be used but it is not very suitable for this case.</p>
+
+<p>After we implemented the solution Microsoft launched Azure Functions which at first sight seem like a good fit. I did not do a detailed research because we already had a working solution at that point. I tend to dislike how separate Functions tend to be from the rest of the codebase and I worry about deployment. I guess there are solutions to these problems but they were not in the demos.</p>
+
+<p>The scalable solution that we had in mind and will evaluate again if we need to scale would work as follows - The Message processing part sends each and every message into azure queue. A consumer gets the messages one by one and checks if the message is eligible for any notification. If it is it is put in DocumentDB or Azure Tables bucket list which is accessible based on the notification ID(s). Another consumer periodically checks the notification buckets and sends all the messages and deletes the bucket list. The solution seems scalable because we can add whatever number of consumers we need and azure queues are built to be scalable. There seems to be no bottleneck part. Now of course with Azure Functions we can replace parts of this systems with if they turn out to be better suited for the task.</p>
+
+<p>Of course I am still open to criticism and other ideas.</p>
+"

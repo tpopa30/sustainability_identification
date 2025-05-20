@@ -1,0 +1,587 @@
+[
+    {
+        "id": 448250,
+        "label": "No",
+        "justification": "The text focuses on data storage, computational complexity, and performance considerations for big data and ETL processes. It does not address any aspects of sustainability (social, environmental, technical, or economic) as defined in the Helper-Data regarding the long-term preservation, evolution, or responsible use of software-intensive systems."
+    },
+    {
+        "id": 445186,
+        "label": "Yes",
+        "justification": "The text discusses cost minimization and efficient design choices for a database query engine, which aligns with the economic sustainability dimension (preserving capital and reducing development cost) and hints at technical sustainability (efficient use of infrastructure and optimizing query performance). These considerations are central to software sustainability as defined in the helper data."
+    },
+    {
+        "id": 444739,
+        "label": "Yes",
+        "justification": "The post addresses key issues that impact the long-term viability and efficiency of software systems, such as cost management, regulatory compliance, and environment segregation for reliable metrics. These concerns align with the technical and economic dimensions of software sustainability, as they affect the software's evolution, operation, and overall sustainability."
+    },
+    {
+        "id": 444704,
+        "label": "Yes",
+        "justification": "The post discusses architectural design decisions for a SaaS system that must comply with regional data regulations and reduce maintenance overhead. It weighs trade-offs between different technical approaches (DNS management, global proxy, etc.) to ensure that the system remains maintainable and scalable over time. These considerations align with aspects of technical and economic sustainability as defined in the Helper-Data."
+    },
+    {
+        "id": 442126,
+        "label": "Yes",
+        "justification": "The post discusses critical aspects of maintaining and evolving a legacy system, including addressing tight coupling, risky manual deployments, and mitigating potential failures. These topics relate to technical sustainability, which focuses on the long-term maintainability and evolution of software-intensive systems."
+    },
+    {
+        "id": 441569,
+        "label": "No",
+        "justification": "The text is a technical query about designing a database schema for a chatbot using AWS DynamoDB. It does not discuss any aspects of software sustainability (social, environmental, technical sustainability for long-term use, or economic sustainability) as defined by the Helper-Data."
+    },
+    {
+        "id": 440067,
+        "label": "Yes",
+        "justification": "The text discusses architecture decisions, cost trade-offs, and system availability\u2014all of which relate to the long-term operational success and reliability of a software system. These considerations align with the technical and economic dimensions of software sustainability, which focus on robust, scalable, and cost\u2010efficient solutions that support a system\u2019s longevity."
+    },
+    {
+        "id": "436491",
+        "label": "Yes",
+        "justification": "The text discusses design choices, risk mitigation, and long-term maintainability aspects such as isolating services to avoid security breaches, downtime issues, and complexity from multiple versions. These points are directly related to technical and economic sustainability, which are key dimensions of software sustainability."
+    },
+    {
+        "id": "424900",
+        "label": "Yes",
+        "justification": "The text addresses long-term operational challenges and cost efficiency in a software system used in a multi-tenant SaaS product. It discusses performance issues, the need for sustainable data access solutions, and concerns about rising cloud expenses, all of which relate to technical and economic sustainability dimensions of software-intensive systems."
+    },
+    {
+        "id": 423151,
+        "label": "No",
+        "justification": "The text focuses on technical advice regarding the safe exposure of a database and performance considerations for a web application backend. It discusses aspects such as intermediation via a web server and potential costs associated with cloud data transfer, which are architectural and operational issues rather than sustainability issues across social, environmental, technical, or economic dimensions as defined in the helper data."
+    },
+    {
+        "id": "420466",
+        "label": "Yes",
+        "justification": "The text discusses principles such as not overengineering, starting simple, and evolving the architecture as needed. These considerations align with technical sustainability, which focuses on the long-term use and evolution of software systems in changing environments. The emphasis on operational reliability, scalability, and gradual improvement reflects sustainable practices in software-intensive systems."
+    },
+    {
+        "id": 418151,
+        "label": "No",
+        "justification": "The text is focused on performance issues, architectural choices, and dynamic resource allocation for handling real-time load and scaling challenges. It does not address the broader dimensions of software sustainability (social, environmental, technical for long-term viability, or economic sustainability) as defined in the Helper-Data."
+    },
+    {
+        "id": 415998,
+        "label": "Yes",
+        "justification": "The text centers on making an argument for maintaining a diverse technology stack in a microservices architecture, weighing aspects such as cost (TCO, ROI), legacy system maintenance, flexibility, and long-term evolution. These concerns align well with the technical and economic dimensions of sustainability in software-intensive systems, which focus on ensuring long-term viability, appropriate evolution, and financial viability of systems. Thus, it is related to software sustainability."
+    },
+    {
+        "id": 411767,
+        "label": "No",
+        "justification": "The text is focused on protecting critical parts of an application through DRM, code obfuscation, and service-oriented architecture to avoid reverse engineering. It does not discuss any dimensions of sustainability such as long-term evolution, maintainability, resource efficiency, or social/economic factors which are central to software sustainability."
+    },
+    {
+        "id": 409372,
+        "label": "No",
+        "justification": "The post mainly discusses technical aspects of resource allocation, scaling, and cloud architecture (e.g., using containers, Kubernetes, and serverless technology). It does not address the broader dimensions of software sustainability (social, environmental, technical longevity, or economic value preservation) as defined in the provided helper data. Therefore, the piece is not related to software sustainability."
+    },
+    {
+        "id": 406350,
+        "label": "Yes",
+        "justification": "The text discusses architectural decisions related to microservices, focusing on dynamic scaling, cost minimization, and infrastructure evolution. These elements tie directly to technical and economic sustainability, which are key dimensions of software sustainability. By addressing how to effectively manage resources, deployments, and long-term operability, the discussion aligns with sustainability principles."
+    },
+    {
+        "id": 405176,
+        "label": "No",
+        "justification": "The text centers on high availability, downtime trade-offs, and the cost implications of achieving near-zero downtime using multiple cloud providers. It discusses operational reliability and SLA requirements rather than addressing any of the key dimensions (social, environmental, technical, or economic) of software sustainability as defined in the provided helper data. Therefore, it is not directly related to software sustainability."
+    },
+    {
+        "id": 403459,
+        "label": "No",
+        "justification": "The text focuses on evaluating technical trade-offs for storing blobs (in databases versus object stores) by discussing performance, security, operational cost, and architectural simplification. Although it touches on cost and technical efficiency, it does not address the sustainability dimensions (social, environmental, technical, economic) in the context of long-term use, evolution, or broader societal and ecological impacts as defined in the Helper-Data. Therefore, it is not related to software sustainability."
+    },
+    {
+        "id": 403412,
+        "label": "No",
+        "justification": "The text focuses on the technical aspects of security and authentication (e.g., OAuth, API keys, JWT, rate limiting) rather than addressing any sustainability dimensions such as social, environmental, technical longevity, or economic sustainability. Therefore, it is unrelated to software sustainability."
+    },
+    {
+        "id": 403152,
+        "label": "Yes",
+        "justification": "The text discusses AWS Lambda best practices that aim to optimize resource reuse, reduce execution time, and lower costs. These technical improvements contribute to the efficient use of resources in a software system, which aligns with aspects of technical (and even economic) sustainability as defined in the Helper-Data. Thus, the content is related to software sustainability."
+    },
+    {
+        "id": "403071",
+        "label": "No",
+        "justification": "The text focuses on fault tolerance, high availability, and scalability concerns in software design rather than addressing sustainability aspects as defined in the helper data, which include social, environmental, technical, and economic dimensions. Although reliability is a quality attribute, the post does not discuss how these factors contribute to the long-term sustainability of software systems."
+    },
+    {
+        "id": 402967,
+        "label": "Yes",
+        "justification": "The text discusses strategies for scaling, optimizing, and evolving the software architecture through methods such as breaking down a monolithic design, containerization, auto scaling, and using message queues. These approaches address challenges related to the long-term maintenance and adaptability of the system, which aligns with the concept of technical sustainability in software-intensive systems."
+    },
+    {
+        "id": 402623,
+        "label": "No",
+        "justification": "The text discusses performance optimization techniques, such as profiling, latency, and scaling strategies in cloud environments. It does not address any of the sustainability dimensions (social, environmental, technical, or economic) as defined in the Helper-Data."
+    },
+    {
+        "id": "392697",
+        "label": "No",
+        "justification": "This text discusses architectural decisions, cost-effectiveness, and performance optimization for ML pipelines and cloud resources. It does not address any of the sustainability dimensions (social, environmental, technical, or economic) as defined in the Helper-Data. The focus is on technology and operational concerns rather than long-term sustainable practices in software-intensive systems."
+    },
+    {
+        "id": 391902,
+        "label": "Yes",
+        "justification": "The post discusses architectural decisions for a scalable and secure database design for a B2B application, weighing the trade-offs between shared and isolated databases. This focus on long-term scalability, security, and system organization aligns with aspects of technical sustainability as defined in the Helper-Data."
+    },
+    {
+        "id": 388892,
+        "label": "Yes",
+        "justification": "The text discusses architectural decisions in a cloud environment, emphasizing the avoidance of over-provisioning and premature optimization, and stressing the need to control costs (ROI) and complexity. These considerations align with economic and technical sustainability aspects in software systems."
+    },
+    {
+        "id": "386307",
+        "label": "Yes",
+        "justification": "The text discusses adopting a serverless architecture using Azure Functions to achieve auto-scalability and reduce the need for managing servers. This technical recommendation aligns with the concept of technical sustainability, which focuses on ensuring the long-term efficiency and evolution of software systems."
+    },
+    {
+        "id": 385346,
+        "label": "Yes",
+        "justification": "The post discusses designing microservices in the cloud with a focus on management overhead, cost effectiveness, and maintainability, which are key issues within the technical and economic dimensions of software sustainability. It seeks solutions for sustainable deployment and operation of services over time."
+    },
+    {
+        "id": 384682,
+        "label": "No",
+        "justification": "The text is focused on designing a scalable AWS-based notification system and addressing race conditions in serverless architecture. It does not reference or relate to any aspects of software sustainability (social, environmental, technical, or economic) as defined in the Helper-Data."
+    },
+    {
+        "id": 382785,
+        "label": "Yes",
+        "justification": "The text discusses architectural choices, scaling, and pricing strategies using AWS services to build a scalable and cost-efficient solution. These concerns are related to technical sustainability (ensuring the system can evolve and scale effectively) and economic sustainability (considering cost efficiency), both of which are dimensions of software sustainability."
+    },
+    {
+        "id": 382607,
+        "label": "No",
+        "justification": "The text primarily discusses architectural and technical design considerations for scaling a system (such as separating responsibilities, using microservices, and evaluating performance and cost aspects). It does not address any of the sustainability dimensions (social, environmental, technical, or economic) as defined in the Helper-Data. Hence, it does not relate directly to software sustainability."
+    },
+    {
+        "id": "379926",
+        "label": "No",
+        "justification": "The text is a technical discussion focused on microservices architecture, database management, and deployment strategies. While it touches on issues like cost and operational complexity, it does not specifically address the multi-dimensional aspects of software sustainability (technical, social, environmental, or economic sustainability) as defined in the Helper-Data. Therefore, it is not related to software sustainability."
+    },
+    {
+        "id": 376325,
+        "label": "No",
+        "justification": "The post is primarily focused on architectural design, performance challenges, and implementation questions regarding AWS serverless services. It does not address or discuss the various dimensions of software sustainability (such as technical longevity, environmental impacts, social equity, or economic sustainability) as defined in the Helper-Data. Therefore, the text is unrelated to software sustainability in the intended context."
+    },
+    {
+        "id": 372833,
+        "label": "No",
+        "justification": "The text primarily discusses cost trade-offs between different memory and storage solutions and caching strategies. It does not address or relate to the dimensions of software sustainability\u2014such as long-term technical maintenance, social equity, environmental impact, or economic preservation\u2014as defined in the Helper-Data."
+    },
+    {
+        "id": 372002,
+        "label": "No",
+        "justification": "The text discusses design patterns and performance optimizations for handling routing and workload distribution in a worker service. While it touches on aspects such as managing costs and resource usage, it does not address any of the specific dimensions of software sustainability (social, environmental, technical, or economic sustainability) as defined in the helper data."
+    },
+    {
+        "id": 370490,
+        "label": "Yes",
+        "justification": "This post discusses architectural migration options and the trade-offs involved in managing data at scale, including issues of redundancy and performance. The focus on evaluating technical choices (such as switching to Play with MongoDB or Postgres) to ensure efficient, scalable, and maintainable software aligns with the technical sustainability dimension in software-intensive systems."
+    },
+    {
+        "id": "369596",
+        "label": "No",
+        "justification": "The text focuses on Docker image registry, image building, and deployment practices, and does not address the dimensions or aspects of sustainability (social, environmental, technical, or economic) in software-intensive systems as defined in the Helper-Data."
+    },
+    {
+        "id": "365330",
+        "label": "No",
+        "justification": "The text focuses on the trade-offs between NoSQL and relational databases, addressing issues of performance, scalability, and consistency. It does not address aspects related to software sustainability as defined by the dimensions (social, environmental, technical, and economic) in the Helper-Data."
+    },
+    {
+        "id": 365193,
+        "label": "No",
+        "justification": "The text focuses on scalability, load balancing, and performance aspects of web applications. It does not address the sustainability dimensions\u2014social, environmental, technical (in terms of long-term system evolution), or economic sustainability\u2014as defined in the Helper-Data."
+    },
+    {
+        "id": "363972",
+        "label": "No",
+        "justification": "The text is focused on scalability and performance issues related to webpage and database management. It discusses handling high volumes of requests and technical challenges without addressing any of the sustainability dimensions\u2014social, environmental, technical (in the sustainability sense), or economic\u2014as defined in the provided Helper-Data. Therefore, it is not considered related to software sustainability."
+    },
+    {
+        "id": 363959,
+        "label": "No",
+        "justification": "The text discusses technical trade-offs between RDBMS and NoSQL databases, focusing on performance, data organization, and query handling. It does not consider aspects of sustainability such as social, environmental, technical (in the long-term evolutionary sense), or economic sustainability as defined in the provided frameworks."
+    },
+    {
+        "id": 360022,
+        "label": "No",
+        "justification": "The text focuses on technical decisions about hosting, scalability, cost management, and database/search engine choices. It does not discuss the dimensions of software sustainability (social, environmental, technical, or economic) as defined in the Helper-Data."
+    },
+    {
+        "id": 356334,
+        "label": "No",
+        "justification": "The text discusses technical details concerning serverless computing (lambda container reuse, connection pooling, startup times) and related performance issues. It does not address aspects of software sustainability such as long-term evolution, generational equity, or environmental and social impacts, which are central to the definitions provided in the Helper-Data."
+    },
+    {
+        "id": 350817,
+        "label": "Yes",
+        "justification": "The text discusses deploying a static site using Azure Storage, highlighting benefits such as reliability, low maintenance, performance, and lower cost. These aspects align with the technical and economic dimensions of software sustainability as outlined in the Helper-Data."
+    },
+    {
+        "id": "347591",
+        "label": "Yes",
+        "justification": "The text centers on long-term design considerations such as multi-tenant architecture, security enforcement, and performance optimization\u2014all factors that affect the maintenance, scalability, and economic efficiency of a software system. These aspects are integral to the technical and economic dimensions of software sustainability as defined in the Helper-Data."
+    },
+    {
+        "id": 342331,
+        "label": "Yes",
+        "justification": "The post discusses evaluating the costs associated with vendor lock-in when using cloud services, weighing the trade-offs between using vendor-specific, higher-level cloud services versus building in-house solutions. This relates directly to technical and economic sustainability dimensions as it considers long-term maintainability, resource allocation, and strategic decision-making in software development."
+    },
+    {
+        "id": "340772",
+        "label": "Yes",
+        "justification": "The text discusses architectural and design considerations that are directly influenced by cost and pricing strategies (e.g., the AWS pricing model), which ties into the economic dimension of software sustainability. It also touches on technical design aspects that can affect long-term viability and performance, both of which are key considerations in sustainable software systems."
+    },
+    {
+        "id": 340747,
+        "label": "No",
+        "justification": "The text focuses on re-implementing specific backend components to improve performance and scalability by moving to a cloud environment. It does not discuss any components of software sustainability such as long-term evolution, cost preservation, social or environmental impacts, or quality requirements that relate directly to sustainability. Therefore, it is not directly related to software sustainability."
+    },
+    {
+        "id": 338746,
+        "label": "Yes",
+        "justification": "The text discusses strategies for ensuring high availability and reliability of software systems, including considerations for downtime, replication, and infrastructure choices such as cloud deployment. These aspects are related to the technical dimension of sustainability, which focuses on the long-term use and evolution of software-intensive systems."
+    },
+    {
+        "id": 338692,
+        "label": "Yes",
+        "justification": "The text discusses strategies for ensuring high availability and smooth upgrades in a system, touching on technical practices such as state management, load balancing, backward compatibility in database upgrades, and canary deployments. These topics align with the technical dimension of software sustainability, which focuses on the long-term use and continuous evolution of software systems."
+    },
+    {
+        "id": 336154,
+        "label": "Yes",
+        "justification": "The text discusses choosing open source, free servers and weighing the costs of PaaS versus self-hosting, which relates to considerations of economic sustainability. In addition, it touches on technical factors such as performance and maintenance, aligning with dimensions of software sustainability (economic and technical) as defined in the Helper-Data."
+    },
+    {
+        "id": "334800",
+        "label": "Yes",
+        "justification": "The text discusses the need to transition from an older, less maintainable socket-certificate approach to a modern HTTP2-JWT protocol. This reflects considerations of technical sustainability by emphasizing long-term, maintainable, and future-proof solutions, which aligns with the concept of ensuring the durability and evolution of software systems over time."
+    },
+    {
+        "id": "334294",
+        "label": "No",
+        "justification": "The text focuses on historical trends, technology evolution, and business considerations related to database systems and physical storage. It does not address the dimensions of software sustainability (social, environmental, technical, economic) as defined in the Helper-Data."
+    },
+    {
+        "id": 333291,
+        "label": "No",
+        "justification": "The text is focused on performance, scalability, and cost-effectiveness in handling high CPU demands rather than addressing long-term sustainability aspects (such as social, environmental, technical, or economic sustainability) as defined in the Helper-Data. It does not discuss issues like maintainability, evolution in changing conditions, or broader sustainability impacts."
+    },
+    {
+        "id": 333128,
+        "label": "No",
+        "justification": "The post is focused on JavaScript code organization techniques, such as modularization, bundling, minification, caching, and the use of CDNs for performance improvements. It does not address the dimensions of software sustainability (social, environmental, technical, or economic) as defined in the Helper-Data."
+    },
+    {
+        "id": "331073",
+        "label": "No",
+        "justification": "The text is focused on architectural concerns for merging two existing products into one and choosing deployment options depending on need (on-site or cloud). It does not address any aspects of software sustainability such as technical, social, economic, or environmental dimensions. The query is about architectural advice rather than sustainability considerations."
+    },
+    {
+        "id": "324564",
+        "label": "Yes",
+        "justification": "The text details an architectural approach focused on a decoupled, scalable system that can evolve easily over time by supporting additional functionality. This focus on scalability, auto-scaling, and ease of extension reflects the technical sustainability dimension in software-intensive systems, which emphasizes the long-term use and adaptability of software systems."
+    },
+    {
+        "id": "315965",
+        "label": "No",
+        "justification": "The text focuses on web technologies, templating systems, and performance tradeoffs like server-side rendering and scaling rather than directly addressing software sustainability dimensions such as long-term technical evolution, social or environmental impact, or economic sustainability."
+    },
+    {
+        "id": "315931",
+        "label": "Yes",
+        "justification": "The post discusses long-term technical considerations in software development, touching on issues such as maintainability, choosing flexible and modern frameworks, and the need to evolve as the system scales. These concerns directly relate to technical sustainability, which addresses the long-term use and evolution of software-intensive systems."
+    },
+    {
+        "id": 315927,
+        "label": "Yes",
+        "justification": "The text discusses long-term development strategies, ease of maintenance, performance implications, and scalability challenges in a large web application\u2014all of which are key aspects of technical sustainability in software-intensive systems. The concerns raised about maintainability, developer onboarding, and appropriate evolution of the technology stack relate directly to sustainability issues as defined in the helper data."
+    },
+    {
+        "id": 315163,
+        "label": "No",
+        "justification": "The text discusses CDN benefits such as reducing network latency, ensuring high availability, and cost-effective maintenance, but it does not address any dimensions of software sustainability (social, environmental, technical, or economic) as defined in the Helper-Data."
+    },
+    {
+        "id": "452263",
+        "label": "No",
+        "justification": "The text discusses a technical challenge related to scheduling and synchronizing tasks in a multi-instance cloud environment using NestJS, AWS, and Azure. It focuses on the trade-offs between different technical approaches (e.g., using a lambda function versus a Redis-backed queue) and the associated complexities and costs. However, it does not engage with broader sustainability dimensions (social, environmental, economic, or long-term technical sustainability) as defined in the provided helper data."
+    },
+    {
+        "id": "450653",
+        "label": "Yes",
+        "justification": "The post discusses long-term operational and management issues related to cloud hosting and data management. It highlights the challenges in maintaining technical operations, the need for skilled staff, and potential economic implications when switching between cloud and in-house systems. These concerns relate directly to technical and economic sustainability aspects of software systems, making the text relevant to software sustainability."
+    },
+    {
+        "id": 447666,
+        "label": "Yes",
+        "justification": "The text discusses designing an architecture that promotes maintainability, independent scalability, and cost control by separating concerns (machine learning API, database, etc.) and mitigating provider lock-in. These considerations align with technical sustainability (long-term evolution and adaptability) and economic sustainability aspects in software development."
+    },
+    {
+        "id": 440285,
+        "label": "Yes",
+        "justification": "The text discusses the use of AWS Lambdas for cost reasons and addresses the complexities involved in such an architecture. This focus on billing models (economic considerations) and the resulting technical intricacies (maintainability and orchestration issues) directly ties into economic and technical sustainability aspects of software-intensive systems, making the post relevant to software sustainability."
+    },
+    {
+        "id": 439256,
+        "label": "Yes",
+        "justification": "The text is focused on modernizing a long-standing, complex software system to adapt to current challenges, which directly relates to technical sustainability. It discusses technical concerns such as system evolution, maintainability, and the difficulties of aligning modern architectural styles with complex business domains. These considerations align with the sustainability dimension that addresses the long-term usability and adaptability of software-intensive systems."
+    },
+    {
+        "id": 439240,
+        "label": "No",
+        "justification": "The text focuses on data security issues (such as encryption in RAM and protection against attackers) and trust in cloud providers, rather than on any of the sustainability dimensions (social, environmental, technical, or economic) defined in the Helper-Data. It does not address the long-term viability or evolution of software systems, nor the broader impacts on social or environmental aspects."
+    },
+    {
+        "id": 436432,
+        "label": "No",
+        "justification": "The text focuses on logging best practices, operational concerns, and cloud deployment strategies rather than addressing sustainability dimensions such as long-term technical viability, social, environmental, or economic aspects of software systems. It does not evaluate or discuss how these practices contribute to software sustainability."
+    },
+    {
+        "id": 433568,
+        "label": "Yes",
+        "justification": "The text discusses total cost of ownership and long-term maintenance challenges (such as bug fixing and system complexity) that directly relate to economic and technical dimensions of software sustainability. This focus on future costs, maintenance, and system evolution makes the content relevant to software sustainability."
+    },
+    {
+        "id": 433023,
+        "label": "No",
+        "justification": "The text focuses on the challenges of maintaining parity between development and production environments in the context of microservice architectures, rather than addressing the broader dimensions of software sustainability (social, environmental, technical, or economic). It does not consider aspects such as long-term use, system evolution, or resource efficiency in a sustainability context."
+    },
+    {
+        "id": 433012,
+        "label": "Yes",
+        "justification": "The text discusses architectural design decisions for microservices, emphasizing decoupling, independent deployment, and clear boundaries. These practices are closely related to technical sustainability, as they contribute to the system\u2019s long-term maintainability and evolution, which are key aspects of sustainability in software-intensive systems."
+    },
+    {
+        "id": 432796,
+        "label": "No",
+        "justification": "The text focuses on security and privacy concerns regarding data access in a cloud storage setup, rather than addressing any aspects of software sustainability such as social, environmental, technical, or economic dimensions."
+    },
+    {
+        "id": 432288,
+        "label": "No",
+        "justification": "The text presents a technical issue regarding message processing limitations in AWS and explores alternative design patterns for long-running jobs. It focuses on operational and design challenges rather than the sustainability dimensions (social, economic, environmental, or technical, as defined in the helper data) associated with long-term software evolution and support."
+    },
+    {
+        "id": 431205,
+        "label": "No",
+        "justification": "The text focuses on technical performance optimizations for handling data (e.g., caching, blob storage, memory management, and throughput) rather than addressing sustainability dimensions such as the long-term maintainability, evolution, social impact, economic viability, or environmental considerations of software systems as defined in the provided sustainability frameworks."
+    },
+    {
+        "id": 426618,
+        "label": "No",
+        "justification": "The text is focused on software architecture design and integration patterns for data transfer, discussing aspects such as asynchronous versus synchronous processing and API implementation choices. It does not address any of the sustainability dimensions (social, environmental, technical, or economic) as defined in the provided helper data."
+    },
+    {
+        "id": 425900,
+        "label": "No",
+        "justification": "The text discusses technical trade-offs related to scale and cost efficiency in data processing, focusing on when to use local databases versus cloud-based solutions. It does not reference or address dimensions of software sustainability (social, environmental, technical, or economic sustainability) as defined in the Helper-Data."
+    },
+    {
+        "id": "425746",
+        "label": "Yes",
+        "justification": "The text describes a migration to a continuously running, cloud-based service that uses auto-scaling and message queue technology. This architectural change is aimed at improving reliability, scalability, and efficient resource management over the long term. Such features resonate with the concept of technical sustainability, as defined in the helper data, by ensuring that the software system can evolve and operate effectively in a dynamic environment."
+    },
+    {
+        "id": 422736,
+        "label": "No",
+        "justification": "The post discusses architectural choices on AWS (Lambda versus EC2) for creating a RESTful API, focusing on aspects like elasticity, cost, and technology examples from companies. It does not address any sustainability dimensions (social, environmental, technical, or economic) as defined in the Helper-Data."
+    },
+    {
+        "id": 422123,
+        "label": "No",
+        "justification": "The text is a technical query about selecting the appropriate AWS tool for searching a DynamoDB database. It focuses on system design and choosing the right cloud services rather than addressing any sustainability dimensions such as long-term software evolution, social, environmental, or economic aspects that are highlighted in the sustainability definitions."
+    },
+    {
+        "id": "421082",
+        "label": "Yes",
+        "justification": "The post discusses re-architecting the system to reduce tight coupling by designing a modular solution for LwM2M integration. This approach aims for easier maintenance, flexibility to evolve with changing requirements, and improved long-term manageability, which aligns with technical sustainability in software-intensive systems."
+    },
+    {
+        "id": 420877,
+        "label": "No",
+        "justification": "The post focuses on the operational and architectural trade-offs between using AWS Lambda versus containerized services, discussing issues like connection re-establishment, deployment complexity, and capacity management. It does not address the broader dimensions of software sustainability (such as long-term maintainability, social, economic, or environmental factors) as defined in the Helper-Data."
+    },
+    {
+        "id": 420772,
+        "label": "No",
+        "justification": "The text focuses on the concept of microservices, discussing deployment, architecture, and cloud functions. It does not address any specific dimensions of software sustainability such as social, environmental, technical, or economic sustainability, nor does it mention long-term benefits, maintenance, or evolution of software systems in line with sustainability principles."
+    },
+    {
+        "id": 420711,
+        "label": "No",
+        "justification": "The text focuses on technical implementation details regarding transaction management, idempotency, and error handling, without addressing any of the broader dimensions of sustainability (social, environmental, technical in terms of long-term adaptability, or economic). It does not discuss designing software for long-term use or sustainable practices as defined by the provided helper data."
+    },
+    {
+        "id": 418620,
+        "label": "No",
+        "justification": "The text discusses limitations of Git in handling large repositories, approaches to asset management, and scalability issues. While it involves technical challenges, it does not address the dimensions of software sustainability defined in the Helper-Data (such as long-term technical, environmental, social, or economic sustainability). The focus is on performance and version control strategies rather than sustainable software practices."
+    },
+    {
+        "id": "418163",
+        "label": "No",
+        "justification": "The text discusses microservices architecture, pipeline design, and performance/scalability issues, but does not address any aspects of software sustainability as defined by social, environmental, technical, or economic dimensions."
+    },
+    {
+        "id": 414686,
+        "label": "No",
+        "justification": "The text focuses on practical aspects of device and IoT management, discussing deployment options, configuration management tools, and cost/operational concerns. It does not address the dimensions of sustainability (social, environmental, technical, or economic) as defined in the helper data, and therefore is not related to software sustainability."
+    },
+    {
+        "id": "412144",
+        "label": "No",
+        "justification": "The text discusses the technical aspects of publishing a web application in the cloud, focusing on security and authentication. It does not discuss any dimensions of software sustainability such as social, environmental, technical (beyond basic architectural considerations), or economic sustainability as defined in the Helper-Data."
+    },
+    {
+        "id": 411788,
+        "label": "No",
+        "justification": "The text focuses on software security, client-server architecture, and best practices for code execution rather than on any of the sustainability dimensions (social, environmental, technical, or economic) defined in the Helper-Data. It does not address long-term maintainability, evolution, or the broader aspects of sustainability in software intensive systems."
+    },
+    {
+        "id": 411735,
+        "label": "No",
+        "justification": "The text discusses technical trade-offs between using a relational database and a NoSQL database based on factors such as scalability, cost, and data format. It does not address the sustainability dimensions (technical, economic, environmental, or social) as defined in the Helper-Data for software-intensive systems."
+    },
+    {
+        "id": "404970",
+        "label": "Yes",
+        "justification": "The text is focused on modernizing a legacy computational system and outlines a strategy for refactoring, updating technical infrastructure, and enabling cloud computing, which directly relates to technical sustainability. It discusses approaches to ensure long-term maintainability and evolution of the software, aligning with the sustainability dimensions defined for software-intensive systems."
+    },
+    {
+        "id": "401720",
+        "label": "Yes",
+        "justification": "The text discusses challenges with maintaining and updating configuration across many AWS Lambda functions, and seeks a more sustainable and efficient approach to managing environment configuration. This focus on improving long\u2010term maintainability and managing evolution in a complex infrastructure aligns with the concept of technical sustainability in software-intensive systems."
+    },
+    {
+        "id": 399960,
+        "label": "Yes",
+        "justification": "The text discusses frameworks for migrating between cloud providers to avoid vendor lock-in and achieve cost savings. This touches on technical sustainability by emphasizing adaptability and evolution in a changing environment, as well as economic sustainability by preserving capital and financial value. Therefore, the post relates to sustainability in the context of software-intensive systems."
+    },
+    {
+        "id": 394623,
+        "label": "No",
+        "justification": "The text describes an architecture for training and serving NLP classifiers along with questions regarding cost-effectiveness and design considerations. It focuses on technical and operational aspects rather than addressing any dimensions of sustainability (social, environmental, technical longevity, or economic capital preservation) as defined by the provided sustainability framework."
+    },
+    {
+        "id": 391040,
+        "label": "Yes",
+        "justification": "The text discusses microservices architecture and its impact on independent development, deployment, and scaling. These topics relate to technical sustainability by addressing the long-term use and evolution of software systems. The discussion of evolving technologies, automation, and adaptable architecture reflects how software can be maintained and improved over time, which ties into the concept of sustainability in software-intensive systems."
+    },
+    {
+        "id": 390552,
+        "label": "Yes",
+        "justification": "The post is focused on the architectural best practices needed to ensure an email server operates reliably and continuously over a long period of time, which directly relates to the technical sustainability of a software intensive system. The question addresses long-term operation, reliability, and managing evolving challenges (like avoiding blacklisting), all of which are key aspects of technical sustainability as defined in the Helper-Data."
+    },
+    {
+        "id": 384565,
+        "label": "No",
+        "justification": "The text discusses agile methodologies, cross-functional teams, and evolving roles in software development, but it does not address any aspect of software sustainability such as social, environmental, technical, or economic sustainability. Thus, it is not related to the defined criteria for software sustainability."
+    },
+    {
+        "id": 378569,
+        "label": "No",
+        "justification": "The text is focused on preventing unauthorized clone apps and securing REST APIs, which pertains to security and authentication challenges rather than sustainability. It does not cover any aspects of social, environmental, technical, or economic sustainability as defined in the Helper-Data."
+    },
+    {
+        "id": 378239,
+        "label": "Yes",
+        "justification": "The text evaluates the long-term cost and maintenance implications of adding an unnecessary intermediary service, highlighting both the economic impact (development and maintenance cost, ongoing hosting expenses) and technical concerns (added complexity, potential for bugs, and decreased reliability). These considerations directly relate to economic and technical sustainability dimensions in software-intensive systems."
+    },
+    {
+        "id": 376805,
+        "label": "No",
+        "justification": "The text focuses on best practices for managing secrets in source control and during deployment, which is a security and configuration management issue. It does not address any dimensions of software sustainability (social, environmental, technical, or economic) as defined in the provided helper-data."
+    },
+    {
+        "id": 373055,
+        "label": "No",
+        "justification": "The text is focused on technical questions regarding logging, data processing, and implementation strategies using big data tools and cloud infrastructure. It does not address or mention any of the sustainability dimensions (social, environmental, technical, or economic) defined in the Helper-Data."
+    },
+    {
+        "id": "363962",
+        "label": "No",
+        "justification": "The post focuses on architectural patterns for interacting with databases in a serverless context (e.g., AWS Lambda) and does not address any aspect of sustainability (social, environmental, technical, or economic). It is a design and implementation question rather than one examining the long-term use or preservation of software-intensive systems."
+    },
+    {
+        "id": 357689,
+        "label": "No",
+        "justification": "The text is focused on technical design and performance challenges related to serving geo-enabled data and vector tiles in a web mapping application. It centers on architectural choices and optimization rather than addressing any dimensions of sustainability (social, environmental, technical, or economic) as described in the provided definitions."
+    },
+    {
+        "id": "351970",
+        "label": "No",
+        "justification": "The text focuses on security measures for handling API requests, token storage, and protecting endpoints, and does not address any aspects of software sustainability (social, environmental, technical, or economic dimensions)."
+    },
+    {
+        "id": 351507,
+        "label": "Yes",
+        "justification": "The text discusses automating and replicating a production environment using cloud services to spin up and tear down systems quickly. This approach encourages best practices and facilitates the long-term maintainability and evolution of software systems, which aligns with the technical dimension of software sustainability."
+    },
+    {
+        "id": 349301,
+        "label": "Yes",
+        "justification": "The discussion focuses on software architectural decisions\u2014such as where to implement business logic, decoupling, and reusability\u2014whose impact on maintainability and long-term evolution touches on the technical sustainability dimension. Addressing issues like code duplication and maintainability is closely related to ensuring software systems remain sustainable over time."
+    },
+    {
+        "id": 341113,
+        "label": "No",
+        "justification": "The text provides a detailed explanation of cloud development concepts such as IaaS, PaaS, and SaaS, focusing on technical and operational aspects of cloud computing. It does not address any dimensions of software sustainability (social, environmental, technical, or economic) as defined in the Helper-Data."
+    },
+    {
+        "id": 338755,
+        "label": "Yes",
+        "justification": "The text discusses design principles such as redundancy, modularity, resilience, and continuous monitoring, which are quality requirements directly related to ensuring the long-term reliability and availability of software systems. These aspects align with the technical dimension of software sustainability, which focuses on the long-term use and evolution of software-intensive systems."
+    },
+    {
+        "id": "334664",
+        "label": "No",
+        "justification": "The text discusses cloud-based enterprise systems, configuration/customization processes, and deployment strategies rather than addressing any aspect of software sustainability. It does not focus on the sustainability dimensions (social, environmental, technical, or economic) as defined in the provided Helper-Data."
+    },
+    {
+        "id": 334663,
+        "label": "Yes",
+        "justification": "The text discusses improving and managing the architecture of microservices through independent deployment, testing environments, monitoring, and orchestration. These practices enhance the technical sustainability of the software by ensuring maintainability, scalability, and resilience over time."
+    },
+    {
+        "id": 332982,
+        "label": "No",
+        "justification": "The text focuses on organizing the local development process, testing practices, and integration with API gateways. It offers practical advice on software development and devops practices rather than addressing any of the dimensions of software sustainability (social, environmental, technical, or economic)."
+    },
+    {
+        "id": 330808,
+        "label": "No",
+        "justification": "The text provides advice on improving development workflows, version control, deployment, and related development practices. It does not discuss any dimensions of software sustainability (i.e., social, environmental, technical, or economic sustainability as defined in the Helper-Data), nor does it address long-term viability, evolution, or maintenance of software systems."
+    },
+    {
+        "id": 325112,
+        "label": "No",
+        "justification": "The text focuses on database performance, caching strategies, and benchmarking for better performance, rather than addressing any of the sustainability dimensions (social, environmental, technical, or economic) as defined. It does not discuss long-term sustainability concerns, such as the ongoing evolution or maintenance of software systems in a sustainable manner."
+    },
+    {
+        "id": 322899,
+        "label": "No",
+        "justification": "The text focuses on security best practices for accessing data in DynamoDB (authentication, authorization, and the use of AWS tools) and does not address any aspects of software sustainability such as long-term technical, social, environmental, or economic considerations."
+    },
+    {
+        "id": 322658,
+        "label": "Yes",
+        "justification": "The text focuses on transitioning from a monolithic architecture to a microservices-based system. It discusses technical aspects such as system organization, development planning, load balancing, deployment strategies, and monitoring. These topics align with the notion of technical sustainability, which concerns ensuring the long-term evolution and maintainability of software-intensive systems in a changing environment."
+    },
+    {
+        "id": 322153,
+        "label": "No",
+        "justification": "The text primarily discusses high availability techniques such as Windows Failover Clustering, Network Load Balancing, and load balancers. It focuses on administrative overhead, cost, and reliability rather than addressing the sustainability dimensions (social, environmental, technical, and economic sustainability) defined in the Helper-Data. Therefore, it is not directly related to software sustainability."
+    },
+    {
+        "id": "322077",
+        "label": "No",
+        "justification": "The text discusses technical details of AWS Lambda's deployment model, logging and packaging strategies, but does not address any of the sustainability dimensions such as social, environmental, technical, or economic sustainability as defined in the Helper-Data. It focuses on deployment and architectural concerns rather than on long-term sustainable software practices."
+    },
+    {
+        "id": "316508",
+        "label": "Yes",
+        "justification": "The text discusses architectural decisions and strategies aimed at facilitating scalability, maintainability, and the ease of future evolution. This focus on designing the system so that parts can be easily replaced or upgraded without affecting the entire codebase aligns with the concept of technical sustainability in software-intensive systems."
+    }
+]

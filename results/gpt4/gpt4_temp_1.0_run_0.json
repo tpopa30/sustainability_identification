@@ -1,0 +1,587 @@
+[
+    {
+        "id": "448250",
+        "label": "No",
+        "justification": "The text discusses complex calculations on data sets, data storage, and different aspects of data operation. It mentions hardware performance and third party services, but it doesn't relate those concepts to sustainability issues in software, such as efficiency in code, long-term maintainability, or reducing environmental impact."
+    },
+    {
+        "id": "445186",
+        "label": "No",
+        "justification": "The text fragment is discussing various strategies for managing and querying data stored in a cloud-based database. While it does touch on cost efficiency, it does not specifically address topics or issues related to software sustainability."
+    },
+    {
+        "id": "444739",
+        "label": "Yes",
+        "justification": "The text is related to software sustainability as it talks about infrastructure oversizing, developing practices and monitoring of software services, all of which are components of maintaining software's life cycle for sustainable operation."
+    },
+    {
+        "id": "444704",
+        "label": "Yes",
+        "justification": "This text is related to software sustainability as it discusses the design and maintenance of a software as a service (SaaS) system. The user is seeking to improve sustainability through domain management and customer routing based on regions, which have implications for maintenance overhead and compliance. They are considering different options to optimize the software's long-term operability and efficiency."
+    },
+    {
+        "id": 442126,
+        "label": "Yes",
+        "justification": "The task-data is related to software sustainability. It discusses the challenges of maintaining and improving a poorly structured system that poses risks to uptime and scalability. The necessary intervention to guarantee the functionality and longevity of the system are indicators of sustainability concerns."
+    },
+    {
+        "id": "441569",
+        "label": "No",
+        "justification": "The text is about developing a chatbot system using AWS's DynamoDB. The discussion mainly includes chatbot functionalities like booking trips, tracking user context, database structure, but there is no mention or implication about software sustainability or related topics."
+    },
+    {
+        "id": "440067",
+        "label": "Yes",
+        "justification": "The passage discusses the ways to maintain and improve software sustainability by focusing on data sharding, replication functionality, and maintaining uptime in data storage solution. It suggests using solutions like AWS's RDS service for managed relational databases and AWS's S3 for file storage, both of which aid in software sustainability."
+    },
+    {
+        "id": "436491",
+        "label": "Yes",
+        "justification": "The text is related to software sustainability as it discusses the importance of data isolation and managing common services for optimized performance and reduced risk, which are key aspects of maintaining and enhancing the long-term use of software."
+    },
+    {
+        "id": 424900,
+        "label": "Yes",
+        "justification": "The text discusses possible approaches to improve software performance and reduce costs, which are aspects of software sustainability. Specifically, it mentions options for data storage and retrieval in a cloud-based software as a service (SaaS) product, which is dealing with scalability issues."
+    },
+    {
+        "id": 423151,
+        "label": "No",
+        "justification": "The given text fragment discusses backend web app architecture, data storage options, and network performance, but it does not discuss or relate to software sustainability."
+    },
+    {
+        "id": "420466",
+        "label": "Yes",
+        "justification": "The text is referring to software sustainability in terms of building software that will function for a long time, dealing with things like system failures, data loss, load balancing, and tech stack selection. It gives several insights on long-term sustainability such as avoiding overengineering, keeping the architecture simple and tunable, and allowing for flexibility and evolution in the architecture."
+    },
+    {
+        "id": "418151",
+        "label": "Yes",
+        "justification": "The text discusses the architecture and performance of a software application, focusing on the aspect of scalability and efficient resource use which are critical factors in software sustainability. The user is considering solutions that would enhance the long-term viability of their software, making the content related to software sustainability."
+    },
+    {
+        "id": 415998,
+        "label": "Yes",
+        "justification": "The text fragment is related to software sustainability as it discusses the issues related to changes in architecture, and how this may influence the ongoing usability and maintainability of the software. It implies concern over sustainable development methods, like the ability to keep different stacks to ensure flexibility, cost reduction, deployability, and ability for evolution, thereby directly linking to software sustainability."
+    },
+    {
+        "id": 411767,
+        "label": "No",
+        "justification": "The text discusses various techniques related to software security, protection, and technical approaches to secure an app. However, it does not mention or imply anything related to software sustainability including maintenance, continuous improvement, long-term functionality, and environmental impact of software development."
+    },
+    {
+        "id": "409372",
+        "label": "Yes",
+        "justification": "The text is related to software sustainability as it discusses management of computing resources and capacity, the use of virtual machines, containers, and serverless architectures which are all key concepts in maintaining and improving the longevity and efficiency of software systems."
+    },
+    {
+        "id": 406350,
+        "label": "Yes",
+        "justification": "The text discusses the development and management of microservices and their role in maintaining software efficiency over time. It outlines various considerations, trade-offs, and strategies in implementing microservices to ensure smooth operation and minimize costs, aspects that directly relate to software sustainability."
+    },
+    {
+        "id": "405176",
+        "label": "Yes",
+        "justification": "The given text discusses the high availability of systems, which is related to software sustainability. It explains the need for multiple cloud providers to maintain a high level of availability. The mention of internal processes, procedures, and automation for mitigating issues also associate with sustaining software over time. Thus, the label of 'Yes' is given."
+    },
+    {
+        "id": 403459,
+        "label": "Yes",
+        "justification": "The text is related to software sustainability as it is discussing the pros and cons of different methods of managing blobs in databases and other object storage software, and how these choices can impact long term stability, costs, and performance of the software system."
+    },
+    {
+        "id": "403412",
+        "label": "No",
+        "justification": "The text discusses security measures for authorizing users in software but it does not specifically discuss aspects related to software sustainability."
+    },
+    {
+        "id": "403152",
+        "label": "Yes",
+        "justification": "The text is related to software sustainability. It discusses best practices for initializing SDK clients and database connections to enhance function performance and save execution time and cost, which are issues related to the sustainability of software."
+    },
+    {
+        "id": 403071,
+        "label": "Yes",
+        "justification": "The post is based on software sustainability because it discusses two important factors contributing to software sustainability: Fault Tolerance and High Availability. It mentions how the two play a role in software sustainability: avoiding crashes, ensuring availability even during high traffic or failures, cost-effectiveness, and adjusting and monitoring the software as per the demand. Therefore, it indicates a relationship with software sustainability."
+    },
+    {
+        "id": "402967",
+        "label": "Yes",
+        "justification": "The text discusses techniques to make software systems more scalable and efficient, which directly relates to the sustainability of the software. Concepts like splitting monolithic designs, using temporary storage, leveraging GPUs for parallel processing, and automatically scaling are mentioned - all of these increase operational efficiency and lifespan of software, contributing to its sustainability."
+    },
+    {
+        "id": "402623",
+        "label": "Yes",
+        "justification": "The post talks about improving the performance of software which, in turn, contributes to software sustainability. Topics like system profiling, event-driven models, processing times, and scalability are all integral parts of ensuring that software is maintainable and performs well over time, all of which are aspects of software sustainability."
+    },
+    {
+        "id": "392697",
+        "label": "Yes",
+        "justification": "The text discusses different areas related to the development, optimization, and deployment of machine learning models in production, which form part of software sustainability. Topics addressed include the need for a high-memory machine for machine learning tasks, the use of data lakes or warehouses to enhance performance, the placement of inference and model building pipelines, automation of model retraining, and deciding factors for these considerations. All these aspects contribute to software sustainability by ensuring consistent functionality and effectiveness of software systems over time."
+    },
+    {
+        "id": "391902",
+        "label": "No",
+        "justification": "The text is related to database organization and scalability, it does not discuss software sustainability or practices related to it."
+    },
+    {
+        "id": "388892",
+        "label": "Yes",
+        "justification": "The text discusses software optimization, scaling and usage of resources (caches and cloud capabilities), which all relate to the concept of software sustainability, i.e., the maintainability and longevity of the software system in a cost-effective manner."
+    },
+    {
+        "id": "386307",
+        "label": "Yes",
+        "justification": "The text discusses serverless architectures as a sustainable and scalable software solution, which reduces operational tasks like server management. This pertains to software sustainability as it leads to efficient use of resources and long term viability."
+    },
+    {
+        "id": "385346",
+        "label": "Yes",
+        "justification": "The text discusses software architecture, specifically as it relates to the deployment and maintenance of individual sub-component microservices within a larger application. Ensuring efficiency, cost-effectiveness and ease of management (including minimizing management overhead) in deploying these microservices are essentially issues related to the sustainability of the software application as a whole."
+    },
+    {
+        "id": "384682",
+        "label": "Yes",
+        "justification": "The text discusses the aspect of software design and building a sustainable system which scales efficiently. It also discusses the use of serverless technologies and best practices to avoid problems such as duplicate notifications, race conditions etc., thus related to software sustainability."
+    },
+    {
+        "id": "382785",
+        "label": "No",
+        "justification": "The text fragment is discussing scalable software architectures, with no focus or mention to sustainability aspects, such as energy efficiency or durability of the software over time."
+    },
+    {
+        "id": "382607",
+        "label": "Yes",
+        "justification": "The text is related to software sustainability, discussing the issue of scaling and optimizing software for efficiency and sustainability. It points out potential software architectural and design decisions that could contribute to the development of sustainable software such as cloud blob storage, CQRS, ElasticSearch, and Apache Solr."
+    },
+    {
+        "id": "379926",
+        "label": "Yes",
+        "justification": "The text discusses the sustainability issues linked with the technological choices, scaling, databases, and services in the software industry, focusing on how decisions in these areas can enhance or hinder the sustainability of software systems."
+    },
+    {
+        "id": "376325",
+        "label": "Yes",
+        "justification": "The user's post reveals they are researching serverless AWS technology for a couple of projects, and they elaborate on the event-sourced, CQRS model, which is directly related to software sustainability. The user also raises concerns about the complexity of the system and its performance which are important factors when considering the sustainability of software."
+    },
+    {
+        "id": "372833",
+        "label": "Yes",
+        "justification": "The text discusses the importance and methods of data processing and storage in various forms, such as RAM, SSDs, local hard disks, and cloud storage. These are fundamental aspects towards the sustainability of software systems as they impact performance, cost, and scalability."
+    },
+    {
+        "id": "372002",
+        "label": "No",
+        "justification": "The text seems to revolve around coding, programming and cloud services. There's no mention of the longevity, maintenance, and future perspective that characterizes the notion of software sustainability, hence the classification."
+    },
+    {
+        "id": 370490,
+        "label": "Yes",
+        "justification": "The user's text is discussing efficiency and scalability measures for a software application. This is related to software sustainability, as optimizing these aspects ensures that the software continues to function effectively over time, even as workload and usage increase."
+    },
+    {
+        "id": "369596",
+        "label": "Yes",
+        "justification": "The topic discussed is about Docker images, which are largely related to software sustainability. Docker allows efficient management of software applications in an isolated environment known as a container. Discussions include how to pull, build, and manage Docker images, as well as the considerations for using Docker Hub vs local registries, two key factors in maintaining the efficiency and sustainability of software development and deployment processes."
+    },
+    {
+        "id": 365330,
+        "label": "Yes",
+        "justification": "The provided text discusses the importance of selecting appropriate software (Amazon DynamoDB, relational database etc.) considering scalability, functionality, reliability and application-specific requirements, which is a part of software sustainability."
+    },
+    {
+        "id": "365193",
+        "label": "Yes",
+        "justification": "The text discusses application scalability which is a major aspect of software sustainability. It explains how load balancing, software architecture, and hosting considerations contribute to building a sustainable software system."
+    },
+    {
+        "id": 363972,
+        "label": "Yes",
+        "justification": "The text is discussing about software scalability, which is a keystones of software sustainability. It explains strategies to handle increasing workload and challenges of enlarging databases, both critical component of sustaining a software over time."
+    },
+    {
+        "id": "363959",
+        "label": "No",
+        "justification": "The post discusses database systems, including both relational (RDBMS) and NoSQL types, and the optimal contexts for using each. It does not touch on software sustainability."
+    },
+    {
+        "id": "360022",
+        "label": "Yes",
+        "justification": "This text discusses practices and decision making related to software scalability and hosting, which falls under the broad umbrella of software sustainability. The decisions to choose self-hosting versus cloud hosting, RDBMS versus Search, and the information about Scale and Performance are key aspects of designing sustainable software. Hence, the provided text is related to software sustainability."
+    },
+    {
+        "id": 356334,
+        "label": "No",
+        "justification": "The text is discussing the implementation and challenges experienced with using serverless architecture, specifically AWS Lambda. It primarily focuses on connection pooling, resource use and the novelty of the serverless approach rather than topics related to software sustainability such as maintainability, replicability and longevity."
+    },
+    {
+        "id": "350817",
+        "label": "Yes",
+        "justification": "The text discusses methods of deploying a static website using Azure Storage and suggests it as a more sustainable option due to its reliability, lower maintenance needs, good performance, lower cost, and ease of deployment. This can be related to software sustainability as it discusses means to ensure the software solution remains effective and efficient in the long term."
+    },
+    {
+        "id": "347591",
+        "label": "No",
+        "justification": "The text is primarily focused on the design considerations for a multi-tenancy system, security issues, response time, and potential solutions including using cloud services. Concepts of software sustainability like long-term maintenance, uninterrupted operation, helpability, and evolvability in the context of environmental, economic, and social sustainability do not feature in the text."
+    },
+    {
+        "id": "342331",
+        "label": "Yes",
+        "justification": "The text discusses considerations for the decision-making process on the usage of cloud services versus in-house solutions and the potential impact on software sustainablility. The potential implications on sustainability include time to market, resource allocation, and operational costs."
+    },
+    {
+        "id": 340772,
+        "label": "Yes",
+        "justification": "The user talks about software sustainability in relation to its long-term cost-effectiveness. They discuss key concepts related to the sustainable development of a software, including the price to performance ratio, potential limitations of cloud environments, and the negative financial impacts that can occur when these issues are not appropriately addressed. The user also suggests specific methods to improve sustainability, such as moving off of costly platforms, optimizing code, and compressing communication."
+    },
+    {
+        "id": "340747",
+        "label": "Yes",
+        "justification": "The text talks about converting a backend into a cloud app so as to make the application more scalable. Scalability is a factor of software sustainability as it involves the application's ability to handle a growing amount of work."
+    },
+    {
+        "id": "338746",
+        "label": "Yes",
+        "justification": "The text discusses topics related to software sustainability such as high availability, database migrations, performance problems, cloud services, handling state servers, replication, load balancing, and redundancy needs. These are all elements that contribute to creating a more sustainable software environment."
+    },
+    {
+        "id": "338692",
+        "label": "Yes",
+        "justification": "The text is directly related to software sustainability because it presents ideas and strategies to ensure a software is more fault-tolerant, scalable, and able to continue its operations despite changes, such as AWS capabilities in cloud-hosted applications. Principles like high availability, failover procedures, stateless design, load balancing, and database upgrades related to backward compatibility, all contribute to software sustainability."
+    },
+    {
+        "id": 336154,
+        "label": "Yes",
+        "justification": "The text mentions aspects like open source software, production environments, private clouds, cloud storage, and PaaS providers which are all factors contributing to software sustainability. It is clear that the strategies discussed are aimed at ensuring longevity and continuous functionality of software in varying environments, which is a major aspect of software sustainability."
+    },
+    {
+        "id": 334800,
+        "label": "Yes",
+        "justification": "The text is clearly discussing about software sustainability. The user here talks about software implementations, also taking into account the consequences of discontinued support. Furthermore, sustainable solutions such as HTTP2 - JWT protocol are suggested for future code maintenance and prevention of refactoring issues."
+    },
+    {
+        "id": "334294",
+        "label": "No",
+        "justification": "This text is focused on explaining the history and future trends of database systems - SQL, NoSQL, data storage technologies, cloud computing, and some related business perspectives. While this discussion is related to software and technology, it doesn't specifically address software sustainability, i.e., the long-term delivery of the required functions of a software system in its context."
+    },
+    {
+        "id": "333291",
+        "label": "No",
+        "justification": "The fragment of text is about computing capacities and efficiency in terms of carrying out many calculations simultaneously, a technique known as thread parallelism. It discusses methods to improve software performance, but there are no mentions specifically about software sustainability, like making it environmentally friendly, reducing energy usage, or prolonging the software lifecycle."
+    },
+    {
+        "id": "333128",
+        "label": "Yes",
+        "justification": "The text discusses various techniques for efficiently managing JavaScript files, including the use of modules and frameworks, file bundling and minification, and effective use of CDNs. These practices contribute to the performance and maintainability of applications, which are key aspects of software sustainability."
+    },
+    {
+        "id": 331073,
+        "label": "Yes",
+        "justification": "The post is relevant to software sustainability as it discusses the process of transitioning from two separate solutions to one unified solution. This involves planning for long-term software maintenance, potential future requirements and the adaptability of this web service to different environments (on-site hardware or the cloud), which are key indicators of software sustainability."
+    },
+    {
+        "id": "324564",
+        "label": "Yes",
+        "justification": "The text is related to software sustainability as it discusses the creation of a scalable system that can handle large amounts of data (up to 1 Million user ids), and still be extended to incorporate other functionalities in the future. It demonstrates the necessary adaptability and scale capacity needed in software sustainability."
+    },
+    {
+        "id": "315965",
+        "label": "No",
+        "justification": "The given text is about the application and implications of JSP (Java Server Pages) as a templating system, server-side rendering and related technical aspects pertaining to web development. Although it touches upon concepts of performance and efficiency, it doesn't specifically address software sustainability, which typically involves discussions around maintainability, longevity, future-proofing and energy efficiency of software."
+    },
+    {
+        "id": "315931",
+        "label": "Yes",
+        "justification": "The text discusses issues related to software maintainability and adaptability, two key aspects of software sustainability. The user also talks about the ease of use of certain technologies, their appropriateness for the application's requirements, and their impact on software development speed, all of which are factors that contribute to software sustainability."
+    },
+    {
+        "id": 315927,
+        "label": "Yes",
+        "justification": "The text discusses the development of a web application and concerns related to performance, cost, and compatibility of various development frameworks. These topics tie directly into concepts of software sustainability, as sustainable software should have efficient code, be reliable, maintainable, and scalable. The decisions made during this development process will therefore contribute to the long term sustainability of the software."
+    },
+    {
+        "id": "315163",
+        "label": "No",
+        "justification": "The text fragment talks about the advantages and importance of using a Content Delivery Network (CDN) for increasing the availability of web content to end users globally. Although it discusses aspects of software management, there is no direct reference or association to software sustainability."
+    },
+    {
+        "id": "452263",
+        "label": "Yes",
+        "justification": "The post discusses different solutions for a problem related to managing server instances, including the use of AWS lambda functions and redis cache. It raises concerns about system complexity, dependency, and sustainability of these solutions across different web application frameworks. Therefore, the overall context relates to software sustainability."
+    },
+    {
+        "id": "450653",
+        "label": "Yes",
+        "justification": "The text relates to software sustainability. It discusses the complexities and long-term management requirements of cloud-hosted applications and data, challenges with data extraction, and the potential necessity for technical staff support, all of which directly impact software sustainability."
+    },
+    {
+        "id": "447666",
+        "label": "No",
+        "justification": "This text is discussing about software security and scalability. While it incorporates important aspects of software development like secure architecture, independent scaling and cost measures, it does not directly link to sustainability in software."
+    },
+    {
+        "id": "440285",
+        "label": "No",
+        "justification": "The text is discussing the use of AWS Lambdas and serverless applications, specifically their cost and complexity. There is no mentioning of sustainability, particularly software sustainability, in the text."
+    },
+    {
+        "id": "439256",
+        "label": "Yes",
+        "justification": "The text discusses modernizing an old software application which falls under the scope of software sustainability. The considerations being made between the current monolithic architecture and a transition to a microservices architecture to improve the longevity and efficiency of the application, highlight the importance and relevance of software sustainability."
+    },
+    {
+        "id": "439240",
+        "label": "No",
+        "justification": "The text discusses data security, encryption, and attack vectors instead of software sustainability, so it is not related to that topic."
+    },
+    {
+        "id": "436432",
+        "label": "Yes",
+        "justification": "The text discusses the strategies and systems for maintaining and improving logging as part of software operations. Logging is a pivotal part of supporting software longevity and sustainability as it helps with monitoring, tracking user behavior, tracing failures, and uncovering errors, all of which contribute to maintaining a performant and robust software over time."
+    },
+    {
+        "id": "433568",
+        "label": "Yes",
+        "justification": "The text discusses the complexities of maintaining a system over time including fixing bugs and dealing with the issues related to data exporting and importing. All these considerations are aspects of software sustainability, as they pertain to the long-term performance and reliability of a software system."
+    },
+    {
+        "id": "433023",
+        "label": "Yes",
+        "justification": "The text discusses sustainability in software development by mentioning dev/prod parity, local and production environment similarity, and deployment processes. These topics are related to software sustainability as they address the long-term maintenance, performance, and effectiveness of software systems."
+    },
+    {
+        "id": "433012",
+        "label": "Yes",
+        "justification": "The text addresses issues related to software sustainability. It discusses considerations for breaking down software into microservices, handling dependencies, and optimizing communication between services - all key aspects of building sustainable, scalable and maintainable applications."
+    },
+    {
+        "id": 432796,
+        "label": "Yes",
+        "justification": "The text is related to software sustainability as it deals with the sustainable use of cloud-based media storage in an app ensuring privacy and security for users in the long run."
+    },
+    {
+        "id": "432288",
+        "label": "Yes",
+        "justification": "The text addresses issues related to software sustainability in terms of an event driven system encountering an issue due to AWS setting limit on message processing. The user is looking for a sustainable solution to this problem that does not abandon the resilience feature for long-running jobs."
+    },
+    {
+        "id": "431205",
+        "label": "Yes",
+        "justification": "The given text discusses about optimising software performance and resource utilisation, particularly in relation to data storage and retrieval. It talks about using Azure Blob storage efficiently, addressing potential bottlenecks, and understanding what could potentially slow down this software service. The principles applied toward optimising these software services contribute toward software sustainability."
+    },
+    {
+        "id": "426618",
+        "label": "Yes",
+        "justification": "The text discusses software architecture solutions for data transfer and storage in an SQL database. The considerations for choosing between the solutions involve aspects like real-time processing, data mastery, and cloud compatibility, which are related to software sustainability in terms of flexibility, scalability, and maintainability."
+    },
+    {
+        "id": 425900,
+        "label": "Yes",
+        "justification": "The text is discussing scalable solutions, specifically when to use local databases versus cloud-based solutions. These decisions impact the long-term maintenance and cost-effectiveness of software, which are components of software sustainability."
+    },
+    {
+        "id": 425746,
+        "label": "Yes",
+        "justification": "The text is related to software sustainability as it discusses the transformation and modification of an application architecture to be cloud-based and continuosly listening, which enhances scalability, fault tolerance and reliability - key elements of sustainable software."
+    },
+    {
+        "id": "422736",
+        "label": "Yes",
+        "justification": "The piece of text discusses different software and server architectures and their cost-effectiveness, which can be related to sustainability in terms of long-term maintenance, scalability and efficiency."
+    },
+    {
+        "id": 422123,
+        "label": "No",
+        "justification": "The text provides information about the process of app creation focusing on AWS architecture tools for scalability and system design. It mentions nothing about software sustainability, hence the label 'No'"
+    },
+    {
+        "id": "421082",
+        "label": "Yes",
+        "justification": "The text discusses the considerations for connecting devices to the cloud, remote monitoring and data updates. These activities deal directly with ongoing software operations, remote management, and ensuring the product remains effective, which are key elements of software sustainability."
+    },
+    {
+        "id": 420877,
+        "label": "Yes",
+        "justification": "The text is related to software sustainability as it discusses decision-making with respect to AWS Lambda usage and serverless ecosystems in the context of efficiency, maintenance, continuous availability and adaptability, all of which considerably impact software sustainability."
+    },
+    {
+        "id": "420772",
+        "label": "Yes",
+        "justification": "The post discusses microservices and their attributes, aspects, and deployment. Microservice architecture improves software sustainability by enabling independent deployment and scalability, leading to easily maintainable and modular software services. Thus, the content relates to software sustainability."
+    },
+    {
+        "id": "420711",
+        "label": "No",
+        "justification": "The text refers to idempotent transactions, error handling, and strategies for retrying failed transactions. Despite mentioning important aspects of software architecture, it does not directly address topics related to software sustainability, such as maintainability, longevity, or resource efficiency."
+    },
+    {
+        "id": 418620,
+        "label": "Yes",
+        "justification": "The post is about software sustainability because it discusses Git\u2019s restriction and limitations for managing large repositories, suggesting other methods for handling binaries and large files. It refers to the use of Git LFS and VFS, tools designed to enhance Git's capabilities, and also mentions using cloud backup services and storage servers. All these elements pertain to achieving sustainability in software by addressing issues of scalability and efficiency."
+    },
+    {
+        "id": "418163",
+        "label": "Yes",
+        "justification": "The text discusses the idea of breaking a monolithic application into microservices, which inherently addresses software sustainability. The sustainable aspect is highlighted by the idea of scaling each logical component separately and efficiently using available resources. It also mentions cloud services like Google Cloud and AWS, indicating the relevance to maintaining and improving software over time."
+    },
+    {
+        "id": "414686",
+        "label": "Yes",
+        "justification": "The post discusses about managing and deploying services onto IoT devices, and it cites tools and strategies to maintain those services. Since maintenance and evolution are a part of software sustainability, the post is indeed related directly to it."
+    },
+    {
+        "id": "412144",
+        "label": "No",
+        "justification": "The text is related to cloud security, particularly focusing on authentication and authorization in a web application. While this may be a part of software development, it does not directly relate or discuss issues related to software sustainability."
+    },
+    {
+        "id": 411788,
+        "label": "Yes",
+        "justification": "The text refers to software sustainability by discussing topics such as application security, client-server architecture, and profiling code for sustained performance. These are essential aspects of software longevity and maintenance, thus the content is related to software sustainability."
+    },
+    {
+        "id": 411735,
+        "label": "Yes",
+        "justification": "The text is related to software sustainability as it discusses about data storage and management techniques using different types of databases (relational and NoSQL) which is a critical aspect for maintaining and evolving software systems."
+    },
+    {
+        "id": 404970,
+        "label": "Yes",
+        "justification": "The text is related to software sustainability as it discusses the modernization of a legacy computer system. Software sustainability concerns involve maintenance, enhancement and ensuring that software remains functional in a changing technological environment, topics which are all mentioned here. The text discusses the overall health of the software including how to maintain it, how to deal with issues in the present and building a strategy for future improvements, which directly corresponds to the concept of sustainability."
+    },
+    {
+        "id": "401720",
+        "label": "Yes",
+        "justification": "The text discusses the issues related to the maintenance and organization of AWS Lambda functions, which relates to software sustainability to ensure efficient and smooth operation across multiple functions."
+    },
+    {
+        "id": 399960,
+        "label": "No",
+        "justification": "The text on this post is talking about cloud computing services and how to migrate between them easily, not about the sustainability of software."
+    },
+    {
+        "id": "394623",
+        "label": "Yes",
+        "justification": "The post discusses plans for creating a sustainable software system for training and serving NLP classifiers, thinking through data sourcing, model training, storage, API service setup, and suggestions for cost-effectiveness. These aspects all contribute to software sustainability."
+    },
+    {
+        "id": "391040",
+        "label": "Yes",
+        "justification": "The text discusses aspects such as independent development, deployment, and scaling of microservices, which are key factors in software sustainability. It touches upon how this has evolved over time, how these aspects provide cost-effective performance, and how automated systems and technologies like containers and cloud platforms support these practices. Therefore, the text is related to software sustainability."
+    },
+    {
+        "id": 390552,
+        "label": "No",
+        "justification": "The post is about the architecture of an email server. It talks about measures to avoid blacklisting and the cost of using several SMTP services like Google Cloud and AWS. However, the message doesn't discuss software sustainability, which refers to the practices for ensuring that software continues to be useful and functional in the long term."
+    },
+    {
+        "id": "384565",
+        "label": "Yes",
+        "justification": "The post discusses software development methodologies (agile), automated testing, DevOps, cloud hosting, and reflects on the roles and tasks in software team, all of which are key parts in sustaining software projects efficiently and effectively in the long run."
+    },
+    {
+        "id": "378569",
+        "label": "No",
+        "justification": "The post discusses security measures in software implementation, focusing on APIs and clone apps, without mentioning or relating to software sustainability. The overall topic is more about data security and authorization rather than sustainability of software."
+    },
+    {
+        "id": 378239,
+        "label": "No",
+        "justification": "The provided text primarily discusses Service-Oriented Architecture (SOA), the usage of services, and their creation in commercial/big projects. While it does talk about aspects such as code maintenance, cost, and resource management, it does not specifically address software sustainability."
+    },
+    {
+        "id": 376805,
+        "label": "Yes",
+        "justification": "The text talks about best practices in software development like not committing secrets to the source control or container images, complying with AGPL terms, and the three phases of web app architecture and deployment, all of which take into account long-term sustainability of software."
+    },
+    {
+        "id": "373055",
+        "label": "Yes",
+        "justification": "This post talks about software development and objectives, emphasizing on choices of tools, techniques and strategies to develop software that is efficient in processing and managing 'big data'. This is an aspect of software sustainability since it ensures the software remains functional and efficient over a long period of time, even as demands placed on it grow."
+    },
+    {
+        "id": "363962",
+        "label": "Yes",
+        "justification": "The text is related to software sustainability as it discusses serverless architectures, changes with moving to such infrastructure, and their impact on system scalability, manageability, and best practices \u2013 all crucial aspects of ensuring long-term sustainability of software systems."
+    },
+    {
+        "id": "357689",
+        "label": "Yes",
+        "justification": "The user's post discusses the development and optimization of a software application, including choices regarding architecture design and data handling. The post discusses issues of software performance and scalability, which are elements of software sustainability."
+    },
+    {
+        "id": "351970",
+        "label": "No",
+        "justification": "The text discusses topics pertaining to web security, handling user login information, dealing with unauthorized API access, and managing refresh tokens. It doesn't mention software sustainability at all. Hence, the text is not related to software sustainability."
+    },
+    {
+        "id": "351507",
+        "label": "Yes",
+        "justification": "The text discusses the setting up of an entire testing environment, automation of production set-up, and using a cloud service which all have implications for software sustainability by enabling robust testing, quick deployment and efficient use of resources."
+    },
+    {
+        "id": "349301",
+        "label": "No",
+        "justification": "The text discusses the use of Firebase and Angular2 in application development, business logic implementation, and data storage considerations. However, it does not mention or relate to software sustainability, which refers to the long-term use and continuous development and maintainability of software systems."
+    },
+    {
+        "id": "341113",
+        "label": "No",
+        "justification": "The text primarily discusses the concepts of cloud development, including Infrastructure as a Service (IaaS), Platform as a Service (PaaS), and Software as a Service (SaaS), and describes their differences and usages. It does not specifically touch on the aspect of software sustainability, i.e., the need for software to be durable, maintainable, and useful in the long term."
+    },
+    {
+        "id": "338755",
+        "label": "Yes",
+        "justification": "The given text is discussing factors and strategies to ensure the sustainability of a software system, particularly focusing on availability. It explains the definitions, issues, and solutions related to maintaining an always available system, including discussions of redundancy, modularity, resiliency, logging, and defining/measuring availability. This directly relates to elements of software sustainability."
+    },
+    {
+        "id": "334664",
+        "label": "Yes",
+        "justification": "The text discusses cloud-based enterprise systems, their implementation, configuration, customization, and deployment, which are key areas in software development. The issues of system functionality and its improvement over time (with different releases) also relate to the concept of sustainability. Additionally, aspects of change management and user adoption also align with the social aspect of software sustainability."
+    },
+    {
+        "id": "334663",
+        "label": "Yes",
+        "justification": "The text discusses the organization of microservices so that they are less dependent on each other and discusses measures for monitoring and managing resource allocation. All of these steps lead to more efficient use of resources, reducing consumption, which aligns with the principles of software sustainability."
+    },
+    {
+        "id": "332982",
+        "label": "Yes",
+        "justification": "The given text discusses software development process, testing, API gateway, and development organization. It involves sustainability in terms of ensuring that a robust, maintainable software system is built and effectively tested."
+    },
+    {
+        "id": "330808",
+        "label": "Yes",
+        "justification": "The text discusses topics related to software sustainability, including adopting version control systems like git for continuous integration (CI) and systems like VirtualBox and Vagrant for local virtual machine development. These practices can improve the longevity and maintainability of codebases. It further speaks about code deployment, using tools and structured processes to increase efficiency and reduce errors, concepts either directly or indirectly related to the sustainability of software"
+    },
+    {
+        "id": 325112,
+        "label": "No",
+        "justification": "The text provides advice on optimizing database performance and scaling applications, but it does not directly address aspects of software sustainability such as longevity, maintenance, or environmental impact. Thus, it's not related to software sustainability."
+    },
+    {
+        "id": "322899",
+        "label": "No",
+        "justification": "The text here is discussing data management and best practices in AWS DynamoDB. While it includes aspects of software security, it does not specifically mention software sustainability or practices related to it."
+    },
+    {
+        "id": "322658",
+        "label": "Yes",
+        "justification": "The text contents pertain to software sustainability as it discusses transitioning from a monolithic architecture to microservices, which is a strategy aimed at creating software systems that are easier to scale and maintain. Issues like development planning, load balancing, test automation, deployment, infrastructure, and monitoring are involved, all of which are crucial aspects of software sustainability."
+    },
+    {
+        "id": "322153",
+        "label": "No",
+        "justification": "This post discusses different ways of setting up redundancies in servers and network configurations for high availability and failover handling. However, it does not discuss sustainability factors in software development, deployment, or use."
+    },
+    {
+        "id": 322077,
+        "label": "Yes",
+        "justification": "The text discusses the use of cloud services for logging and deployment in a scalable and efficient manner in a serverless architecture such as AWS Lambda. This is related to software sustainability as the allocation and efficient use of resources, and scalability are part of maintaining software in the long term."
+    },
+    {
+        "id": 316508,
+        "label": "Yes",
+        "justification": "The text discusses different strategies and technologies for scalable messaging systems. This includes the strategy for choosing the right software and method, based on sustainability and future scalability. The implementation talked about, Windows Service, mentions the impact on other parts of the software as well as considering future software, Azure Functions. Although it does not explicitly use the term 'software sustainability', the considerations discussed touch upon the longevity, scalability, and adaptability aspects of software sustainability."
+    }
+]

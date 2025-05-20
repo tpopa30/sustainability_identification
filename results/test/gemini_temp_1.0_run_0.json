@@ -1,0 +1,587 @@
+[
+    {
+        "id": 376805,
+        "label": "Yes",
+        "justification": "The text discusses best practices for software development related to security (managing secrets) and deployment (configuration management, twelve-factor app). These practices are crucial for building maintainable, secure, and resilient software, which are key aspects of technical and economic software sustainability. Avoiding security flaws and ensuring proper configuration contribute to the long-term viability and trustworthiness of the software system."
+    },
+    {
+        "id": 432288,
+        "label": "No",
+        "justification": "The text discusses a technical challenge related to handling long-running asynchronous tasks within the constraints of AWS MQ's message processing time limit. It focuses on system architecture, resilience patterns (like DLQs), and finding alternative designs for event-driven systems. While efficient processing can indirectly relate to resource usage, the core topic is technical design and operational constraints, not the environmental, social, or economic impacts typically associated with software sustainability."
+    },
+    {
+        "id": "363972",
+        "label": "Yes",
+        "justification": "The text discusses scalability issues related to web applications, specifically focusing on database performance (SQL vs. NoSQL like MongoDB) and server capacity when handling a large number of users. Scalability is a key aspect of technical sustainability, ensuring that software can adapt to increasing demands over time without requiring complete redesigns or becoming prohibitively expensive to operate. Therefore, the discussion on how to design systems (e.g., choosing MongoDB for easier scaling) to handle growth relates directly to software sustainability."
+    },
+    {
+        "id": 322077,
+        "label": "Yes",
+        "justification": "The text discusses architectural choices in cloud computing (AWS Lambda), specifically resource allocation/deallocation ('ressources are allocated for the duration of the program, then fred') and deployment scalability ('not a very scalable architecture'). Efficient resource utilization and scalable, maintainable architectures are key aspects of software sustainability, particularly concerning economic and environmental dimensions (reducing computational waste and cost)."
+    },
+    {
+        "id": 370490,
+        "label": "Yes",
+        "justification": "The text discusses migrating an application architecture (Nginx+PHP+MySQL vs. Play+MongoDB/Postgres) to improve scalability, manageability, and performance for handling large data volumes (7.2M rows/day). This relates to technical sustainability (choosing architectures and data models like EAV vs. document stores for long-term viability, maintainability, and adaptability) and economic sustainability (addressing performance issues impacting reporting and operational manageability, which have cost implications)."
+    },
+    {
+        "id": "347591",
+        "label": "Yes",
+        "justification": "The text discusses database design optimization focusing on security, size, and performance. Techniques like efficient data modeling (normalization vs. denormalization trade-offs), query optimization, reducing data size ('touch as few data blocks as possible', partitioning), efficient hardware usage (RAM), and considering infrastructure choices (cloud hosting, read replicas, data warehouses) directly impact resource consumption (CPU, memory, storage, energy) and operational costs. Optimizing for performance and reducing resource usage are key components of environmental and economic software sustainability."
+    },
+    {
+        "id": "432796",
+        "label": "Yes",
+        "justification": "The text discusses concerns regarding user data privacy and security for an application storing personal media in the cloud. Data privacy and security are critical aspects of social sustainability in software, ensuring user trust, ethical operation, and responsible data handling, which contribute to the software's long-term viability and acceptance."
+    },
+    {
+        "id": "420772",
+        "label": "No",
+        "justification": "The text provides a detailed explanation of microservices, contrasting them with monolithic architectures and discussing deployment strategies (cloud functions, lambda, Kubernetes). The focus is purely on software architecture, design patterns, and deployment mechanisms. It does not mention or discuss any aspects related to software sustainability, such as energy efficiency, resource consumption optimization (environmental or economic), carbon footprint, hardware lifecycle, or the long-term environmental/social impact of these architectural choices."
+    },
+    {
+        "id": 402967,
+        "label": "Yes",
+        "justification": "The text discusses strategies for improving software scalability and resource efficiency, such as splitting monolithic designs, using message queues, leveraging GPUs, batch processing, managed services, and autoscaling (Kubernetes, AWS Auto Scaling). These techniques aim to optimize resource utilization (compute, memory, energy) and reduce the need for over-provisioning, which directly relates to the environmental and economic aspects of software sustainability by minimizing energy consumption and hardware requirements."
+    },
+    {
+        "id": 382785,
+        "label": "No",
+        "justification": "The text provides suggestions for designing a scalable cloud architecture using AWS services (Lambda, API Gateway, S3). It focuses purely on technical aspects like scalability, performance (latency), ease of development, and cost optimization (pricing). While efficiency and cost can be indirectly related to economic sustainability, the text lacks any discussion of environmental or social impacts, energy efficiency, resource optimization from an environmental perspective, or other core concepts of software sustainability."
+    },
+    {
+        "id": 442126,
+        "label": "Yes",
+        "justification": "The text discusses critical issues related to the long-term viability and maintainability of a software system. It highlights problems like technical debt (poorly written code, hardcoded configurations, tight coupling), lack of scalability, resilience risks (reliance on a dynamic IP, single point of failure), and challenges in deployment and maintenance due to legacy code and lack of tests/documentation. Addressing these issues by refactoring for better configuration management and deployment safety directly contributes to the technical and economic sustainability of the software, ensuring it can continue operating reliably and be maintained over time."
+    },
+    {
+        "id": 440285,
+        "label": "Yes",
+        "justification": "The text discusses the economic and technical aspects of choosing serverless (AWS Lambdas) versus traditional server instances. It analyzes cost-effectiveness based on usage patterns ('billed by the hour' vs. 'always having a tiny instance up') and touches upon technical sustainability by evaluating architectural complexity ('nano-service++ architecture with complex orchestration problems') and suitability for specific application types. These considerations about resource utilization (implied through cost) and architectural choices for long-term viability fall under the economic and technical dimensions of software sustainability."
+    },
+    {
+        "id": 373055,
+        "label": "No",
+        "justification": "The text provides technical advice on building a monitoring and analytics system. It discusses choices between enterprise software and custom development, logging infrastructure (Kafka, SQS), data processing (BigData, Spark), databases (NoSQL like MongoDB, Cassandra), and dashboards. While topics like choosing cost-effective solutions (e.g., SQS vs. managed Kafka) or using open-source tools touch upon economic aspects that could be linked to economic sustainability (long-term viability, cost), the primary focus is on technical implementation, performance, and data analysis for operational and business insights, not on the environmental, social, or explicit economic sustainability of the software itself."
+    },
+    {
+        "id": 341113,
+        "label": "No",
+        "justification": "The text provides a detailed explanation of different cloud development models (IaaS, PaaS, SaaS) using AWS as an example. It focuses on the technical aspects, definitions, and operational benefits like scalability and availability. The text does not discuss any aspects of software sustainability, such as the environmental impact (energy consumption, hardware lifecycle), social implications, or economic factors from a sustainability perspective. It is purely a technical description of cloud computing paradigms."
+    },
+    {
+        "id": 356334,
+        "label": "Yes",
+        "justification": "The text discusses the resource usage implications of serverless architectures (AWS Lambda), specifically mentioning container reuse, connection pooling, startup time, and IP address consumption. Optimizing these aspects directly relates to resource efficiency and potentially lower energy consumption, which are key concerns in software sustainability."
+    },
+    {
+        "id": 403412,
+        "label": "No",
+        "justification": "The text focuses entirely on technical aspects of software security, authentication, and authorization (e.g., OAuth, API keys, JWT, AWS API Gateway). It discusses concepts like non-repudiation, auditability, and controllability. While security is essential for software robustness and longevity, the text does not mention or relate these technical details to environmental, economic (from a sustainability perspective like reducing technical debt for longevity), or social aspects of software sustainability."
+    },
+    {
+        "id": 403152,
+        "label": "Yes",
+        "justification": "The text discusses best practices for AWS Lambda, specifically focusing on optimizing resource usage (reusing SDK clients and database connections) to save execution time and cost. It also touches upon managing concurrency to avoid performance degradation. Optimizing resource efficiency, performance, and cost in cloud environments are directly related to software sustainability, as they often lead to reduced energy consumption and a smaller environmental footprint."
+    },
+    {
+        "id": 340772,
+        "label": "Yes",
+        "justification": "The text discusses the economic aspects of software development and deployment, specifically comparing the costs of cloud hosting (AWS) versus dedicated servers. It argues that high cloud costs can impact the long-term financial viability of an application, suggesting migration as a strategy to manage expenses and allocate resources (developer time) more effectively towards features instead of cost-driven micro-optimizations. This relates directly to the economic dimension of software sustainability."
+    },
+    {
+        "id": 384565,
+        "label": "No",
+        "justification": "The text discusses Agile methodologies, cross-functional teams, and the evolution of roles like QA and administration due to automation and DevOps. While efficient development practices can tangentially relate to economic or technical aspects of sustainability (e.g., maintainability), the core focus here is on software development processes and team organization, not the environmental, social, economic, or long-term technical sustainability of the software product itself."
+    },
+    {
+        "id": 422736,
+        "label": "Yes",
+        "justification": "The text discusses architectural choices for deploying APIs on AWS (Lambda vs. EC2), comparing them based on elasticity and cost-effectiveness. These considerations directly relate to resource optimization and efficiency, which are key aspects of the economic dimension of software sustainability. Efficient resource use often correlates with lower energy consumption, touching upon the environmental dimension as well."
+    },
+    {
+        "id": 399960,
+        "label": "Yes",
+        "justification": "The text discusses strategies and frameworks (Knative, Serverless) for migrating between cloud providers to avoid vendor lock-in. Avoiding lock-in and ensuring portability are key aspects of technical and economic sustainability, as they contribute to the long-term adaptability, maintainability, and cost-effectiveness of software systems."
+    },
+    {
+        "id": 351970,
+        "label": "No",
+        "justification": "The text discusses various aspects of software security, specifically related to API authentication, authorization, secure credential handling (passwords, tokens), and preventing attacks like brute force. It does not mention any concepts related to environmental impact, energy efficiency, resource optimization, maintainability for longevity, or other dimensions typically associated with software sustainability."
+    },
+    {
+        "id": 369596,
+        "label": "No",
+        "justification": "The text discusses technical aspects of using Docker, including image identification, official images, Docker Hub, local registries, and deployment workflows. While efficient container management could indirectly relate to resource usage, the text does not address software sustainability concepts like energy efficiency, hardware longevity, or the environmental impact of software practices. The focus is purely on operational efficiency, security, and deployment strategies within the Docker ecosystem."
+    },
+    {
+        "id": 403459,
+        "label": "Yes",
+        "justification": "The text discusses the trade-offs between storing BLOBs in a database versus an object store. This analysis includes considerations like operational cost, infrastructure utilization (mentioning potential waste of expensive disk space), bandwidth reduction, and architectural simplification/complexity. These factors directly relate to the economic dimension of software sustainability (cost-effectiveness, long-term maintenance) and indirectly to the environmental dimension (resource efficiency, potential energy savings from reduced bandwidth/hardware usage)."
+    },
+    {
+        "id": 431205,
+        "label": "Yes",
+        "justification": "The text discusses optimizing software architecture for better performance and resource utilization, specifically concerning data storage (Azure Blob vs. database) and retrieval methods (streaming vs. reading whole blobs, caching). Topics like reducing memory waste, avoiding data duplication, and efficient data handling directly relate to minimizing resource consumption (CPU, memory, storage, network), which is a key aspect of software sustainability, particularly in reducing energy usage and hardware requirements."
+    },
+    {
+        "id": 334294,
+        "label": "Yes",
+        "justification": "The text discusses the evolution of database technologies (SQL vs. NoSQL) driven by factors including hardware advancements (HDDs vs. SSDs), storage costs, cloud computing, and energy efficiency ('lower-power consuming SSD hard drives'). It analyzes the economic viability and long-term trends of these technologies. These themes, particularly efficiency (storage, energy, cost) and long-term technological adaptation in response to changing physical and economic constraints, are directly related to the economic and environmental dimensions of software sustainability."
+    },
+    {
+        "id": 447666,
+        "label": "Yes",
+        "justification": "The text discusses architectural decisions related to scalability, managing costs associated with APIs ('costly machine learning API', 'pricing', 'cost calculators'), and mitigating provider lock-in. These elements are directly related to the economic dimension of software sustainability, focusing on the long-term financial viability, maintainability, and adaptability of the software system."
+    },
+    {
+        "id": "384682",
+        "label": "Yes",
+        "justification": "The user is asking how to design a system that is highly scalable and efficient ('scale as efficiently as possible', 'reduce cost'). This involves optimizing resource usage (choosing between SQS queue types, minimizing Lambda invocations) to handle a large workload without waste. Efficiency, resource optimization, and cost reduction are key aspects of software sustainability, particularly its economic and environmental (resource/energy efficiency) dimensions."
+    },
+    {
+        "id": 357689,
+        "label": "No",
+        "justification": "The text focuses entirely on technical challenges related to web application performance, specifically optimizing the display of geographic data using Mapbox, GeoJSON, and vector tiles. It discusses architectural design choices (backend, frontend, data serving methods), potential libraries (geojson-vt, vt-pbf, Tilelive.js), and hosting constraints. There is no mention of environmental impact (energy consumption, resource usage optimization for green purposes), economic sustainability (long-term costs, maintenance), or social aspects (ethics, accessibility, community) related to the software. The motivation for changing the architecture is performance improvement, not sustainability goals."
+    },
+    {
+        "id": 363962,
+        "label": "Yes",
+        "justification": "The text discusses architectural patterns (serverless vs. 3-tier), database interaction strategies, component ownership, scalability, and manageability. These factors are crucial for building software systems that are maintainable, adaptable, and efficient over the long term, which are key components of software sustainability, particularly concerning its technical and economic dimensions."
+    },
+    {
+        "id": 386307,
+        "label": "Yes",
+        "justification": "The text discusses serverless architecture and auto-scalability. These concepts are related to resource efficiency in cloud computing, as serverless functions only consume resources when triggered and auto-scaling adjusts resource allocation based on demand. Efficient resource usage is a key principle of environmental software sustainability, aiming to minimize energy consumption and hardware requirements."
+    },
+    {
+        "id": "433012",
+        "label": "No",
+        "justification": "The text discusses technical aspects of microservice architecture, focusing on defining service boundaries based on domains, coupling, and capabilities, as well as communication patterns between services. It does not mention or consider any aspects of software sustainability, such as energy efficiency, resource optimization, environmental impact, or long-term maintainability from a sustainability perspective."
+    },
+    {
+        "id": 315965,
+        "label": "Yes",
+        "justification": "The text discusses trade-offs between server-side rendering (JSP) and client-side frameworks, explicitly mentioning performance impacts, especially on mobile devices. Crucially, it highlights 'Battery drain' as a key cost on mobile, which directly relates to energy efficiency, a core aspect of software sustainability. It also touches upon bandwidth usage and resource load (server vs. client), which are relevant to the environmental and economic dimensions of sustainability in terms of resource consumption and infrastructure costs."
+    },
+    {
+        "id": 379926,
+        "label": "Yes",
+        "justification": "The text discusses software architecture choices (microservices, isolated vs. shared databases) and their impact on long-term manageability, scalability, adaptability, and cost. It explicitly addresses resource usage (CPU, memory, storage), licensing costs, and the trade-offs between different technical approaches (VMs vs. containers, different database technologies). These considerations directly relate to the economic and technical pillars of software sustainability, as they concern the efficiency, longevity, and financial viability of the software system."
+    },
+    {
+        "id": 378239,
+        "label": "Yes",
+        "justification": "The text discusses the economic and technical implications of adding an intermediary service layer versus using an existing service (S3) directly. It explicitly addresses development costs, long-term maintenance costs, complexity, reliability, and developer effort. These factors (cost-efficiency, maintainability, resource usage - including developer time) are key considerations within the economic and technical dimensions of software sustainability, as it weighs the long-term viability and efficiency of a software design choice."
+    },
+    {
+        "id": 360022,
+        "label": "Yes",
+        "justification": "The text discusses architectural decisions related to hosting (Cloud vs. Self-hosted), data storage (RDBMS vs. Search/Document stores like ElasticSearch), and their implications on scalability, cost, performance, and management. These factors are directly relevant to software sustainability, particularly its economic (cost optimization, pay-per-use models), technical (scalability, performance, maintainability), and environmental dimensions (resource efficiency, potential energy savings through optimized infrastructure and performance)."
+    },
+    {
+        "id": 365330,
+        "label": "No",
+        "justification": "The text provides a technical comparison between NoSQL (DynamoDB) and relational databases, focusing on scalability, performance, features (like relational queries vs. key-value), consistency models, and development complexity. While aspects like scalability and cost-efficiency could indirectly relate to economic sustainability (e.g., resource usage, operational costs), the core discussion is centered on selecting the appropriate database technology based on application requirements and technical trade-offs, not on the broader principles of software sustainability (environmental impact, long-term maintainability from a sustainability perspective, social factors)."
+    },
+    {
+        "id": 350817,
+        "label": "Yes",
+        "justification": "The text discusses hosting options for a static website, specifically recommending Azure Storage + CDN due to lower cost, lower maintenance, and good performance compared to alternatives like App Services. These factors relate to software sustainability: choosing resource-efficient hosting (less compute power needed for static files vs. running application servers) and cost-effectiveness are key considerations in both economic and environmental sustainability (reduced energy consumption, lower operational expenditure)."
+    },
+    {
+        "id": 315927,
+        "label": "Yes",
+        "justification": "The text discusses trade-offs between server-side rendering (SSR) using JSP/JSTL and client-side rendering (CSR) using JavaScript frameworks. Key concerns include performance under load, maintenance costs related to server resources and bandwidth usage on AWS, and development efficiency/maintainability. These factors, particularly the focus on resource consumption (server load, bandwidth) and operational costs, directly relate to the economic and environmental dimensions of software sustainability (resource efficiency, cost-effectiveness over the software lifecycle)."
+    },
+    {
+        "id": 390552,
+        "label": "No",
+        "justification": "The text discusses the technical architecture and operational challenges of setting up and running an email server, specifically focusing on avoiding blacklisting and ensuring long-term reliability. While longevity is mentioned, the core topic revolves around technical best practices, ISP relations, and spam prevention for service availability. It does not address the environmental, social, or economic dimensions typically associated with software sustainability, such as energy efficiency, maintainability, ethical considerations beyond spam, or minimizing technical debt for long-term evolution."
+    },
+    {
+        "id": 409372,
+        "label": "Yes",
+        "justification": "The text discusses efficient use of computing resources, comparing historical approaches with modern alternatives like virtual machines, containers (Kubernetes), and serverless architectures (AWS Lambda). It emphasizes managing capacity, scaling efficiently to meet load, and avoiding costs associated with unused capacity. These aspects directly relate to optimizing resource consumption and operational efficiency, which are key components of software sustainability (both environmental, through reduced energy/hardware needs, and economic)."
+    },
+    {
+        "id": 392697,
+        "label": "Yes",
+        "justification": "The text discusses architectural choices for ML pipelines, focusing on resource optimization (high-memory machines vs. distributed systems, database load, data transfer efficiency) and cost-effectiveness ($5/hr machines, ongoing costs, AutoML alternatives). It also touches upon the social dimension by mentioning the need to consider performance aspects like implicit bias. Optimizing resource usage (compute, memory, network) and considering economic factors are key aspects of software sustainability, particularly in resource-intensive ML applications."
+    },
+    {
+        "id": 385346,
+        "label": "No",
+        "justification": "The text discusses software architecture choices (monolithic vs. microservices), data storage strategies for microservices, and deployment challenges on cloud platforms like AWS (RDS, Fargate, ECS). The focus is on technical implementation, cost-effectiveness, and management overhead, not on the environmental or social aspects of software sustainability, such as energy consumption, resource efficiency for ecological benefit, or hardware lifecycle."
+    },
+    {
+        "id": 322153,
+        "label": "No",
+        "justification": "The text discusses technical strategies for achieving high availability and fault tolerance in IT systems (Windows Failover Clustering, NLB, DNS Round Robin, hardware load balancers, cloud solutions). While system availability and resilience are aspects of technical sustainability, the discussion here focuses purely on operational reliability, configuration, maintenance burden, and immediate costs. It lacks any connection to broader software sustainability concerns like energy efficiency, resource consumption, environmental impact, long-term maintainability from a software engineering perspective, or social/economic sustainability dimensions."
+    },
+    {
+        "id": 433023,
+        "label": "Yes",
+        "justification": "The text discusses the challenges of maintaining dev/prod parity for microservice architectures, specifically the resource intensity (CPU, memory, potentially energy) of running numerous services on local developer machines. This relates to the environmental aspect of sustainability (resource consumption). It also touches upon economic sustainability by highlighting issues like increased setup time, maintenance effort, and potential impacts on developer productivity, which affect development costs and efficiency. The technical challenges described relate to the maintainability and efficiency of the development process for complex systems."
+    },
+    {
+        "id": 391902,
+        "label": "Yes",
+        "justification": "The user is asking about database architecture choices (specifically multi-tenancy patterns like shared vs. separate databases) focusing on scalability and cost ('practically not scaleable and expensive!'). These architectural decisions directly impact resource utilization (compute, storage), energy consumption (through server usage on AWS), and overall operational efficiency and cost. Optimizing for scalability and cost often leads to more resource-efficient solutions, which is a key aspect of both economic and environmental software sustainability."
+    },
+    {
+        "id": 418151,
+        "label": "Yes",
+        "justification": "The text discusses optimizing application architecture (monolithic vs. microservices), scalability, and resource allocation (servers, CPU, memory) based on load. These are directly related to software sustainability, specifically the pillar of resource efficiency. Choosing architectures and deployment strategies (like containerization and dynamic resource allocation) that optimize resource usage can significantly reduce energy consumption and hardware requirements, thus minimizing the environmental impact and improving economic viability."
+    },
+    {
+        "id": 404970,
+        "label": "Yes",
+        "justification": "The text explicitly discusses the modernization of a large, legacy scientific software system. This involves tackling issues directly related to software sustainability, such as maintainability (addressing 'spaghetti code', lack of tests, outdated practices), evolvability (refactoring, porting to modern languages like Python, updating architecture for cloud/Docker), reducing technical debt (replacing home-grown utilities with open-source solutions), and knowledge preservation (dealing with a retiring key developer). The goal is to ensure the long-term viability and continued usability of the software, which is the core of software sustainability."
+    },
+    {
+        "id": 444704,
+        "label": "No",
+        "justification": "The text discusses technical architecture design for a multi-region SaaS application on AWS, focusing on DNS routing, compliance, and regional data residency. It does not mention any aspects related to software sustainability, such as energy efficiency, resource consumption optimization for environmental reasons, carbon footprint, or the social/economic impacts from a sustainability standpoint."
+    },
+    {
+        "id": 351507,
+        "label": "Yes",
+        "justification": "The text discusses using cloud services (like AWS, Azure, Google Cloud) to dynamically create and destroy large-scale testing environments only when needed. This practice relates directly to software sustainability, specifically resource efficiency (minimizing energy and hardware usage by avoiding always-on infrastructure) and cost optimization, which are key aspects of Green IT and economic sustainability in software development and operations."
+    },
+    {
+        "id": 411735,
+        "label": "No",
+        "justification": "The text discusses database design choices (relational vs. NoSQL) based on technical requirements like reporting needs, scalability, speed, and cost. While efficiency and cost can be factors in sustainability, the discussion here is purely technical and operational, lacking any explicit link to environmental, social, or long-term economic sustainability principles associated with software."
+    },
+    {
+        "id": 450653,
+        "label": "No",
+        "justification": "The text discusses the operational and cost implications of cloud hosting versus on-premise data management, focusing on staffing needs, data integration, reporting, and vendor pricing strategies. It does not address environmental concerns, energy efficiency, resource consumption reduction, software longevity, or other aspects typically associated with software sustainability."
+    },
+    {
+        "id": 448250,
+        "label": "No",
+        "justification": "The text discusses technical aspects of data processing, data warehousing, computational complexity, ETL processes, and architectural choices (API vs direct database access). It focuses on performance, scalability, and data management strategies, using examples like AWS Redshift and Google BigQuery. While efficiency is mentioned, it's in the context of computational performance and speed, not environmental sustainability (e.g., energy consumption, resource minimization) or social/economic sustainability aspects like long-term maintainability or ethical considerations. The core topic is data engineering and system architecture, not software sustainability."
+    },
+    {
+        "id": "378569",
+        "label": "No",
+        "justification": "The text focuses on technical security challenges, specifically how to prevent unauthorized use of REST APIs in an on-premise deployment scenario where the customer controls the servers. While security can be considered a facet of technical sustainability (ensuring software longevity and trustworthiness), the core discussion here is about access control, authorization mechanisms, and protecting against 'clone' apps due to business and regulatory constraints, not the broader environmental, economic, social, or long-term technical viability aspects typically associated with software sustainability."
+    },
+    {
+        "id": 334664,
+        "label": "No",
+        "justification": "The text discusses strategies for implementing cloud-based enterprise systems, focusing on speed of deployment, configuration, customization, incremental delivery, business value realization, change management, and user adoption. It does not mention any aspects related to the environmental, social, or economic sustainability of the software itself, such as energy efficiency, resource consumption, maintainability for longevity, or ethical considerations."
+    },
+    {
+        "id": 403071,
+        "label": "Yes",
+        "justification": "The text discusses fault tolerance and high availability, focusing on designing software systems that are resilient, scalable, and can operate reliably over time despite failures and changing demands. These aspects are directly related to the technical and economic dimensions of software sustainability, as they ensure the longevity, maintainability, and continued value delivery of the software system."
+    },
+    {
+        "id": 452263,
+        "label": "Yes",
+        "justification": "The text discusses architectural choices for scheduling a task in a distributed system, comparing solutions based on infrastructure cost, code complexity, dependencies, resilience (single points of failure), and maintainability/migration effort (vendor/framework lock-in). These factors directly relate to the economic and technical dimensions of software sustainability, focusing on resource efficiency (cost, infrastructure), longevity, and maintainability of the software system."
+    },
+    {
+        "id": 445186,
+        "label": "Yes",
+        "justification": "The text discusses optimizing a cloud-native database query engine by considering storage costs, query execution costs (computational efficiency), and development costs. It explores techniques like compression, efficient data formats (Parquet), and data splitting (columnar storage) to minimize resource usage and costs. Optimizing resource consumption (storage, processing power) and cost-efficiency are key aspects of software sustainability, aiming to reduce the environmental and economic footprint of software systems."
+    },
+    {
+        "id": "332982",
+        "label": "No",
+        "justification": "The text discusses development process organization, specifically focusing on local development and testing strategies when integrating with API gateways. It provides technical advice on where to focus testing efforts and mentions specific technologies (AWS API Gateway, VPC). This content relates to software development methodology and infrastructure but does not touch upon any aspects of software sustainability, such as energy efficiency, resource consumption, environmental impact, social responsibility, or long-term maintainability from a sustainability viewpoint."
+    },
+    {
+        "id": 426618,
+        "label": "No",
+        "justification": "The text discusses and compares two different software architecture solutions (Event-Driven vs. Client-Exposed API) for a data transfer requirement. The comparison focuses on technical aspects like asynchronous/synchronous processing, control over data, complexity, cost, and implementation details. It does not address environmental, social, or broader economic sustainability dimensions like energy consumption, hardware efficiency, ethical implications, or long-term maintainability in the context of sustainability."
+    },
+    {
+        "id": 441569,
+        "label": "No",
+        "justification": "The text discusses technical implementation details for a chatbot using AWS DynamoDB, focusing on database design, context tracking, and performance efficiency. It does not mention any aspects related to environmental, social, or economic sustainability in software development, such as energy consumption, resource optimization for environmental reasons, long-term maintainability from a sustainability perspective, or ethical considerations."
+    },
+    {
+        "id": 338692,
+        "label": "Yes",
+        "justification": "The text discusses techniques for achieving High Availability (HA), scalability (load balancing, sharding), and maintainability (database upgrade patterns, canary deployments). These practices directly contribute to the technical dimension of software sustainability by enhancing the system's resilience, adaptability, and long-term viability, ensuring it can operate reliably and evolve over time without excessive disruption or cost."
+    },
+    {
+        "id": 331073,
+        "label": "No",
+        "justification": "The text describes a technical challenge related to software architecture, specifically finding an architecture for a web service that can be deployed both on-premise and in the cloud to replace two older systems. While the outcome (a unified, potentially more modern system) could indirectly relate to aspects like maintainability or efficiency, the post itself does not discuss or mention sustainability, energy consumption, resource optimization, environmental impact, or other core sustainability concerns as a driver or consideration for the project."
+    },
+    {
+        "id": 338746,
+        "label": "Yes",
+        "justification": "The text discusses strategies for high availability, database management, deployment, and infrastructure choices (e.g., cloud vs. on-prem, load balancing, stateless architecture, database replication/mirroring). These elements are crucial for ensuring the resilience, maintainability, and long-term operational viability of a software system, which directly relates to its economic sustainability. Building robust and maintainable systems that avoid costly downtime or complex, unmanageable deployments contributes to the software's long-term economic health."
+    },
+    {
+        "id": "322899",
+        "label": "No",
+        "justification": "The text discusses security best practices (authentication, authorization, IAM) and technical database choices (DynamoDB vs. SQL) for data access and storage in AWS. It does not mention any aspects related to environmental, social, or economic sustainability concerns in software development or operation, such as energy efficiency, resource optimization, or long-term maintainability from a sustainability perspective."
+    },
+    {
+        "id": 342331,
+        "label": "No",
+        "justification": "The text discusses the strategic and economic trade-offs between using cloud provider services versus self-hosting, focusing specifically on the cost and risk of vendor lock-in compared to factors like time-to-market and operational costs. It does not mention or consider any environmental, social, or long-term economic sustainability aspects related to software development or operation, such as energy consumption, resource efficiency, or hardware lifecycle."
+    },
+    {
+        "id": 440067,
+        "label": "Yes",
+        "justification": "The text discusses strategies for achieving high availability and resilience in software systems through data center choices, sharding, replication, and leveraging managed cloud services (like AWS RDS and S3). High availability, resilience, and choosing cost-effective, robust infrastructure solutions are key aspects of technical and economic software sustainability, ensuring the system's longevity and maintainability over time."
+    },
+    {
+        "id": "411767",
+        "label": "No",
+        "justification": "The text focuses on application security, preventing reverse engineering, and architectural patterns (like service-oriented architecture) to protect critical logic and data. While security is important for software longevity, the discussion does not directly address core software sustainability concerns such as energy efficiency, resource consumption, long-term maintainability for evolution, social impact, or environmental footprint."
+    },
+    {
+        "id": 391040,
+        "label": "No",
+        "justification": "The text provides a detailed technical explanation of microservices, covering their development, deployment, scaling benefits, historical context (comparison with monolithic architectures and SOA), and enabling technologies (containers, cloud). While it touches upon cost-effectiveness and efficiency, these are discussed purely from a technical architecture and operational perspective (e.g., scaling parts independently). There is no mention of environmental impacts (like energy consumption), social aspects, or economic sustainability in the broader sense addressed by software sustainability."
+    },
+    {
+        "id": 388892,
+        "label": "Yes",
+        "justification": "The text discusses architectural choices (microservices, caching) focusing on optimizing resource usage, cost-effectiveness ('oversized architectures... kill the project devouring the ROI', 'Cloud is anything but cheap'), and performance based on evidence rather than assumptions ('premature optimizations'). It advocates for sizing solutions appropriately and managing complexity. These themes directly align with the economic and resource efficiency aspects of software sustainability, aiming to build systems that are viable and less wasteful in the long run, especially in cloud environments."
+    },
+    {
+        "id": 334800,
+        "label": "Yes",
+        "justification": "The text discusses the challenges of maintaining an older push notification system (APNS socket-certificate) due to complexity (certificate management, debugging difficulties) and the risk of deprecation. It advocates for migrating to a newer, more standard protocol (HTTP/2-JWT) to avoid future refactoring, reduce maintenance effort ('save you from further code reviews and refactors'), and align with current practices. This focus on maintainability, reducing future rework (technical debt), and adapting to evolving technology directly relates to software sustainability, specifically its technical and economic dimensions."
+    },
+    {
+        "id": 333291,
+        "label": "Yes",
+        "justification": "The text discusses optimizing CPU usage, comparing the cost-effectiveness and performance of different computing solutions (cloud instances, serverless, self-hosted clusters), scalability challenges, and performance tuning techniques. These topics are directly related to software sustainability, as they concern the efficient use of computational resources (hardware, energy) and minimizing waste, which are key goals in sustainable software engineering."
+    },
+    {
+        "id": "324564",
+        "label": "Yes",
+        "justification": "The text discusses architectural design principles for building a scalable, decoupled, and adaptable system using microservices, queues (SQS), and cloud features like auto-scaling. These principles (scalability, maintainability, adaptability) are core components of technical software sustainability, aiming to ensure the system's longevity and efficient resource utilization over time."
+    },
+    {
+        "id": "406350",
+        "label": "Yes",
+        "justification": "The text discusses microservices architecture, its trade-offs, deployment complexity, and infrastructure needs. It explicitly mentions aspects relevant to software sustainability, such as scalability ('scale out dynamically'), resilience ('minimize the blast radius'), managing complexity, and economic considerations ('cost of microservices', 'minimize your cloud expenditures', 'minimize the cost of running it'). These factors directly relate to building maintainable, adaptable, and economically viable software systems over the long term, which are core tenets of software sustainability, particularly its technical and economic dimensions. The discussion on cloud cost optimization also implicitly touches on resource efficiency."
+    },
+    {
+        "id": 340747,
+        "label": "Yes",
+        "justification": "The text discusses architectural modifications to make a backend more scalable by converting it into a cloud application. Scalability and efficient resource utilization, particularly through cloud adoption, are related to the economic and environmental dimensions of software sustainability. Improving the architecture also impacts maintainability, which is crucial for the long-term viability (economic sustainability) of the software."
+    },
+    {
+        "id": 424900,
+        "label": "Yes",
+        "justification": "The text discusses optimizing database performance for a SaaS application to handle large volumes of data efficiently ('sub-second' query times) and explicitly mentions concern over high cloud expenses ('Our cloud expenses are through the roof'). Both performance optimization (which relates to resource and energy efficiency) and cost reduction are key aspects of software sustainability, specifically its environmental and economic dimensions."
+    },
+    {
+        "id": 439240,
+        "label": "No",
+        "justification": "The text focuses on data security, encryption in RAM, cloud provider trust, and threat modeling. These topics relate to cybersecurity and operational security, not the environmental, economic, or social dimensions of software sustainability, nor its long-term maintainability or resource efficiency."
+    },
+    {
+        "id": 315163,
+        "label": "No",
+        "justification": "The text explains the technical and operational benefits of using Content Delivery Networks (CDNs), focusing on performance (latency), reliability (availability), and cost-efficiency. While optimizing infrastructure like CDNs can potentially have secondary effects on resource usage, the text does not discuss or frame these benefits in the context of environmental, social, or economic sustainability. The core focus is on technical architecture and user experience, not sustainability principles."
+    },
+    {
+        "id": 334663,
+        "label": "Yes",
+        "justification": "The text discusses efficient software architecture (microservices), development practices (independent testing), and resource management (using tools like Kubernetes to manage cluster resources and prevent overallocation). These practices contribute to software sustainability by optimizing resource utilization (potentially reducing energy consumption and hardware needs) and improving economic efficiency (reducing development time and infrastructure costs)."
+    },
+    {
+        "id": "433568",
+        "label": "Yes",
+        "justification": "The text discusses the 'total cost of ownership' when comparing a custom-built data synchronization system versus using a cloud database. Considering long-term costs, maintenance, and complexity relates to the economic dimension of software sustainability, as it deals with the long-term viability and resource efficiency of the software solution."
+    },
+    {
+        "id": 414686,
+        "label": "Yes",
+        "justification": "The text discusses strategies and tools for managing software deployments on large fleets of IoT devices (Device Management, edge services). It touches upon aspects like scalability, resilience, long-term operational management (security, availability), and cost-effectiveness of different solutions (SaaS vs. config management vs. custom). These factors are directly related to the technical and economic dimensions of software sustainability, as they concern the long-term viability, maintainability, and efficiency of managing software systems at scale."
+    },
+    {
+        "id": 423151,
+        "label": "No",
+        "justification": "The text focuses on software architecture, specifically database access, security, performance optimization, and cloud storage strategies (like S3 and egress costs). While performance and cost efficiency can be *indirectly* related to sustainability by potentially reducing resource usage, the text does not explicitly discuss environmental, social, or economic sustainability aspects of software. The primary focus is technical architecture and operational performance/cost."
+    },
+    {
+        "id": "444739",
+        "label": "Yes",
+        "justification": "The text discusses infrastructure oversizing, cost optimization related to cloud environments, and resource utilization metrics. These topics directly relate to the economic and environmental dimensions of software sustainability, specifically concerning efficient use of resources (hardware, energy) and minimizing operational costs."
+    },
+    {
+        "id": 372002,
+        "label": "Yes",
+        "justification": "The text discusses different software architecture patterns involving workers and resource allocation (threads vs. spinning up new machines in the cloud per user). These choices directly impact resource consumption (CPU, cloud infrastructure) and operational costs, which are key considerations in both environmental (energy efficiency, resource usage) and economic aspects of software sustainability."
+    },
+    {
+        "id": 436432,
+        "label": "Yes",
+        "justification": "The text discusses best practices for logging in cloud environments, focusing on log aggregation, managing log levels, and using tools like OpenTracing for performance monitoring. These practices directly relate to software sustainability by improving operational efficiency (economic sustainability), enhancing maintainability (social sustainability), and potentially reducing resource consumption (e.g., storage, processing power for logs, optimized application performance) which can contribute to environmental sustainability."
+    },
+    {
+        "id": 372833,
+        "label": "No",
+        "justification": "The text discusses data storage strategies, comparing different mediums like RAM, SSD, HDD, and cloud storage based on cost and speed. It focuses on performance optimization and cost-effectiveness for system architecture (e.g., using caching). While resource optimization can indirectly relate to sustainability (e.g., potentially lower energy use or hardware needs), the text does not frame the discussion in terms of environmental impact, energy efficiency goals, or other core software sustainability concerns. The primary focus is technical performance and economic trade-offs in data management."
+    },
+    {
+        "id": 425900,
+        "label": "Yes",
+        "justification": "The text discusses optimizing computational workloads by choosing appropriate infrastructure scales (local database vs. cloud). It advises against using overly complex or resource-intensive cloud solutions when simpler, local approaches are sufficient. This relates directly to software sustainability by promoting resource efficiency (avoiding unnecessary compute, storage, and network usage) and potentially reducing energy consumption and cost associated with over-provisioned cloud infrastructure."
+    },
+    {
+        "id": 349301,
+        "label": "Yes",
+        "justification": "The text discusses architectural decisions for software development, specifically comparing approaches like using Firebase versus building a custom backend. It weighs factors such as cost (affordability of backend development/deployment, database management), maintainability (complexity of cloud functions, decoupling), scalability, and long-term implications (reusing code for mobile apps, handling service changes). These considerations directly relate to the economic dimension of software sustainability (cost-effectiveness, long-term viability) and the social dimension (maintainability impacting developer effort)."
+    },
+    {
+        "id": 436491,
+        "label": "No",
+        "justification": "The text discusses software architecture trade-offs, specifically comparing common services versus isolated services in terms of security risks, operational complexity (downtime, maintenance, versioning), and deployment strategies for multi-tenant applications. While it touches upon cost and risk, it does not engage with the core concepts of software sustainability, such as environmental impact (energy efficiency, resource usage), social aspects (ethics, accessibility), or long-term economic viability beyond immediate operational costs and risks."
+    },
+    {
+        "id": 338755,
+        "label": "Yes",
+        "justification": "The text discusses system availability, resilience, redundancy, and modularity. These are crucial aspects for ensuring the long-term operational viability and reliability of software systems. Systems that are highly available and resilient are less prone to failures that can cause economic losses (downtime, data loss, reputational damage) and require less frequent, resource-intensive interventions for recovery. This focus on robustness and longevity directly relates to the economic dimension of software sustainability, ensuring the system can persist and deliver value over time without incurring excessive costs due to failures."
+    },
+    {
+        "id": 421082,
+        "label": "No",
+        "justification": "The text discusses technical software design challenges related to connecting embedded devices to the cloud using LwM2M. It focuses on communication protocols, architectural patterns (Observer, Mediator/Facade), reducing coupling, and designing module interfaces. While good software engineering practices like improving maintainability and creating generic modules can indirectly contribute to economic and technical sustainability by reducing future effort and increasing longevity, the core topic is not software sustainability itself. It lacks discussion on environmental impact (energy efficiency, resource consumption), or specific sustainability goals."
+    },
+    {
+        "id": 376325,
+        "label": "No",
+        "justification": "The text discusses technical challenges related to implementing a specific software architecture (event-sourced, CQRS) using AWS serverless technologies. It focuses on aspects like service selection, atomicity, performance, and cost-effectiveness from a purely technical and operational perspective. There is no mention of environmental impact, energy consumption, resource efficiency in the context of sustainability, or social/economic sustainability factors beyond typical project cost considerations."
+    },
+    {
+        "id": 315931,
+        "label": "Yes",
+        "justification": "The text discusses long-term considerations for a software project, including maintainability, scalability, adaptability ('change out one component without affecting the others'), developer learning curve, hiring challenges ('tougher to field a team'), and suitability for the target user base. These factors directly relate to the technical, economic, and social dimensions of software sustainability, focusing on ensuring the project's viability and ease of maintenance over time."
+    },
+    {
+        "id": 420711,
+        "label": "No",
+        "justification": "The text discusses technical software design principles, specifically focusing on idempotent transactions, error handling, database updates, and retry mechanisms for building reliable systems, particularly in the context of payment processing. While reliability can be a factor in overall system efficiency, the core topic does not directly address environmental, economic, or social aspects of software sustainability, such as energy consumption, hardware optimization, or long-term maintainability from a sustainability perspective."
+    },
+    {
+        "id": "422123",
+        "label": "No",
+        "justification": "The text focuses on technical implementation details for building a scalable application using AWS services (Lambda, DynamoDB, Amplify, Elasticsearch) as a learning exercise in system design. While scalability and architecture choices can indirectly influence resource consumption, the core topic is technical feasibility and learning, not the environmental, economic, or social dimensions of software sustainability."
+    },
+    {
+        "id": "425746",
+        "label": "Yes",
+        "justification": "The text discusses architectural changes focused on improving efficiency, scalability, and resilience (using message queues, cloud instances, dynamic scaling). These aspects directly relate to technical sustainability (making the software more maintainable, adaptable, and long-lasting) and potentially environmental sustainability (optimizing resource usage and potentially reducing energy consumption compared to less efficient architectures)."
+    },
+    {
+        "id": 418163,
+        "label": "Yes",
+        "justification": "The text discusses architectural choices (microservices vs. monolith) focusing on scalability and efficient resource allocation ('allocating more resources to service which needs them more', 'auto scale'). Optimizing resource usage based on demand, as discussed in the context of cloud auto-scaling, directly relates to the environmental and economic aspects of software sustainability by aiming to reduce energy consumption and minimize waste compared to over-provisioned or less flexible systems."
+    },
+    {
+        "id": 333128,
+        "label": "Yes",
+        "justification": "The text discusses techniques like code splitting (modules/frameworks vs. monoliths), bundling, minification, client-side caching, and CDNs. These practices are directly related to software sustainability as they aim to optimize resource usage (reducing data transfer, minimizing file sizes, efficient loading), improve performance, and enhance maintainability, which contributes to environmental (less energy consumption), economic (reduced hosting costs, better performance), and technical sustainability (easier updates and long-term management)."
+    },
+    {
+        "id": 382607,
+        "label": "No",
+        "justification": "The text discusses software architecture principles like microservices, CQRS, data persistence (blob storage, Redis, ElasticSearch), scalability, performance, and cost optimization. While cost and performance optimization can indirectly relate to sustainability (e.g., reducing resource usage), the text focuses purely on the technical and immediate operational aspects of system design rather than the environmental, social, or long-term economic impacts associated with software sustainability."
+    },
+    {
+        "id": 325112,
+        "label": "Yes",
+        "justification": "The text discusses performance optimization techniques like choosing appropriate databases for workloads (PostgreSQL vs MySQL), implementing caching to avoid redundant calculations, benchmarking to identify bottlenecks, and optimizing data updates. These optimization strategies aim to reduce computational effort and resource usage (CPU, I/O), which directly contributes to lowering the energy consumption of the software system, a core aspect of environmental software sustainability."
+    },
+    {
+        "id": 401720,
+        "label": "Yes",
+        "justification": "The text discusses improving the maintainability and efficiency of managing configuration across multiple AWS Lambda functions. Seeking better ways to handle shared configuration (using Parameter Store vs. updating multiple files) directly relates to reducing development/maintenance effort and complexity, which are key aspects of technical and economic software sustainability."
+    },
+    {
+        "id": 411788,
+        "label": "Yes",
+        "justification": "The text discusses architectural choices (client-side vs. server-side processing/validation) and their implications for security, maintenance, and resource consumption (client battery life vs. server costs). These factors directly relate to software sustainability, specifically its economic (maintenance costs, security preventing financial loss, long-term viability) and environmental (energy efficiency related to battery life) dimensions. Making robust architectural decisions contributes to the software's longevity and efficiency."
+    },
+    {
+        "id": 322658,
+        "label": "No",
+        "justification": "The text discusses the technical and organizational challenges of migrating from a monolithic architecture to microservices using .NET. It focuses on aspects like team structure, development planning, load balancing, testing, deployment, infrastructure, and monitoring. While architectural choices can indirectly impact sustainability (e.g., resource usage, maintainability), this post does not explicitly mention or discuss any environmental, social, or economic sustainability considerations related to software development or operation."
+    },
+    {
+        "id": 405176,
+        "label": "Yes",
+        "justification": "The text discusses the significant resources (multiple providers, complex processes, automation) and high costs associated with achieving high availability (HA) for software systems. This directly relates to the economic and environmental pillars of sustainability. Choosing an appropriate level of availability based on cost-benefit analysis, rather than over-provisioning for extreme uptime, is a sustainable practice as it avoids unnecessary resource consumption (energy, hardware) and financial expenditure."
+    },
+    {
+        "id": 420466,
+        "label": "Yes",
+        "justification": "The text discusses software architecture design principles focusing on avoiding over-engineering (YAGNI), scalability, reliability, handling failures, and operational complexity. It weighs different technology choices (Redis, MongoDB, Kafka, PostgreSQL) based on performance needs, potential data loss scenarios, and budget constraints ('start-up budget'). These considerations directly relate to technical and economic sustainability. Choosing simpler, adaptable architectures that can evolve ('start simple and tunable, then update your architecture as needed') promotes long-term maintainability, reduces wasted resources on premature optimization, and ensures the system's viability over time, which are core aspects of software sustainability."
+    },
+    {
+        "id": 330808,
+        "label": "Yes",
+        "justification": "The text discusses tools and practices such as version control (Git), development environments (VMs, IDEs), deployment strategies (VPS, Capistrano, rsync), and database migrations. These practices significantly enhance the maintainability, reliability, manageability, and longevity of software projects, which are key aspects of technical and economic software sustainability. Improving the development workflow contributes to creating software that can be sustained and evolved over time."
+    },
+    {
+        "id": "439256",
+        "label": "Yes",
+        "justification": "The text discusses the challenges of modernizing a large, 25-year-old monolithic application. It explores architectural choices (like microservices) to handle complexity and ensure long-term viability, maintainability, and adaptability. This directly addresses technical sustainability, which is concerned with ensuring software systems can evolve, be maintained, and remain functional over extended periods, thus preventing technical debt accumulation and ensuring the system's longevity."
+    },
+    {
+        "id": 415998,
+        "label": "Yes",
+        "justification": "The text discusses the long-term consequences of architectural decisions, specifically the mandate to move to a single technology stack. It raises concerns directly related to software sustainability, including economic aspects (Total Cost of Ownership, ROI, licensing costs, vendor lock-in), technical aspects (maintainability of legacy code, evolvability of microservices, potential decrease in quality), and social/organizational aspects (talent availability, training effort, domain knowledge preservation). These factors are crucial for ensuring the software system can endure and adapt over time, which is the essence of software sustainability."
+    },
+    {
+        "id": 418620,
+        "label": "Yes",
+        "justification": "The text discusses the scalability and management of large software projects using version control systems like Git. It addresses issues related to repository size, handling large binary assets, and alternative solutions (Git LFS, VFS, ZFS, NAS). These topics directly relate to the long-term maintainability, efficiency (storage, developer effort), and longevity of software projects, which are core aspects of software sustainability. Choosing appropriate tools and strategies for managing large codebases and their history is crucial for ensuring a project can be sustained over time."
+    },
+    {
+        "id": "402623",
+        "label": "Yes",
+        "justification": "The text discusses software performance optimization, including profiling CPU usage, analyzing wait times, comparing architectural patterns (async event-driven vs. request/response), and considering scaling strategies. Performance optimization is directly related to software sustainability as it aims to reduce resource consumption (CPU, energy), improve system efficiency, and potentially lower operational costs, which are key environmental and economic aspects of sustainability."
+    },
+    {
+        "id": 316508,
+        "label": "No",
+        "justification": "The text discusses the technical implementation details, architectural choices (Windows Service vs. scalable Azure queue-based solution), and trade-offs (scalability, ease of testing/deployment) for a notification system using various Azure services. While scalability and maintainability are mentioned, the discussion remains purely technical, focusing on performance and architecture rather than the environmental, social, or economic impacts typically associated with software sustainability."
+    },
+    {
+        "id": 363959,
+        "label": "Yes",
+        "justification": "The text discusses the long-term implications of choosing between RDBMS and NoSQL databases, focusing on factors like scalability, flexibility for future queries, maintainability, and operational complexity. These architectural decisions directly impact the software's ability to adapt, perform efficiently, and remain viable over time, which are key aspects of software sustainability (specifically technical and economic sustainability)."
+    },
+    {
+        "id": 394623,
+        "label": "Yes",
+        "justification": "The text discusses designing a software architecture (for NLP model training/serving) with explicit consideration for cost-effectiveness and resource efficiency (comparing high-resource vs. low-resource instances, avoiding over-provisioned systems like SageMaker for low-volume needs). This focus on optimizing resource usage and economic viability aligns with the economic and technical dimensions of software sustainability."
+    },
+    {
+        "id": 365193,
+        "label": "Yes",
+        "justification": "The text discusses application scalability, server farms, load balancing, distributed databases, and cloud hosting (Azure/AWS). These topics are directly related to the resource efficiency (energy, hardware) of software systems, which is a core aspect of software sustainability. Efficient scaling and infrastructure management aim to minimize resource consumption while maintaining performance, contributing to environmental and economic sustainability."
+    },
+    {
+        "id": 420877,
+        "label": "Yes",
+        "justification": "The text discusses the trade-offs between different cloud architectural approaches (AWS Lambda vs. ECS containers) based on workload characteristics (infrequent vs. constant high throughput), maintainability (deployment pipelines, local development), and resource management (database connections, concurrency). Choosing an architecture that aligns well with the workload requirements is crucial for resource efficiency (avoiding over-provisioning or inefficient scaling) and operational efficiency, both of which are key considerations in software sustainability. Optimizing resource usage directly impacts energy consumption, a primary concern for sustainable software."
+    },
+    {
+        "id": 412144,
+        "label": "No",
+        "justification": "The text discusses security concerns, specifically authentication and authorization flows for a web application accessing a remote controller via REST APIs. It focuses on preventing credential interception and designing a secure architecture. This topic relates to software security and architecture, not software sustainability, which deals with environmental, economic, and social impacts of software."
+    },
+    {
+        "id": 336154,
+        "label": "Yes",
+        "justification": "The text discusses the use of Open Source servers (like Tomcat) versus proprietary ones, comparing them based on cost (licensing, PaaS fees), resource consumption ('lightness'), and suitability for different environments (development vs. production, self-hosting vs. cloud/PaaS). These factors, particularly the economic aspects (cost-effectiveness of Open Source and deployment models) and technical aspects (resource efficiency, maintainability implicit in choosing servers/hosting), are relevant to the economic and technical dimensions of software sustainability. While not explicitly mentioning environmental impact, the discussion on resource lightness and cloud vs. self-hosting touches upon factors that influence it."
+    }
+]

@@ -1,0 +1,587 @@
+[
+    {
+        "id": "448250",
+        "labels": "design decision",
+        "justification": "The post centers around evaluating different architectural approaches to handling data operations: contrasting simple CRUD operations with computationally heavy reporting tasks, debating whether to use direct database connections or route through the application's API, and considering the use of cloud services to offload heavy computation. All these points revolve around system design tradeoffs, making 'design decision' the most fitting label."
+    },
+    {
+        "id": "445186",
+        "labels": "cloud services, design decision",
+        "justification": "The task-data focuses on choosing efficient cloud-native methods for handling the backing storage of a database query engine. It weighs trade-offs such as storage costs, query execution, and development effort, and discusses approaches like compressing data and transcoding it to formats such as Apache Parquet. This analysis directly relates to making a design decision that leverages cloud services."
+    },
+    {
+        "id": "444739",
+        "labels": "design decision",
+        "justification": "The post details architectural considerations regarding environment segmentation, such as the differentiation of production and development environments, cost implications, configuration flexibility, and regulatory compliance. These factors are central to making design decisions about how to structure and deploy a system, making 'design decision' the most appropriate label."
+    },
+    {
+        "id": "444704",
+        "labels": "cloud services, design decision",
+        "justification": "The post centers on designing a SaaS system using AWS-managed services such as Route53 and EKS, highlighting challenges like DNS configuration and regional compliance. It compares and evaluates alternative design approaches (e.g., dynamic DNS record updates versus using a global proxy), making it a clear example of a cloud services problem that involves critical architectural design decisions."
+    },
+    {
+        "id": "442126",
+        "labels": "cloud services",
+        "justification": "The Task-Data describes a legacy monolithic LAMP application deployed on a single AWS EC2 instance with issues related to dynamic IP addresses and manual deployments. The focus on AWS cloud infrastructure, handling resource allocation (static IP vs. dynamic IP), and managing integration risks in a cloud environment directly aligns with the 'cloud services' label."
+    },
+    {
+        "id": "441569",
+        "labels": "design decision",
+        "justification": "The post focuses on architectural challenges in designing a chatbot system\u2019s database. The author discusses decisions like choosing AWS DynamoDB, using a single-table design, setting the partition key based on the user_id, and managing conversation context\u2014all of which concern making key design decisions about the system\u2019s underlying architecture. This aligns closely with the 'design decision' label."
+    },
+    {
+        "id": "440067",
+        "labels": "cloud services, design decision",
+        "justification": "The text weighs the trade-offs between implementing custom sharding and replication controls versus using out\u2010of\u2010the\u2010box solutions provided by major cloud providers (e.g., AWS RDS and S3). This discussion aligns with the 'cloud services' label because it emphasizes the benefits of using managed services that ensure high availability and reliable data management. At the same time, it represents a 'design decision' by evaluating different architectural approaches to meet system uptime and reliability requirements."
+    },
+    {
+        "id": "436491",
+        "labels": "design decision",
+        "justification": "The text evaluates the trade-offs between using common services and isolated services by discussing implications on security, maintenance, and upgrade processes. The discussion clearly revolves around making architectural decisions regarding how to structure and deploy services, particularly in cloud or virtual machine environments. This focus on choosing the appropriate service design approach makes 'design decision' the most fitting label."
+    },
+    {
+        "id": "424900",
+        "labels": "design decision",
+        "justification": "The Task-Data outlines an architectural problem where design trade-offs are being evaluated. It describes various considerations such as performance issues with aggregate queries, challenges with real-time updates, potential concurrency problems with indexed views, as well as cost concerns related to cloud expenses. The discussion about whether to use caching with Redis, or indexed views or other approaches, clearly revolves around selecting a suitable design option for the data access layer. This makes it a prime example of a design decision in system architecture."
+    },
+    {
+        "id": "423151",
+        "labels": "design decision, cloud services",
+        "justification": "The text discusses architectural choices and trade-offs about exposing a database and using a web backend. It advises against exposing the database directly and explores alternatives like using cloud-based blob storage (e.g., S3-like storage) to manage large data efficiently. These aspects align with making design decisions about system architecture and integrating cloud services for scalability and performance."
+    },
+    {
+        "id": "420466",
+        "labels": "design decision",
+        "justification": "The Task-Data discusses various architectural approaches and decisions regarding system scalability, failure recovery, and appropriate technology selections (such as Redis, RabbitMQ, Apache Kafka, and different database options) for different use cases. This focus on choosing between alternative designs and avoiding over-engineering makes 'design decision' the most appropriate label from the provided list."
+    },
+    {
+        "id": "418151",
+        "labels": "design decision",
+        "justification": "The post discusses re-architecting a monolithic application into smaller, containerized services while weighing trade-offs such as network latency versus intra-server communication. This evaluation of different architectural approaches and their impact on performance aligns with making a design decision, which is why the 'design decision' label best fits the Task-Data."
+    },
+    {
+        "id": "415998",
+        "labels": "design decision",
+        "justification": "The text discusses a change in software architecture driven by a top-down decision from a Reference Architect, focusing on the debate over using a single technology stack versus maintaining a diverse set of technologies across microservices (referred to as blocks). The arguments provided revolve around cost, quality, code evolution, and business value\u2014all of which are core considerations in architectural design decisions. This aligns with the 'design decision' label, as it centers on the trade-offs and implications of an architectural choice."
+    },
+    {
+        "id": "411767",
+        "labels": "cloud services",
+        "justification": "The Task-Data discusses protecting an app by removing sensitive business logic and database access from its local environment. It recommends moving critical functionality to remote services (web services) where it is hosted in the cloud, thereby mitigating the risk of reverse engineering. This aligns well with the cloud services label, which focuses on the use of remote, on-demand networked resources to handle such tasks."
+    },
+    {
+        "id": "409372",
+        "labels": "cloud services",
+        "justification": "The text discusses topics that are integral to cloud computing, such as the evolution from oversizing virtual machines to using containers, Kubernetes pods, and serverless architectures like AWS Lambda. This discussion directly relates to optimizing cloud services, making 'cloud services' the most appropriate label."
+    },
+    {
+        "id": "406350",
+        "labels": "design decision, cloud services",
+        "justification": "The post discusses the architectural trade-offs inherent in adopting a microservices approach, such as scaling, minimizing blast radius, managing state, and implementing service discovery, API gateways, and centralized configuration. These are key design decisions that directly involve choosing the right cloud services (e.g., Eureka, Kubernetes, App Mesh) to support the architecture, making it a strong match for both 'design decision' and 'cloud services'."
+    },
+    {
+        "id": "405176",
+        "labels": "cloud services",
+        "justification": "The post discusses the challenges of achieving high availability using multiple cloud providers, including the importance of SLAs and the operational challenges associated with maintaining uptime. This clearly aligns with the 'cloud services' label as it revolves around the use, reliability, and cost implications of cloud-based solutions."
+    },
+    {
+        "id": "403459",
+        "labels": "design decision",
+        "justification": "The text is centered around the trade-offs between two approaches (storing blobs in a database versus using an object store) by outlining pros and cons related to security, transactional consistency, and infrastructure usage. This comparative analysis of architectural options clearly falls under the domain of making a design decision."
+    },
+    {
+        "id": 403412,
+        "labels": "design decision",
+        "justification": "The text discusses various architectural choices for securing an application. It deeply explores design trade-offs such as using OAuth2 with JWT tokens versus simple API keys, addresses key aspects like non-repudiation, auditability, control, and enforceability, and even touches on how cloud services (e.g., AWS Cognito and API Gateway) are used to manage these concerns. These discussions about selecting and implementing specific security mechanisms clearly fall under architectural design decisions."
+    },
+    {
+        "id": "403152",
+        "labels": "cloud services",
+        "justification": "The post discusses best practices for using AWS Lambda, which is a serverless computing platform within the cloud services domain. It covers advice on how to initialize SDK clients and manage database connections effectively in a cloud environment, making it directly relevant to cloud services best practices."
+    },
+    {
+        "id": "403071",
+        "labels": "cloud services",
+        "justification": "The Task-Data focuses on fault tolerance, high availability, and scalability, discussing issues like data center outages, multi-region deployments, and microservices. These topics are central to cloud services, where ensuring that applications remain available and resistant to failures is a core challenge. The mention of scaling out and the role of microservices reinforces the connection to cloud computing principles, making 'cloud services' the most appropriate label."
+    },
+    {
+        "id": "402967",
+        "labels": "cloud services",
+        "justification": "The text centers on strategies to scale a system using cloud-based solutions. It references several cloud-related services and techniques such as AWS Auto Scaling, managed MongoDB instances, container orchestration with Kubernetes, and the use of tools like SageMaker. These elements clearly align with the domain of cloud services since the main focus is on leveraging cloud infrastructure for elastic and scalable system deployments."
+    },
+    {
+        "id": "402623",
+        "labels": "cloud services",
+        "justification": "The text discusses performance improvement strategies within a cloud context. It explicitly mentions running systems on the cloud, references cloud-specific services like Azure Event Hubs, and covers topics such as auto scaling and latency in cloud environments. These elements align well with the definition of cloud services."
+    },
+    {
+        "id": "392697",
+        "labels": "design decision, cloud services",
+        "justification": "The post discusses various architectural choices for machine learning pipelines, focusing on design alternatives such as whether to use an intermediary data layer or direct access to production databases, as well as performance trade-offs. It also provides practical advice on renting high-memory machines in the cloud and considerations regarding data ingress/egress with cloud providers. This mix of architectural decision-making and cloud resource utilization makes 'design decision' and 'cloud services' the most fitting labels."
+    },
+    {
+        "id": "391902",
+        "labels": "design decision",
+        "justification": "The post discusses architectural choices for setting up a database in a multi-tenant environment on AWS \u2013 weighing the pros and cons of using a shared table versus separate databases for each business client. This kind of dilemma, involving trade-offs related to security, scalability, and cost, is a typical example of a design decision in system architecture."
+    },
+    {
+        "id": 388892,
+        "labels": "design decision, cloud services",
+        "justification": "The text discusses how to strategically deploy caches and other service components in a microservices architecture, emphasizing that premature optimizations can lead to unnecessary complexity and high cloud costs. It advises sizing solutions based on actual load rather than assumptions, which is a key design decision. Additionally, the text refers to deploying the architecture in the cloud and warns about the financial impact of oversizing, making the 'cloud services' label appropriate as well."
+    },
+    {
+        "id": "386307",
+        "labels": "cloud services",
+        "justification": "The post discusses a serverless architecture using Azure Functions, highlighting benefits such as auto-scaling and reducing operations tasks. These aspects are intrinsic to cloud services, which focus on on-demand, scalable, and easy-to-manage computing resources."
+    },
+    {
+        "id": "385346",
+        "labels": "cloud services",
+        "justification": "The post centers on transitioning from a monolithic architecture to microservices deployment in the cloud. It discusses using AWS components such as RDS, Fargate, and ECS, as well as container orchestration with Docker and docker-compose. These topics directly relate to the management, provisioning, and challenges of utilizing cloud services, making 'cloud services' the most appropriate label."
+    },
+    {
+        "id": "384682",
+        "labels": "cloud services",
+        "justification": "The post discusses designing a system using AWS SQS and Lambda functions to handle a scalable notification service. It is focused on leveraging AWS cloud features (such as FIFO and Standard queues, and serverless architecture) to achieve high throughput and system scalability, which directly aligns with the 'cloud services' label."
+    },
+    {
+        "id": "382785",
+        "labels": "cloud services",
+        "justification": "The post describes an architecture that leverages various AWS cloud services, such as AWS Lambda, API Gateway, and S3. It discusses aspects like auto scaling, multi-region load balancing, cost considerations, and caching, all of which are key topics in cloud services."
+    },
+    {
+        "id": "382607",
+        "labels": "design decision",
+        "justification": "The text centers on architectural choices and trade-offs such as the separation of responsibilities into microservices, the use of cloud blob storage for cost-performance benefits, and the evaluation of alternatives like Redis and ElasticSearch. These discussions directly relate to making design decisions about system architecture, which aligns perfectly with the 'design decision' label."
+    },
+    {
+        "id": "379926",
+        "labels": "design decision",
+        "justification": "The fragment is a detailed discussion of architectural trade-offs in microservices-based systems, specifically exploring the implications of design choices such as isolating databases versus sharing them. The text highlights how different design decisions affect the autonomy of teams, technological flexibility, and system manageability, which aligns well with the concept of design decisions in software architecture."
+    },
+    {
+        "id": "376325",
+        "labels": "cloud services",
+        "justification": "The post is centered around building an application using Amazon\u2019s serverless offerings, such as AWS Lambda, API Gateway, S3, and Serverless Aurora. It discusses challenges specific to deploying a serverless, cloud-based architecture (e.g., dealing with VPCs, event stream design, atomicity issues) which makes 'cloud services' the most fitting label from the list."
+    },
+    {
+        "id": "372833",
+        "labels": "hardware architecture",
+        "justification": "The text analyzes the trade-offs between different types of memory storage (RAM, SSD, hard disks, tapes) in terms of cost and performance, and even draws comparisons between local setups and cloud services. This discussion on the organization and selection of various hardware components aligns closely with the concept of hardware architecture."
+    },
+    {
+        "id": "372002",
+        "labels": "design decision, cloud services",
+        "justification": "The text discusses an approach to restructuring a worker service by moving routing logic directly into the worker and managing multiple threads per user, which is an architectural design decision. It also mentions scaling by spinning up a new worker on a new machine in the cloud, directly referencing cloud services. These elements make the post a good match for both the 'design decision' and 'cloud services' labels."
+    },
+    {
+        "id": "370490",
+        "labels": "design decision",
+        "justification": "The Task-Data focuses on evaluating different architectural setups and making strategic choices for the application's future scalability and performance. It discusses transitioning from an EAV model on MySQL to alternatives such as Play + MongoDB or Play + Postgres with JSON support. These considerations are central to architectural design decisions, where trade-offs between data modeling, reporting requirements, and operational efficiency are evaluated."
+    },
+    {
+        "id": 369596,
+        "labels": "design decision",
+        "justification": "The Task-Data explores the choices regarding whether to use a cloud-based repository (like Docker Hub private) or an on-premise registry for managing Docker images, and discusses the benefits of having pre-built images versus building images on the host. This discussion involves weighing factors such as security, performance, reliability, costs, and network availability\u2014all of which are key considerations in architectural design decisions. Therefore, the content aligns closely with the 'design decision' label."
+    },
+    {
+        "id": "365330",
+        "labels": "design decision",
+        "justification": "The Task-Data focuses on evaluating the trade-offs between using Amazon DynamoDB (a NoSQL key-value/document store) and traditional relational databases, discussing aspects like scalability, consistency, and system requirements. This analysis reflects the kind of architectural design decision that developers must make when selecting appropriate data storage technologies, making 'design decision' the most fitting label."
+    },
+    {
+        "id": "365193",
+        "labels": "cloud services",
+        "justification": "The post focuses on scalability and the distribution of web traffic using multiple servers, load balancers, and microservices, along with a discussion of hosting providers such as Azure and AWS. These topics are central to cloud services, as they involve the provisioning and management of computing resources over a network."
+    },
+    {
+        "id": "363972",
+        "labels": "cloud services",
+        "justification": "The text focuses on scaling web applications by adding more servers and leveraging cloud hosting options, which is a characteristic aspect of cloud services. It discusses issues like load distribution, database consistency in a cloud environment, and the ease of provisioning additional resources\u2014all core ideas in cloud services."
+    },
+    {
+        "id": 363959,
+        "labels": "design decision",
+        "justification": "The text discusses the trade-offs between using a traditional RDBMS and NoSQL solutions, emphasizing considerations like flexibility, performance, and indexing. This analysis of system architectures and database choices clearly falls under the category of design decision, as it outlines the decision-making process for selecting the most appropriate technological solution based on specific requirements."
+    },
+    {
+        "id": "360022",
+        "labels": "cloud services, design decision",
+        "justification": "The text discusses trade-offs between self-hosted and cloud hosting, emphasizing the advantages of using cloud services (e.g., AWS S3 and managed ElasticSearch) to achieve scalability and cost efficiency. It also outlines critical architectural choices\u2014such as selecting between a relational database and a document store\u2014which are classical examples of design decisions. Hence, both the 'cloud services' and 'design decision' labels appropriately apply."
+    },
+    {
+        "id": "356334",
+        "labels": "cloud services",
+        "justification": "The post discusses AWS Lambda, a serverless compute service provided by AWS, addressing issues like container reuse, connection pooling, and resource management. These topics are central to understanding cloud services and their operational characteristics."
+    },
+    {
+        "id": "350817",
+        "labels": "cloud services",
+        "justification": "The post recommends deploying a static site using Azure Storage with an optional CDN, which are cloud services. The text emphasizes benefits such as reliability, low maintenance, performance, low cost, and ease of deployment\u2014all of which align with the characteristics of cloud computing services, making 'cloud services' the most appropriate category."
+    },
+    {
+        "id": "347591",
+        "labels": "design decision",
+        "justification": "The text engages in a detailed discussion of various architectural choices for the database design, such as handling normalization versus performance, selection of keys, views, and the use of mechanisms like row-level security. It critically evaluates trade-offs and potential benefits in both logical and physical design approaches, which is central to making design decisions in software architecture. Although cloud services are mentioned as a potential deployment option, the primary focus is on the design decisions around structuring and securing data."
+    },
+    {
+        "id": "342331",
+        "labels": "cloud services",
+        "justification": "The discussion centers on comparing external cloud tools (e.g., AWS SQS, ECS, Lambda/Azure Functions) with in-house solutions and evaluating the implications of vendor lock-in. This makes it highly relevant to cloud services, where considerations such as cost, scalability, and the trade-offs of being tied to a vendor are key factors."
+    },
+    {
+        "id": "340772",
+        "labels": "design decision, cloud services",
+        "justification": "The Task-Data discusses two key issues. The first part examines how to modify and protect an identifier by adding a checksum, which is an architectural design decision about handling IDs and database keys. The second part critiques AWS pricing and favors moving away from shared cloud environments, directly engaging with cloud services concerns. Together, these topics justify categorizing the post under both 'design decision' and 'cloud services'."
+    },
+    {
+        "id": "340747",
+        "labels": "cloud services",
+        "justification": "The text discusses transitioning a backend API into a cloud app to achieve scalability. This approach involves evaluating which parts of the system benefit most from cloud scalability, which aligns with the concept of cloud services\u2014focusing on on-demand resource provisioning and scalable architecture."
+    },
+    {
+        "id": "338746",
+        "labels": "design decision, cloud services",
+        "justification": "The post provides detailed advice on achieving high availability by weighing various design options\u2014such as strategies for database migrations, load balancing, and stateless architectures\u2014which are core aspects of making architectural design decisions. Moreover, it explicitly discusses the use of cloud services (like AWS and Azure) and contrasts on-prem solutions with cloud-based approaches, making the 'cloud services' label equally relevant."
+    },
+    {
+        "id": "338692",
+        "labels": "design decision",
+        "justification": "The Task-Data discusses a series of architectural strategies and design choices for ensuring high availability of web and application systems. It outlines methods such as offloading state management, using independent load balancers, and planning for rolling upgrades and backward compatibility. These are all considered architectural design decisions aimed at evolving and optimizing system robustness, which makes the 'design decision' label the most appropriate match."
+    },
+    {
+        "id": "336154",
+        "labels": "cloud services",
+        "justification": "The text discusses aspects of deploying application servers in production environments, contrasting the use of open-source servers like Tomcat with enterprise solutions and cloud-based PaaS offerings (such as those from Google and Amazon). It also highlights considerations like licensing, network configuration, security, and maintenance that are central to cloud deployment strategies. This makes 'cloud services' the most appropriate label for the content."
+    },
+    {
+        "id": "334800",
+        "labels": "design decision",
+        "justification": "The post evaluates the current socket-certificate approach for push notifications, highlights its drawbacks (such as certificate management and firewall configuration issues), and advocates switching to an HTTP2-JWT protocol. This recommendation involves choosing a different architecture and communication protocol, which is indicative of a design decision."
+    },
+    {
+        "id": 334294,
+        "labels": "cloud services",
+        "justification": "The post extensively discusses the evolution of database systems in the context of physical storage limitations and the rise of cloud-based solutions. It highlights how cloud offerings such as AWS, Microsoft Azure, and Google Drive influence technology choices and reduce reliance on traditional physical storage, which aligns directly with the cloud services category."
+    },
+    {
+        "id": 333291,
+        "labels": "design decision, cloud services",
+        "justification": "The text deliberates over key architecture choices such as obtaining 150 CPU cores in a cost-effective manner, comparing options like AWS Lambda versus traditional servers. It discusses trade-offs regarding performance, scalability, and resource provisioning, which are core aspects of architectural design decisions, particularly in a cloud services context. This makes both 'design decision' and 'cloud services' highly appropriate labels."
+    },
+    {
+        "id": "333128",
+        "labels": "design decision",
+        "justification": "The text discusses choices related to the structure and organization of JavaScript code. It presents methods such as using dependency management frameworks (e.g., RequireJS) versus employing the module pattern, along with strategies for bundling, caching, and even using CDNs. These topics involve making architectural decisions about how to design and optimize the application, which aligns with the 'design decision' label."
+    },
+    {
+        "id": "331073",
+        "labels": "design decision, cloud services",
+        "justification": "The Task-Data discusses the challenge of consolidating two different systems (one on-site, one cloud-based) into a single web service that can be deployed either locally or in the cloud, which directly involves making architectural design decisions. Additionally, the mention of cloud deployments and the need for a flexible approach highlights the relevance of cloud services in ensuring scalability and robustness, making both labels a good match."
+    },
+    {
+        "id": "324564",
+        "labels": "design decision, cloud services",
+        "justification": "The task-data explains an architectural approach to building a scalable system by decoupling the workload into two services. It outlines specific design choices such as using a cloud-based queue (SQS), leveraging auto-scaling via AWS, and later switching to a Simple Notification Service for broader activity handling. These details highlight key design decisions and the use of cloud services to meet the requirements."
+    },
+    {
+        "id": "315965",
+        "labels": "design decision",
+        "justification": "The post centers on evaluating different approaches for web page rendering\u2014discussing JSP as a templating system versus other alternatives, and weighing the trade-offs between server-side and client-side rendering. This involves architectural considerations like performance, scalability, and load-balancing, especially in the context of a cloud-hosted application (with references to AWS). These factors directly pertain to making design decisions in the system\u2019s architecture."
+    },
+    {
+        "id": "315931",
+        "labels": "design decision",
+        "justification": "The post discusses the challenges of using outdated technologies such as JSP and JSTL and advocates for modern, modular approaches like microservices and client-side frameworks. It reflects on how different technology choices impact maintainability, development speed, and adaptability. These points are central to making architectural design decisions, making 'design decision' the most appropriate label."
+    },
+    {
+        "id": "315927",
+        "labels": "design decision",
+        "justification": "The post discusses different approaches to building the front-end of a large web application, weighing the pros and cons of server-side rendering (using JSP) versus client-side rendering (using modern JS frameworks). It evaluates strategies in terms of performance, maintenance, scalability (especially in a cloud-hosted environment on AWS), and ease-of-development. These considerations align well with making an architectural design decision, where trade-offs must be carefully assessed to select the best overall approach for the application\u2019s development."
+    },
+    {
+        "id": "315163",
+        "labels": "cloud services",
+        "justification": "The Task-Data discusses the use of CDNs to reduce latency, improve availability, and implement a fallback server-side design when CDN health checks fail. This directly relates to how cloud services are leveraged for dynamic resource provisioning and network distribution, making 'cloud services' the most appropriate label."
+    },
+    {
+        "id": "452263",
+        "labels": "design decision, cloud services",
+        "justification": "The Task-Data describes a situation where there are design trade-offs involved in managing scheduled tasks in a cloud-based, distributed web application (using NestJS on Azure Appservices/AWS ECS). The discussion clearly involves weighing different architectural design approaches (e.g., using AWS Lambda or Azure Functions versus a redis-based solution with @nestjs/bull) to handle cron jobs efficiently across multiple instances. This makes the content relevant to the 'design decision' category. Additionally, the context of deploying on cloud platforms and leveraging cloud-native services firmly ties it to the 'cloud services' label."
+    },
+    {
+        "id": "450653",
+        "labels": "cloud services",
+        "justification": "The post discusses the use of cloud hosting for data storage, outlining its benefits for small businesses in terms of reduced staff requirements, as well as its drawbacks, especially when more complex technical integrations or bespoke reporting arise. This directly relates to cloud services, which involve offloading infrastructure management to a provider."
+    },
+    {
+        "id": "447666",
+        "labels": "design decision",
+        "justification": "The text recommends a specific architectural approach\u2014setting up a two-hop architecture\u2014to enhance security, scalability, and flexibility. It discusses the separation of components (e.g., keeping the machine learning API behind a cloud function), implementing additional security measures, and mitigating provider lock-in. These considerations are central to making an informed design decision in the system's architecture."
+    },
+    {
+        "id": "440285",
+        "labels": "cloud services",
+        "justification": "The text is a discussion about AWS Lambdas and serverless applications, specifically addressing cost models and the practical complexities of moving application code to lambdas. This aligns with the 'cloud services' category, which includes topics related to provisioning and billing models of cloud computing resources."
+    },
+    {
+        "id": "439256",
+        "labels": "design decision",
+        "justification": "The post discusses evaluating a change in architecture from a monolith to a cloud native, microservices approach. This involves weighing the pros and cons of an architectural style in the context of complex, interdependent business processes and events. As such, it is primarily about making a design decision regarding the system\u2019s architecture."
+    },
+    {
+        "id": "439240",
+        "labels": "cloud services",
+        "justification": "The text explicitly discusses how data is handled in RAM on cloud servers, focusing on security measures such as encryption while referencing cloud providers (GCP and AWS). This discussion on protecting data, the trust in cloud services, and initiatives like confidential computing clearly relates to the cloud services domain."
+    },
+    {
+        "id": "436432",
+        "labels": "cloud services",
+        "justification": "The text focuses on considerations for logging in environments with ephemeral instances, microservices, and containerized deployments (such as in Kubernetes clusters), which are hallmarks of cloud deployments. These aspects are central to cloud services where scalability, on-demand resource access, and centralized management are key concerns."
+    },
+    {
+        "id": "433568",
+        "labels": "design decision, cloud services",
+        "justification": "The post presents several architectural trade-offs and advice on how to manage data export/import between systems\u2014issues like locking, merging, and maintaining data integrity. It discusses the potential benefits of using a cloud database as a more cost-effective and less maintenance-intensive solution compared to building a custom system. This clearly reflects a design decision concerning system architecture, while the reference to a cloud database brings in considerations related to cloud services."
+    },
+    {
+        "id": "433023",
+        "labels": "cloud services",
+        "justification": "The Task-Data discusses the challenges of maintaining dev/prod parity in systems that use complex, cloud-based microservice architectures. It specifically mentions the use of local clusters (minikube), the need to simulate production environments, and issues with automating deployment updates\u2014a discussion that directly relates to the management and provisioning of cloud services."
+    },
+    {
+        "id": "433012",
+        "labels": "design decision",
+        "justification": "The post discusses the architectural choices involved in splitting microservices by defining boundaries, minimizing inter-service dependencies, and selecting communication patterns. These considerations are central to making design decisions in a software system's architecture, making 'design decision' the most appropriate label."
+    },
+    {
+        "id": "432796",
+        "labels": "cloud services",
+        "justification": "The post discusses the use of Azure blob storage and SAS token generation to persist and secure user media, which directly relates to cloud computing practices. The focus on storing, managing, and securing data in the cloud makes 'cloud services' the most appropriate label for this Task-Data."
+    },
+    {
+        "id": "432288",
+        "labels": "design decision, cloud services",
+        "justification": "The Task-Data describes an architectural challenge in an event-driven asynchronous system running on AWS using a managed RabbitMQ service. The discussion about the enforced execution time limit (30 minutes) and the need for an alternative pattern to handle long-running jobs focuses on a design decision issue. Additionally, the problem context explicitly involves AWS cloud services, which is why the 'cloud services' label is also applicable."
+    },
+    {
+        "id": "431205",
+        "labels": "cloud services",
+        "justification": "The post centers on optimizing data serving by leveraging Azure Blob Storage over database storage. It discusses aspects such as using a cloud service to handle binary data efficiently, avoiding unnecessary data duplication, and ensuring scalability and performance \u2013 all of which fall squarely within the realm of cloud services."
+    },
+    {
+        "id": "426618",
+        "labels": "design decision",
+        "justification": "The post discusses two distinct architectural solutions for data transfer between a partner and a client, comparing the trade-offs (such as asynchronous versus synchronous processing) and evaluating pros and cons. This focus on choosing between architectural options to meet system requirements places the task squarely in the 'design decision' category."
+    },
+    {
+        "id": "425900",
+        "labels": "cloud services",
+        "justification": "The text discusses the merits and scenarios for using cloud-based approaches, such as handling data volumes too large for a single computer and leveraging massive parallelization with cloud technologies. It directly contrasts local solutions with cloud services, which makes 'cloud services' the most appropriate label."
+    },
+    {
+        "id": "425746",
+        "labels": "cloud services",
+        "justification": "The Task-Data outlines a system where an application is transformed from a console app to a continuously running service that dynamically scales using cloud provider APIs and message queues. This design leverages on-demand provisioning and the orchestration of distributed worker instances, all of which are core aspects of cloud services."
+    },
+    {
+        "id": "422736",
+        "labels": "cloud services, design decision",
+        "justification": "The post discusses architectural choices in a cloud environment by comparing a serverless approach using Lambda and API Gateway with a traditional EC2-based setup. It highlights the trade-offs and benefits associated with each method, which is a classic design decision in cloud service architectures."
+    },
+    {
+        "id": "422123",
+        "labels": "cloud services",
+        "justification": "The post focuses on selecting the appropriate AWS tools and services (such as Lambda, DynamoDB, and ElasticSearch) for building a scalable application. This clearly falls within the domain of cloud services, as it is about leveraging and comparing different cloud-based tools to achieve a specific functionality."
+    },
+    {
+        "id": "421082",
+        "labels": "embedded systems, design decision",
+        "justification": "The post describes a scenario involving embedded products running Zephyr RTOS with sensors and actuators, clearly situating the discussion within the domain of embedded systems. Additionally, the text outlines challenges and choices in module interface design\u2014such as decoupling the LwM2M engine from the application logic using patterns like Mediator/Facade\u2014which aligns with architectural design decisions. Hence, both 'embedded systems' and 'design decision' are appropriate labels."
+    },
+    {
+        "id": "420877",
+        "labels": "cloud services, design decision",
+        "justification": "The post focuses on evaluating AWS Lambda\u2014a core component of cloud services\u2014as an alternative to containerized deployments on ECS. It discusses various trade-offs such as connection persistence, deployment overhead, and runtime isolation, all of which are key considerations when making architectural decisions. Therefore, the text clearly relates to both cloud services and the design decision process in selecting the most suitable architectural approach."
+    },
+    {
+        "id": "420772",
+        "labels": "cloud services",
+        "justification": "The task-data focuses on cloud/lambda functions and microservices, highlighting key aspects such as independently deployable services on elastic, cloud-based infrastructure (e.g., AWS Lambda, GCP Cloud Functions). These topics align closely with the definition of cloud services, which emphasizes on-demand, scalable, and managed computing resources."
+    },
+    {
+        "id": 420711,
+        "labels": "design decision",
+        "justification": "The text focuses on system design choices related to handling transactions in an idempotent manner. It discusses strategies for managing state transitions, error handling, and the reusability of identifiers, as well as the potential need to rethink the design if unwinding transactions is too challenging. These are key aspects of making architectural design decisions in software systems."
+    },
+    {
+        "id": "418620",
+        "labels": "design decision",
+        "justification": "The fragment evaluates the design limitations of Git when handling large repositories and discusses the architectural strategies, like using Git LFS and Microsoft's Git VFS, to overcome these limitations. This discussion on choosing specific solutions to handle binary assets and scale projects reflects a focus on design decisions in software system architecture."
+    },
+    {
+        "id": 418163,
+        "labels": "cloud services, design decision",
+        "justification": "The post discusses decomposing a monolithic application into a pipeline of microservices with the goal of scaling each logical component independently, which is a key architectural design decision. It also explicitly mentions cloud environments (Google Cloud and AWS) and their auto-scaling capabilities, making 'cloud services' a highly relevant label. Thus, both 'design decision' and 'cloud services' capture the essence of the discussion."
+    },
+    {
+        "id": "414686",
+        "labels": "design decision",
+        "justification": "The post evaluates different approaches for managing and deploying software on IoT edge devices\u2014discussing the trade-offs between using existing cloud-based management tools (like Azure IoT Edge), configuration management tools (like Saltstack, Ansible, etc.), and developing a custom solution. This analysis of alternatives and the discussion of associated pros and cons clearly reflects the process of making an architectural design decision."
+    },
+    {
+        "id": "412144",
+        "labels": "design decision, cloud services",
+        "justification": "The Task-Data discusses a web-based front end app that will be published as a cloud service, and it raises questions about the proper design of an authentication flow to ensure secure communication with remote controllers via REST APIs. The request for diagram edits and suggestions highlights that the issue involves making architectural design decisions, while the context of publishing the app in the cloud ties it to cloud services."
+    },
+    {
+        "id": "411788",
+        "labels": "design decision",
+        "justification": "The discussion revolves around key architectural choices such as whether to handle authentication and sensitive operations on the server side versus the client side, including the use of Firebase Cloud Functions and proper backend structuring. This focus on determining the optimal system architecture to address security concerns makes it a clear match for the 'design decision' label."
+    },
+    {
+        "id": "411735",
+        "labels": "design decision",
+        "justification": "The text discusses trade-offs regarding how to store JSON documents: whether to pull out data into a relational model for ad-hoc reporting or to use NoSQL for scalability, speed, and cost reasons. It deliberates on choosing between different database systems based on system needs, which is a clear example of an architectural design decision."
+    },
+    {
+        "id": "404970",
+        "labels": "design decision",
+        "justification": "The Task-Data details a strategy for modernizing a legacy computational system. It involves decisions on architectural changes such as modularizing the code, updating the development process, replacing home-grown components with open source solutions, and leveraging modern tools like Docker to enable cloud computing. These aspects are core to making informed design decisions about the system\u2019s evolution."
+    },
+    {
+        "id": "401720",
+        "labels": "cloud services",
+        "justification": "This post focuses on AWS-specific tools and practices, such as Lambda functions, Secrets Manager, Parameter Store, and SAM templates within CodePipeline/CodeStar. It discusses managing environment configuration in a cloud context, which directly involves cloud services and their performance characteristics. Therefore, the cloud services label is the best match."
+    },
+    {
+        "id": "399960",
+        "labels": "cloud services",
+        "justification": "The post discusses the portability of applications between different cloud providers and mentions frameworks like Knative and Serverless, which are directly related to cloud computing services and their management. This aligns well with the label 'cloud services' because it involves enabling the migration and use of cloud platforms without the complexity of managing underlying infrastructure."
+    },
+    {
+        "id": "394623",
+        "labels": "cloud services",
+        "justification": "The Task-Data outlines an architecture that heavily relies on cloud-based components such as EC2 instances for training, S3 buckets for model storage, and API services for model serving. It addresses cost-effectiveness and scalability issues which are central to cloud services, making this label the best match."
+    },
+    {
+        "id": 391040,
+        "labels": "design decision",
+        "justification": "The text analyzes the evolution and trade-offs of adopting a microservices architecture, emphasizing decisions related to independent development, deployment, and scaling of services. It discusses how these design choices enable distributed systems and improve system availability, all of which are central to architectural design decisions."
+    },
+    {
+        "id": 390552,
+        "labels": "design decision",
+        "justification": "The post is focused on high-level architectural choices for building an email server that avoids blacklisting and ensures longevity. It discusses best practices such as using dedicated IP addresses and leveraging services like AWS SES, which directly relates to design decisions made during system architecture. Hence, 'design decision' is the most fitting label."
+    },
+    {
+        "id": 384565,
+        "labels": "cloud services",
+        "justification": "While the text touches on agile practices and team dynamics, it specifically discusses the impact of trends such as automated testing, DevOps practices, and notably mentions cloud hosting and software\u2010defined infrastructure. These topics are core aspects of cloud services, making it the most appropriate label from the provided list."
+    },
+    {
+        "id": "378569",
+        "labels": "design decision",
+        "justification": "The Task-Data outlines a challenge where the system's security architecture must decide on how to prevent unauthorized clone apps from accessing a REST API in an on-premise environment\u2014one where the vendor does not own or manage the servers. This involves considering methods such as app signing, white-listing, and client attestation, all of which are architectural design choices. Therefore, the scenario is best categorized as a 'design decision' since it involves choosing secure architectural strategies over the typical cloud-based solutions."
+    },
+    {
+        "id": "378239",
+        "labels": "design decision",
+        "justification": "The text evaluates whether to include an intermediary service for accessing Amazon S3, weighing the benefits against the added development, maintenance, and debugging costs. This analysis of trade-offs and best practices in service-oriented architecture aligns with the concept of making architectural design decisions."
+    },
+    {
+        "id": "376805",
+        "labels": "design decision",
+        "justification": "The post advises specific best practices around handling secrets\u2014including not committing secrets to source control and not embedding them in container images, but instead providing them during deployment. This choice reflects an architectural design decision regarding configuration management and security. The reference to the twelve-factor app further emphasizes that this is about making careful design choices to separate configuration from code, which aligns with the 'design decision' label."
+    },
+    {
+        "id": "373055",
+        "labels": "design decision, cloud services",
+        "justification": "The post provides architectural recommendations for a logging and analytics system, involving choices between in-house solutions (like managing a Kafka cluster) and cloud-based alternatives (such as AWS\u2019s SQS). These choices are central to making design decisions regarding system architecture, while the mention of AWS\u2019s SQS specifically relates to leveraging cloud services. Hence, the post strongly aligns with both the 'design decision' and 'cloud services' labels."
+    },
+    {
+        "id": 363962,
+        "labels": "cloud services",
+        "justification": "The post discusses serverless architecture and AWS Lambda, which are core components of cloud computing. It explores how to interact with databases in a cloud-based, serverless environment, making 'cloud services' the most appropriate category as defined in the provided label definitions."
+    },
+    {
+        "id": "357689",
+        "labels": "design decision",
+        "justification": "The post details challenges with system architecture and the integration of vector tile generation and serving in a web application. It discusses alternative methods for generating and delivering map data, weighs different libraries (like geojson-vt and Tilelive.js), and explicitly seeks advice on making architectural choices. This focus on choosing among different technical approaches to achieve performance and functionality improvements places the discussion squarely within design decision."
+    },
+    {
+        "id": "351970",
+        "labels": "design decision",
+        "justification": "The Task-Data discusses several security concerns regarding the design and implementation of an API, such as secure transmission of credentials over HTTPS, approaches for limiting unauthorized access, token management, and rate limiting. These considerations are integral to making architectural design decisions that shape the security posture of the system, making 'design decision' the most appropriate label."
+    },
+    {
+        "id": "351507",
+        "labels": "cloud services",
+        "justification": "The text focuses on spinning up and tearing down production-like environments using services such as AWS, Azure, or Google Cloud. It details how cloud capabilities enable rapid provisioning of clusters and large-scale testing, which aligns directly with the concept of cloud services."
+    },
+    {
+        "id": "349301",
+        "labels": "cloud services",
+        "justification": "The post discusses the use of Firebase, a platform that provides various cloud-based services such as hosting, cloud functions, and database management. It evaluates how to handle business logic and backend deployment options when using cloud offerings, which directly ties into the domain of cloud services."
+    },
+    {
+        "id": "341113",
+        "labels": "cloud services",
+        "justification": "The Task-Data provides a detailed explanation of cloud development with a focus on AWS, highlighting key cloud service models such as IaaS, PaaS, and SaaS. This explanation clearly aligns with the 'cloud services' label which covers the provision and usage of cloud resources and architectures."
+    },
+    {
+        "id": 338755,
+        "labels": "design decision",
+        "justification": "The post is focused on how to build a highly available system by discussing architectural strategies like redundancy, modularity, and resiliency. It emphasizes that even when using cloud systems, significant design decisions must be made to ensure availability. These considerations directly relate to making key design choices during system development, which aligns with the 'design decision' label."
+    },
+    {
+        "id": "334664",
+        "labels": "cloud services",
+        "justification": "The post clearly centers on cloud-based enterprise systems, discussing how organizations can lease these systems and benefit from rapid implementation through configuration and customization. This focus on leveraging cloud service delivery models, with incremental releases and an emphasis on quick value realization, aligns it directly with the 'cloud services' label."
+    },
+    {
+        "id": 334663,
+        "labels": "cloud services",
+        "justification": "The post discusses best practices for microservices deployment, emphasizing the need to operate services independently and suggesting strategies like using a dedicated cluster (e.g., with OpenStack) for integration testing. It also references using cloud providers, Kubernetes for orchestration, and Prometheus for monitoring, which are all key aspects of cloud services. This aligns closely with the definition of cloud services that involves rapid provisioning, resource pooling, and scaling via cloud infrastructure."
+    },
+    {
+        "id": "332982",
+        "labels": "cloud services",
+        "justification": "The post discusses organizing a development process using an API gateway, specifically mentioning services like Amazon API Gateway and related cloud-based infrastructure (e.g., VPC, VPN). This focus on leveraging cloud tools to abstract API concerns and facilitate integration testing makes 'cloud services' the most fitting label."
+    },
+    {
+        "id": "330808",
+        "labels": "cloud services",
+        "justification": "The text advises on setting up and using remote servers, version control, and deployment strategies that rely on cloud-hosted services. It specifically discusses using VPS providers (like DigitalOcean, Linode, and AWS EC2) and remote repository hosting to streamline development and deployment processes, which are key aspects of cloud services."
+    },
+    {
+        "id": "325112",
+        "labels": "design decision",
+        "justification": "The post evaluates different database options (PostgreSQL vs. MySQL) based on workload characteristics and discusses strategies like caching and performance benchmarking. It also touches on architectural aspects by noting that using a cloud platform like Heroku alone does not guarantee scalability. These considerations directly align with making key design decisions in system architecture."
+    },
+    {
+        "id": "322899",
+        "labels": "cloud services",
+        "justification": "The content focuses on securing access to data in DynamoDB, a cloud-based database service provided by AWS. It discusses AWS's native security models, such as authentication via IAM roles and the use of services like API Gateway, Lambda, and EC2, all of which are core elements of cloud services. Therefore, labeling it under 'cloud services' is most appropriate."
+    },
+    {
+        "id": "322658",
+        "labels": "design decision",
+        "justification": "The post focuses on the challenges and strategies involved in transitioning from a monolithic to a microservices architecture. It raises questions about organizing codebases, planning development across teams, handling load balancing, deployment strategies, and monitoring \u2013 all aspects that require architectural decisions. These concerns clearly align with the 'design decision' label, as they reflect key architectural design choices that must be made during the evolution of the system."
+    },
+    {
+        "id": "322153",
+        "labels": "design decision",
+        "justification": "The post explores various architectural options for achieving high availability and fault tolerance, comparing Windows Failover Clustering, Network Load Balancing, DNS Round Robin, and even cloud-based redundancy. It discusses trade-offs in cost, complexity, and potential failure points, which aligns with making architectural design decisions regarding system infrastructure."
+    },
+    {
+        "id": "322077",
+        "labels": "cloud services",
+        "justification": "The post discusses AWS Lambda function architecture, including built-in logging services, the use of cloud storage, and resource allocation\u2014all characteristics of a cloud computing model. These details align well with the 'cloud services' category, which focuses on on-demand resource provisioning and the scalable nature of cloud computing environments."
+    },
+    {
+        "id": "316508",
+        "labels": "design decision, cloud services",
+        "justification": "This post describes a series of architectural choices made for a notification system. The team explains why they initially implemented a Windows Service approach for ease of testing and deployment, then discusses rejecting Stream Analytics due to its inflexibility, and finally considers a scalable solution using cloud-based components such as Azure Queues, DocumentDB, and Azure Functions. These discussions clearly reflect key design decisions in the system's evolution as well as the use of cloud services to achieve scalability."
+    }
+]
